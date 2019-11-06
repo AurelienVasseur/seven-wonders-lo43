@@ -1,0 +1,185 @@
+@startuml
+set namespaceSeparator ::
+
+class GameManager {
+# listPlayers : ArrayList<Player>
+--
+}
+
+class Player {
+# gameBoard : Wonder
+# score : Score
+# victoryPoints : Point
+--
+}
+
+class Card {
+# name : String
+# type : CardType
+# cost : Cost
+# age : Age
+# coinEarned : Point
+# production : ArrayList<ProductedRessource>
+# minimumPlayerRequiredToBePlayed : PlayersAmount
+# cardsBecomingFreeAfterPlayingThisCard : ArrayList<Card>
+# cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree : Card
+--
+}
+
+class Cost {
+# type : Ressource
+# value : int
+}
+
+enum Ressource {
++ Clay_RawMaterial
++ Ore_RawMaterial
++ Stone_RawMaterial
++ Wood_RawMaterial
++ Glass_ManufacturedProduct
++ Tissue_ManufacturedProduct
++ Papyrus_ManufacturedProduct
++ Coin
+}
+
+class Deck {
+# listCards : ArrayList<Card>
+--
+}
+
+enum Age {
++ First
++ Second
++ Third
+}
+
+enum PlayersAmount {
++ Two
++ Three
++ Four
++ Five
++ Six
++ Seven
++ MINIMUM
++ MAXIMUM
+}
+
+class Wonder {
+# deck : Deck
+# playedCards : Deck
+--
+}
+
+enum Action {
++ Build
++ Buy
++ Evolve
++ Discard
+}
+
+enum CardType {
++ RawMaterial
++ ManufacturedProduct
++ CivilianBuilding
++ ScientificBuilding
++ CommercialBuilding
++ MilitaryBuilding
++ Guild
+}
+
+class ProductedRessource {
+# ressource : Ressource
+# quantity : int
+}
+
+class RessourceCard {
+--
+}
+class RawMaterialCard{
+--
+}
+class ManufacturedProductCard{
+--
+}
+class BuildingCard {
+--
+}
+class ScientificCard {
+--
+}
+class CivilianCard {
+--
+}
+class CommercialCard {
+# listProductedRessources : ArrayList<ProductedRessource>
+--
+}
+class MilitaryCard {
+--
+}
+class GuildCard {
+--
+}
+
+class Point {
+# type : PointType
+# value : int
+--
+}
+
+class ActionHistory {
+# listActions : ArrayList<Action>
+}
+
+class Score {
+# military : Point
+# coin : Point
+# wonder : Point
+# civilian : Point
+# scientific : Point
+# commercial : Point
+# guild : Point
+--
+}
+
+enum PointType {
++ Victory
++ MilitaryPower
++ Guild
+}
+
+
+
+GameManager *-- Player
+Player *-- Wonder
+Wonder *-- Deck
+Deck *-- Card
+
+Card <|-- RessourceCard
+Card <|-- BuildingCard
+RessourceCard <|-- RawMaterialCard
+RessourceCard <|-- ManufacturedProductCard
+BuildingCard <|-- CivilianCard
+BuildingCard <|-- ScientificCard
+BuildingCard <|-- CommercialCard
+BuildingCard <|-- GuildCard
+BuildingCard <|-- MilitaryCard
+
+Point *-- PointType
+
+Player *-- Score
+Player *-- Point
+
+Score *-- Point
+
+Card *-- CardType
+Card *-- Cost
+Card *-- Age
+Card *-- Point
+Card *-- ProductedRessource
+
+
+Cost *-- Ressource
+
+ProductedRessource *-- Ressource
+@enduml
