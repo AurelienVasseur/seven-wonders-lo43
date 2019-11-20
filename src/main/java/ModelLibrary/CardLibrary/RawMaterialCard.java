@@ -9,6 +9,6 @@ package ModelLibrary.CardLibrary;
  *
  * @author Hicham
  */
-public class RawMaterialCard {
+public class RawMaterialCard extends ResourceCard {
     
 }

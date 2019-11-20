@@ -5,10 +5,13 @@
  */
 package ModelLibrary.CardLibrary;
 
+import java.util.List;
+import ModelLibrary.ScoreLibrary.ProductedResource;
+
 /**
  *
  * @author Hicham
  */
-public class CommercialCard {
-    
+public class CommercialCard extends BuildingCard {
+    private List<ProductedResource> listProductedResources;
 }

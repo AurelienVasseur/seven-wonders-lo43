@@ -5,10 +5,13 @@
  */
 package ModelLibrary.ScoreLibrary;
 
+import EnumLibrary.Resource;
+
 /**
  *
  * @author Hicham
  */
 public class ProductedResource {
-    
+    private Resource resource;
+    private int quantity;
 }

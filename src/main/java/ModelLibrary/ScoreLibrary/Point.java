@@ -5,10 +5,13 @@
  */
 package ModelLibrary.ScoreLibrary;
 
+import EnumLibrary.PointType;
+
 /**
  *
  * @author Hicham
  */
 public class Point {
-    
+    private PointType type;
+    private int value;
 }

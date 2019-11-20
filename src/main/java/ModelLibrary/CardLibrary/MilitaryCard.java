@@ -9,6 +9,6 @@ package ModelLibrary.CardLibrary;
  *
  * @author Hicham
  */
-public class MilitaryCard {
+public class MilitaryCard extends BuildingCard {
     
 }

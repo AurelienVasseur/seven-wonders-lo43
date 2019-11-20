@@ -10,5 +10,6 @@ package ModelLibrary.PlayerLibrary;
  * @author Hicham
  */
 public class Wonder {
-    
+    private Deck deck;
+    private Deck playedCards;
 }

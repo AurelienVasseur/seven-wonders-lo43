@@ -5,10 +5,13 @@
  */
 package ModelLibrary.ScoreLibrary;
 
+import EnumLibrary.Resource;
+
 /**
  *
  * @author Hicham
  */
 public class Cost {
-    
+    private Resource type;
+    private int value;
 }

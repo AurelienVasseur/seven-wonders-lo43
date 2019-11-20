@@ -5,10 +5,13 @@
  */
 package ModelLibrary.PlayerLibrary;
 
+import java.util.List;
+import ModelLibrary.CardLibrary.Card;
+
 /**
  *
  * @author Hicham
  */
 public class Deck {
-    
+    private List<Card> listCards;
 }

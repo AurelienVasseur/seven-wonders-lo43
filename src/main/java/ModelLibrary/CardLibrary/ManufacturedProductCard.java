@@ -9,6 +9,6 @@ package ModelLibrary.CardLibrary;
  *
  * @author Hicham
  */
-public class ManufacturedProductCard {
+public class ManufacturedProductCard extends ResourceCard {
     
 }

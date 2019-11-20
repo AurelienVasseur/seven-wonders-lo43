@@ -5,10 +5,13 @@
  */
 package ControllerLibrary;
 
+import ModelLibrary.PlayerLibrary.Player;
+import java.util.List;
+
 /**
  *
  * @author Hicham
  */
 public class GameManager {
-    
+    private List<Player> listPlayers;
 }
