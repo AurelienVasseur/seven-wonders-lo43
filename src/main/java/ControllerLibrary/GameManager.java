@@ -6,12 +6,34 @@
 package ControllerLibrary;
 
 import ModelLibrary.PlayerLibrary.Player;
-import java.util.List;
+import java.util.ArrayList;
 
 /**
  *
  * @author Hicham
  */
 public class GameManager {
-    private List<Player> listPlayers;
+    private ArrayList<Player> listPlayers;
+
+    public GameManager() {
+    }
+
+    public GameManager(ArrayList<Player> listPlayers) {
+        this.listPlayers = listPlayers;
+    }
+
+    public ArrayList<Player> getListPlayers() {
+        return listPlayers;
+    }
+
+    public void setListPlayers(ArrayList<Player> listPlayers) {
+        this.listPlayers = listPlayers;
+    }
+
+    @Override
+    public String toString() {
+        return "GameManager{" + "listPlayers=" + listPlayers + '}';
+    }
+    
+    
 }
