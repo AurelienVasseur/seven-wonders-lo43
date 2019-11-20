@@ -1,0 +1,18 @@
+[
+    {
+        "id": 0,
+        "name": "build"
+    },
+    {
+        "id": 1,
+        "name": "buy"
+    },
+    {
+        "id": 2,
+        "name": "evolve"
+    },
+    {
+        "id": 3,
+        "name": "discard"
+    }
+]

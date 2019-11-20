@@ -1,0 +1,34 @@
+[
+    {
+        "id": 0,
+        "name": "CS_credit"
+    },
+    {
+        "id": 1,
+        "name": "TM_credit"
+    },
+    {
+        "id": 2,
+        "name": "OM_credit"
+    },
+    {
+        "id": 3,
+        "name": "QC_credit"
+    },
+    {
+        "id": 4,
+        "name": "comprehension_skill"
+    },
+    {
+        "id": 5,
+        "name": "logic_skill"
+    },
+    {
+        "id": 6,
+        "name": "operation_skill"
+    },
+    {
+        "id": 7,
+        "name": "mark"
+    }
+]

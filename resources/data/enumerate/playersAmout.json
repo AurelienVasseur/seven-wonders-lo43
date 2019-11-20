@@ -1,0 +1,34 @@
+[
+    {
+        "id": 0,
+        "name": "two"
+    },
+    {
+        "id": 1,
+        "name": "three"
+    },
+    {
+        "id": 2,
+        "name": "four"
+    },
+    {
+        "id": 3,
+        "name": "five"
+    },
+    {
+        "id": 4,
+        "name": "six"
+    },
+    {
+        "id": 5,
+        "name": "seven"
+    },
+    {
+        "id": 6,
+        "name": "MINIMUM"
+    },
+    {
+        "id": 7,
+        "name": "MAXIMUM"
+    }
+]
