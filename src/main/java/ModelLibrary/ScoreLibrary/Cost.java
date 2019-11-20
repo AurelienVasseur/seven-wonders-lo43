@@ -14,4 +14,38 @@ import EnumLibrary.Resource;
 public class Cost {
     private Resource type;
     private int value;
+
+    public Cost() {
+        
+    }
+    
+    public Cost(Resource type, int value) {
+        this.type = type;
+        this.value = value;
+    }
+
+    public Resource getType() {
+        return type;
+    }
+
+    public void setType(Resource type) {
+        this.type = type;
+    }
+
+    public int getValue() {
+        return value;
+    }
+
+    public void setValue(int value) {
+        this.value = value;
+    }
+
+    @Override
+    public String toString() {
+        return "Cost{" + "type=" + type + ", value=" + value + '}';
+    }
+    
+    
+    
+    
 }

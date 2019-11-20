@@ -1,0 +1,14 @@
+[
+    {
+        "id": 1,
+        "name": "Le Nom de Ma Super Carte",
+        "type": 0,
+        "cost": { "type": 0, "value": 2 },
+        "age": 0,
+        "coinsEarned": { "type": 0, "value": 1 },
+        "production": [ {} ],
+        "minimumPlayersRequiredToBePlayed": 5,
+        "cardsBecomingFreeAfterPlayingThisCard": [ {} ],
+        "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": {}
+    }
+]

@@ -10,5 +10,11 @@ package EnumLibrary;
  * @author Hicham
  */
 public enum CardType {
-    
+    RAWMATERIAL,
+    MANUFACTUREDPRODUCT,
+    CIVILIANBUILDING,
+    SCIENTIFICBUILDING,
+    COMMERCIALBUILDING,
+    MILITARYBUILDING,
+    GUILD
 }

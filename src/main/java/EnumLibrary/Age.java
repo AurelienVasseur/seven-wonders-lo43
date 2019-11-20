@@ -10,5 +10,7 @@ package EnumLibrary;
  * @author Hicham
  */
 public enum Age {
-    
+    FIRST,
+    SECOND,
+    THIRD
 }

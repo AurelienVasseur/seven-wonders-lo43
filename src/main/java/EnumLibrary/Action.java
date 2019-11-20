@@ -10,5 +10,8 @@ package EnumLibrary;
  * @author Hicham
  */
 public enum Action {
-    
+    BUILD,
+    BUY,
+    EVOLVE,
+    DISCARD
 }

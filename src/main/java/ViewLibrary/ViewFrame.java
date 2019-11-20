@@ -5,6 +5,8 @@
  */
 package ViewLibrary;
 
+import UtilsLibrary.JSON;
+
 /**
  *
  * @author Hicham
@@ -74,6 +76,8 @@ public class ViewFrame extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new ViewFrame().setVisible(true);
+                // Testing JSON Reading and conversion to custom classes
+                System.out.println(JSON.readCards("rawMaterialCards.json"));
             }
         });
     }

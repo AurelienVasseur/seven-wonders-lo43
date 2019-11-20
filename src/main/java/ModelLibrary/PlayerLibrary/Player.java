@@ -13,6 +13,7 @@ import ModelLibrary.ScoreLibrary.Point;
  * @author Hicham
  */
 public class Player {
+    private int id;
     private Wonder gameBoard;
     private Score score;
     private Point victoryPoints;

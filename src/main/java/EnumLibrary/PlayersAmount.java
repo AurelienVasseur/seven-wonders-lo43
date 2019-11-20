@@ -10,5 +10,10 @@ package EnumLibrary;
  * @author Hicham
  */
 public enum PlayersAmount {
-    
+    TWO,
+    THREE,
+    FOUR,
+    FIVE,
+    SIX,
+    SEVEN
 }

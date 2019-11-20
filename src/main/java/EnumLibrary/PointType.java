@@ -10,5 +10,7 @@ package EnumLibrary;
  * @author Hicham
  */
 public enum PointType {
-    
+    VICTORY,
+    MILITARYPOWER,
+    GUILD
 }
