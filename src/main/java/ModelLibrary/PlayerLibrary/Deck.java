@@ -5,13 +5,35 @@
  */
 package ModelLibrary.PlayerLibrary;
 
-import java.util.List;
 import ModelLibrary.CardLibrary.Card;
+import java.util.ArrayList;
 
 /**
  *
  * @author Hicham
  */
 public class Deck {
-    private List<Card> listCards;
+    private ArrayList<Card> listCards;
+
+    public Deck() {
+    }
+
+    public Deck(ArrayList<Card> listCards) {
+        this.listCards = listCards;
+    }
+
+    public ArrayList<Card> getListCards() {
+        return listCards;
+    }
+
+    public void setListCards(ArrayList<Card> listCards) {
+        this.listCards = listCards;
+    }
+
+    @Override
+    public String toString() {
+        return "Deck{" + "listCards=" + listCards + '}';
+    }
+    
+    
 }

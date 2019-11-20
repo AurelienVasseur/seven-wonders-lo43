@@ -12,4 +12,36 @@ package ModelLibrary.PlayerLibrary;
 public class Wonder {
     private Deck deck;
     private Deck playedCards;
+
+    public Wonder() {
+    }
+    
+    public Wonder(Deck deck, Deck playedCards) {
+        this.deck = deck;
+        this.playedCards = playedCards;
+    }
+
+    public Deck getDeck() {
+        return deck;
+    }
+
+    public void setDeck(Deck deck) {
+        this.deck = deck;
+    }
+
+    public Deck getPlayedCards() {
+        return playedCards;
+    }
+
+    public void setPlayedCards(Deck playedCards) {
+        this.playedCards = playedCards;
+    }
+
+    @Override
+    public String toString() {
+        return "Wonder{" + "deck=" + deck + ", playedCards=" + playedCards + '}';
+    }
+    
+    
+    
 }

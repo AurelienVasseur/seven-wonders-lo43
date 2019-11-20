@@ -14,4 +14,35 @@ import EnumLibrary.Resource;
 public class ProductedResource {
     private Resource resource;
     private int quantity;
+
+    public ProductedResource() {
+    }
+
+    public ProductedResource(Resource resource, int quantity) {
+        this.resource = resource;
+        this.quantity = quantity;
+    }
+
+    public Resource getResource() {
+        return resource;
+    }
+
+    public void setResource(Resource resource) {
+        this.resource = resource;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    @Override
+    public String toString() {
+        return "ProductedResource{" + "resource=" + resource + ", quantity=" + quantity + '}';
+    }
+    
+    
 }

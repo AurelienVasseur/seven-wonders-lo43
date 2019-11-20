@@ -6,13 +6,13 @@
 package ModelLibrary.CardLibrary;
 
 
-import java.util.List;
 import EnumLibrary.CardType;
 import EnumLibrary.Age;
 import EnumLibrary.PlayersAmount;
 import ModelLibrary.ScoreLibrary.Point;
 import ModelLibrary.ScoreLibrary.Cost;
 import ModelLibrary.ScoreLibrary.ProductedResource;
+import java.util.ArrayList;
 
 /**
  *
@@ -25,16 +25,16 @@ public class Card {
     protected Cost cost;
     protected Age age;
     protected Point coinsEarned;
-    protected List<ProductedResource> production;
+    protected ArrayList<ProductedResource> production;
     protected PlayersAmount minimumPlayersRequiredToBePlayed;
-    protected List<Card> cardsBecomingFreeAfterPlayingThisCard;
+    protected ArrayList<Card> cardsBecomingFreeAfterPlayingThisCard;
     protected Card cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree;
 
     public Card(){
         
     }
     
-    public Card(int id, String name, CardType type, Cost cost, Age age, Point coinsEarned, List<ProductedResource> production, PlayersAmount minimumPlayersRequiredToBePlayed, List<Card> cardsBecomingFreeAfterPlayingThisCard, Card cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree) {
+    public Card(int id, String name, CardType type, Cost cost, Age age, Point coinsEarned, ArrayList<ProductedResource> production, PlayersAmount minimumPlayersRequiredToBePlayed, ArrayList<Card> cardsBecomingFreeAfterPlayingThisCard, Card cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree) {
         this.id = id;
         this.name = name;
         this.type = type;
@@ -95,11 +95,11 @@ public class Card {
         this.coinsEarned = coinsEarned;
     }
 
-    public List<ProductedResource> getProduction() {
+    public ArrayList<ProductedResource> getProduction() {
         return production;
     }
 
-    public void setProduction(List<ProductedResource> production) {
+    public void setProduction(ArrayList<ProductedResource> production) {
         this.production = production;
     }
 
@@ -111,11 +111,11 @@ public class Card {
         this.minimumPlayersRequiredToBePlayed = minimumPlayersRequiredToBePlayed;
     }
 
-    public List<Card> getCardsBecomingFreeAfterPlayingThisCard() {
+    public ArrayList<Card> getCardsBecomingFreeAfterPlayingThisCard() {
         return cardsBecomingFreeAfterPlayingThisCard;
     }
 
-    public void setCardsBecomingFreeAfterPlayingThisCard(List<Card> cardsBecomingFreeAfterPlayingThisCard) {
+    public void setCardsBecomingFreeAfterPlayingThisCard(ArrayList<Card> cardsBecomingFreeAfterPlayingThisCard) {
         this.cardsBecomingFreeAfterPlayingThisCard = cardsBecomingFreeAfterPlayingThisCard;
     }
 
