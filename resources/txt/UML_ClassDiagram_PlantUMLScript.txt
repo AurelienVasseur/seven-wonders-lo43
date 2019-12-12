@@ -4,6 +4,10 @@ set namespaceSeparator ::
 class GameManager {
 # listPlayers : ArrayList<Player>
 --
++ start() : void
++ playTurn() : void
++ updateLeaderboard() : ArrayList<Score>
++ end() : void
 }
 
 class Player {
@@ -12,7 +16,9 @@ class Player {
 # deck : Deck
 # cardsPlayed : Deck
 --
-
++ do(action : Action) : void
++ selectCard() : void
++ giveDeckTo(player : Player) : void
 }
 
 abstract class Card {
@@ -39,6 +45,7 @@ class RessourcePack {
 class Deck {
 # listCards : ArrayList<Card>
 --
++ shuffle()
 }
 
 
@@ -49,6 +56,7 @@ class UT {
 # evolution : Evolution
 # listProductRessources : ArrayList<RessourcePack>
 --
++ evolve()
 }
 
 
@@ -190,6 +198,7 @@ Card o-- Point
 
 UT o-- RessourcePack
 
+GameManager ..> Score
 
 RessourcePack *-- Ressource
 Card o-- Formation
