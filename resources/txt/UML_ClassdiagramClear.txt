@@ -1,0 +1,99 @@
+@startuml
+set namespaceSeparator ::
+
+class GameManager {
+--
+}
+
+class Player {
+--
+
+}
+
+abstract class Card {
+--
+}
+
+class RessourcePack {
+--
+}
+
+
+class Deck {
+--
+}
+
+
+
+class UT {
+--
+}
+
+
+
+abstract class RessourceCard {
+--
+}
+abstract class BuildingCard {
+--
+}
+class CreditCard{
+--
+}
+class SkillCard{
+--
+}
+class LaboratoryCard {
+--
+}
+class LibraryCard {
+--
+}
+class AdministrationCard {
+--
+}
+class ClassroomCard {
+--
+}
+class AssociationCard {
+--
+}
+
+class Point {
+--
+}
+
+class Score {
+--
+}
+
+
+GameManager *--"2..7" Player
+Player *-- UT
+Player *-- Deck
+Deck o--"49" Card
+
+
+Card <|-- RessourceCard
+Card <|-- BuildingCard
+RessourceCard <|-- CreditCard
+RessourceCard <|-- SkillCard
+BuildingCard <|-- LibraryCard
+BuildingCard <|-- LaboratoryCard
+BuildingCard <|-- AdministrationCard
+BuildingCard <|-- AssociationCard
+BuildingCard <|-- ClassroomCard
+
+
+Player *-- Score
+
+Score o-- Point
+
+Card o-- RessourcePack
+Card o-- Point
+
+UT o-- RessourcePack
+
+
+
+@enduml

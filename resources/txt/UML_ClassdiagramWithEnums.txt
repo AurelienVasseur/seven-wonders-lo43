@@ -2,52 +2,30 @@
 set namespaceSeparator ::
 
 class GameManager {
-# listPlayers : ArrayList<Player>
 --
 }
 
 class Player {
-# gameBoard : UT
-# score : Score
-# deck : Deck
-# cardsPlayed : Deck
 --
 
 }
 
 abstract class Card {
-# id : int
-# name : String
-# type : CardType
-# cost : RessourcePack
-# formation : Formation
-# coinEarned : Point
-# listProductRessources : ArrayList<RessourcePack>
-# minimumPlayerRequiredToBePlayed : PlayersAmount
-# cardsBecomingFreeAfterPlayingThisCard : ArrayList<Card>
-# cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree : Card
 --
 }
 
 class RessourcePack {
-# type : Ressource
-# value : int
 --
 }
 
 
 class Deck {
-# listCards : ArrayList<Card>
 --
 }
 
 
 
 class UT {
-# id : int
-# name : UTCity
-# evolution : Evolution
-# listProductRessources : ArrayList<RessourcePack>
 --
 }
 
@@ -82,20 +60,10 @@ class AssociationCard {
 }
 
 class Point {
-# type : PointType
-# value : int
 --
 }
 
 class Score {
-# totalVictorypoints : Point
-# classroom : Point
-# coin : Point
-# ut : Point
-# library : Point
-# laboratory : Point
-# administration : Point
-# association : Point
 --
 }
 
