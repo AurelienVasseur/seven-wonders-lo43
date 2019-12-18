@@ -7,6 +7,7 @@ package ModelLibrary.PlayerLibrary;
 
 import ModelLibrary.CardLibrary.Card;
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  *
@@ -24,7 +25,7 @@ public class Deck {
 
     
     public void shuffle() {
-        throw new java.lang.UnsupportedOperationException("Not Implemented yet.");
+        Collections.shuffle(this.listCards);
     }
     
     
