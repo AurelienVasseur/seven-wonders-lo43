@@ -22,6 +22,16 @@ public class Deck {
         this.listCards = listCards;
     }
 
+    
+    public void shuffle() {
+        throw new java.lang.UnsupportedOperationException("Not Implemented yet.");
+    }
+    
+    
+    
+    
+    
+    
     public ArrayList<Card> getListCards() {
         return listCards;
     }

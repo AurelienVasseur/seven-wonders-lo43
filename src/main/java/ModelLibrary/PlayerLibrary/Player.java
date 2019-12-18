@@ -5,6 +5,7 @@
  */
 package ModelLibrary.PlayerLibrary;
 
+import EnumLibrary.Action;
 import ModelLibrary.ScoreLibrary.Score;
 import ModelLibrary.ScoreLibrary.Point;
 
@@ -27,7 +28,22 @@ public class Player {
         this.deck = deck;
         this.cardsPlayed = cardsPlayed;
     }
-
+    
+    
+    public void doAction(Action action) {
+        throw new java.lang.UnsupportedOperationException("Not Implemented yet.");
+    }
+    
+    public void selectCard() {
+        throw new java.lang.UnsupportedOperationException("Not Implemented yet.");
+    }
+    
+    public void giveDeckTo(Player player) {
+        throw new java.lang.UnsupportedOperationException("Not Implemented yet.");
+    }
+    
+    
+    
     public UT getGameBoard() {
         return gameBoard;
     }
