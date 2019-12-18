@@ -22,6 +22,13 @@ public class Player {
     public Player() {
     }
 
+    public Player(UT gameBoard) {
+        this.gameBoard = gameBoard;
+        this.score = new Score();
+        this.deck = new Deck();
+        this.cardsPlayed = new Deck();
+    }
+    
     public Player(UT gameBoard, Score score, Deck deck, Deck cardsPlayed) {
         this.gameBoard = gameBoard;
         this.score = score;

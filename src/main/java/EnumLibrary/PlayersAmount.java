@@ -10,10 +10,22 @@ package EnumLibrary;
  * @author Hicham
  */
 public enum PlayersAmount {
-    TWO,
-    THREE,
-    FOUR,
-    FIVE,
-    SIX,
-    SEVEN
+    TWO(2),
+    THREE(3),
+    FOUR(4),
+    FIVE(5),
+    SIX(6),
+    SEVEN(7),
+    MINIMUM(2),
+    MAXIMUM(7);
+    
+    private final int value;
+    private PlayersAmount(int value) {
+        this.value = value;
+    }
+    
+    public int getValue() {
+        return this.value;
+    }
+    
 }

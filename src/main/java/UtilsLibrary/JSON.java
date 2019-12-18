@@ -14,6 +14,7 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 import ModelLibrary.CardLibrary.Card;
+import ModelLibrary.PlayerLibrary.UT;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.json.simple.JSONObject;
 
@@ -26,6 +27,11 @@ import org.json.simple.JSONObject;
 public class JSON {
     
     private static String relativePathJSONCards = "./resources/json/cards/";
+    
+    public static ArrayList<UT> readUTs(String fileName)
+    {
+        throw new java.lang.UnsupportedOperationException("Not Implemented yet.");
+    }
     
     public static ArrayList<Card> readCards(String fileName)
     {

@@ -11,7 +11,17 @@ package EnumLibrary;
  */
 // Formation = Age
 public enum Formation {
-    COMMONCORE,
-    BRANCH,
-    SPECIALIZATION
+    COMMONCORE(0),
+    BRANCH(1),
+    SPECIALIZATION(2);
+    
+    private final int value;
+    private Formation(int value) {
+        this.value = value;
+    }
+    
+    public int getValue() {
+        return this.value;
+    }
+    
 }

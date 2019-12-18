@@ -5,6 +5,8 @@
  */
 package ModelLibrary.PlayerLibrary;
 
+import EnumLibrary.Formation;
+import EnumLibrary.PlayersAmount;
 import ModelLibrary.CardLibrary.Card;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -28,9 +30,23 @@ public class Deck {
         Collections.shuffle(this.listCards);
     }
     
+    public Deck filterByFormation(Formation formation) {
+        ArrayList<Card> filteredCards = this.getListCards();
+        filteredCards.removeIf(card -> (card.getFormation().getValue() != formation.getValue()));
+        return new Deck(filteredCards);
+    }
     
+    public Deck filterByPlayersAmount(PlayersAmount playersAmount) {
+        ArrayList<Card> filteredCards = this.getListCards();
+        filteredCards.removeIf(card -> (card.getMinimumPlayersRequiredToBePlayed().getValue() != playersAmount.getValue()));
+        return new Deck (filteredCards);
+    }
     
-    
+    public Deck subDeck(int fromIndex, int toIndex) {
+        ArrayList<Card> subList = new ArrayList<Card>(toIndex - fromIndex);
+        subList.addAll(this.listCards.subList(fromIndex, toIndex));
+        return new Deck(subList);
+    }
     
     
     public ArrayList<Card> getListCards() {
