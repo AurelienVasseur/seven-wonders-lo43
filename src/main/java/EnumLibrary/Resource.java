@@ -10,12 +10,10 @@ package EnumLibrary;
  * @author Hicham
  */
 public enum Resource {
-    CLAY_RAWMATERIAL,
-    ORE_RAWMATERIAL,
-    STONE_RAWMATERIAL,
-    WOOD_RAWMATERIAL,
-    GLASS_MANUFACTUREDPRODUCT,
-    TISSUE_MANUFACTUREDPRODUCT,
-    PAPYRUS_MANUFACTUREDPRODUCT,
-    COIN
+    CS,
+    TM,
+    OM,
+    QC,
+    EC,
+    ST,
 }

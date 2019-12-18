@@ -7,10 +7,10 @@ package ModelLibrary.CardLibrary;
 
 
 import EnumLibrary.CardType;
-import EnumLibrary.Age;
+import EnumLibrary.Formation;
 import EnumLibrary.PlayersAmount;
 import ModelLibrary.ScoreLibrary.Point;
-import ModelLibrary.ScoreLibrary.Cost;
+import ModelLibrary.ScoreLibrary.RessourcePack;
 import ModelLibrary.ScoreLibrary.ProductedResource;
 import java.util.ArrayList;
 
@@ -22,26 +22,25 @@ public class Card {
     protected int id;
     protected String name;
     protected CardType type;
-    protected Cost cost;
-    protected Age age;
+    protected RessourcePack cost;
+    protected Formation formation;
     protected Point coinsEarned;
-    protected ArrayList<ProductedResource> production;
+    protected ArrayList<ProductedResource> listProductRessources;
     protected PlayersAmount minimumPlayersRequiredToBePlayed;
     protected ArrayList<Card> cardsBecomingFreeAfterPlayingThisCard;
     protected Card cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree;
 
-    public Card(){
-        
+    public Card() {
     }
-    
-    public Card(int id, String name, CardType type, Cost cost, Age age, Point coinsEarned, ArrayList<ProductedResource> production, PlayersAmount minimumPlayersRequiredToBePlayed, ArrayList<Card> cardsBecomingFreeAfterPlayingThisCard, Card cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree) {
+
+    public Card(int id, String name, CardType type, RessourcePack cost, Formation formation, Point coinsEarned, ArrayList<ProductedResource> listProductRessources, PlayersAmount minimumPlayersRequiredToBePlayed, ArrayList<Card> cardsBecomingFreeAfterPlayingThisCard, Card cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree) {
         this.id = id;
         this.name = name;
         this.type = type;
         this.cost = cost;
-        this.age = age;
+        this.formation = formation;
         this.coinsEarned = coinsEarned;
-        this.production = production;
+        this.listProductRessources = listProductRessources;
         this.minimumPlayersRequiredToBePlayed = minimumPlayersRequiredToBePlayed;
         this.cardsBecomingFreeAfterPlayingThisCard = cardsBecomingFreeAfterPlayingThisCard;
         this.cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree = cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree;
@@ -71,20 +70,20 @@ public class Card {
         this.type = type;
     }
 
-    public Cost getCost() {
+    public RessourcePack getCost() {
         return cost;
     }
 
-    public void setCost(Cost cost) {
+    public void setCost(RessourcePack cost) {
         this.cost = cost;
     }
 
-    public Age getAge() {
-        return age;
+    public Formation getFormation() {
+        return formation;
     }
 
-    public void setAge(Age age) {
-        this.age = age;
+    public void setFormation(Formation formation) {
+        this.formation = formation;
     }
 
     public Point getCoinsEarned() {
@@ -95,12 +94,12 @@ public class Card {
         this.coinsEarned = coinsEarned;
     }
 
-    public ArrayList<ProductedResource> getProduction() {
-        return production;
+    public ArrayList<ProductedResource> getListProductRessources() {
+        return listProductRessources;
     }
 
-    public void setProduction(ArrayList<ProductedResource> production) {
-        this.production = production;
+    public void setListProductRessources(ArrayList<ProductedResource> listProductRessources) {
+        this.listProductRessources = listProductRessources;
     }
 
     public PlayersAmount getMinimumPlayersRequiredToBePlayed() {
@@ -129,8 +128,9 @@ public class Card {
 
     @Override
     public String toString() {
-        return "Card{" + "id=" + id + ", name=" + name + ", type=" + type + ", cost=" + cost + ", age=" + age + ", coinsEarned=" + coinsEarned + ", production=" + production + ", minimumPlayersRequiredToBePlayed=" + minimumPlayersRequiredToBePlayed + ", cardsBecomingFreeAfterPlayingThisCard=" + cardsBecomingFreeAfterPlayingThisCard + ", cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree=" + cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree + '}';
+        return "Card{" + "id=" + id + ", name=" + name + ", type=" + type + ", cost=" + cost + ", formation=" + formation + ", coinsEarned=" + coinsEarned + ", listProductRessources=" + listProductRessources + ", minimumPlayersRequiredToBePlayed=" + minimumPlayersRequiredToBePlayed + ", cardsBecomingFreeAfterPlayingThisCard=" + cardsBecomingFreeAfterPlayingThisCard + ", cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree=" + cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree + '}';
     }
+
     
     
 }

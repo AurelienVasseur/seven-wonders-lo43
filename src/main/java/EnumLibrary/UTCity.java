@@ -3,12 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ModelLibrary.CardLibrary;
+package EnumLibrary;
 
 /**
  *
  * @author Hicham
  */
-public class MilitaryCard extends BuildingCard {
-    
+public enum UTCity {
+    BELFORT,
+    SEVENANS,
+    MONTBELIARD,
+    TROYES,
+    COMPIEGNE,
+    SHANGHAI,
+    SANTIAGO
 }

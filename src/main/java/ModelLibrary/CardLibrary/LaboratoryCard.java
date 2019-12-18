@@ -3,18 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package EnumLibrary;
+package ModelLibrary.CardLibrary;
 
 /**
  *
  * @author Hicham
  */
-public enum CardType {
-    CREDIT,
-    SKILL,
-    LIBRARYCARD,
-    LABORATORY,
-    ADMINISTRATION,
-    CLASSROOM,
-    ASSOCIATION
+public class LaboratoryCard extends BuildingCard {
+    
 }

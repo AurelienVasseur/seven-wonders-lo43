@@ -10,33 +10,43 @@ package ModelLibrary.ScoreLibrary;
  * @author Hicham
  */
 public class Score {
-    private Point military;
+    private Point totalVictoryPoints;
+    private Point classroom;
     private Point coin;
-    private Point wonder;
-    private Point civilian;
-    private Point scientific;
-    private Point commercial;
-    private Point guild;
+    private Point ut;
+    private Point library;
+    private Point laboratory;
+    private Point administration;
+    private Point association;
 
     public Score() {
     }
 
-    public Score(Point military, Point coin, Point wonder, Point civilian, Point scientific, Point commercial, Point guild) {
-        this.military = military;
+    public Score(Point totalVictoryPoints, Point classroom, Point coin, Point ut, Point library, Point laboratory, Point administration, Point association) {
+        this.totalVictoryPoints = totalVictoryPoints;
+        this.classroom = classroom;
         this.coin = coin;
-        this.wonder = wonder;
-        this.civilian = civilian;
-        this.scientific = scientific;
-        this.commercial = commercial;
-        this.guild = guild;
+        this.ut = ut;
+        this.library = library;
+        this.laboratory = laboratory;
+        this.administration = administration;
+        this.association = association;
     }
 
-    public Point getMilitary() {
-        return military;
+    public Point getTotalVictoryPoints() {
+        return totalVictoryPoints;
     }
 
-    public void setMilitary(Point military) {
-        this.military = military;
+    public void setTotalVictoryPoints(Point totalVictoryPoints) {
+        this.totalVictoryPoints = totalVictoryPoints;
+    }
+
+    public Point getClassroom() {
+        return classroom;
+    }
+
+    public void setClassroom(Point classroom) {
+        this.classroom = classroom;
     }
 
     public Point getCoin() {
@@ -47,50 +57,51 @@ public class Score {
         this.coin = coin;
     }
 
-    public Point getWonder() {
-        return wonder;
+    public Point getUt() {
+        return ut;
     }
 
-    public void setWonder(Point wonder) {
-        this.wonder = wonder;
+    public void setUt(Point ut) {
+        this.ut = ut;
     }
 
-    public Point getCivilian() {
-        return civilian;
+    public Point getLibrary() {
+        return library;
     }
 
-    public void setCivilian(Point civilian) {
-        this.civilian = civilian;
+    public void setLibrary(Point library) {
+        this.library = library;
     }
 
-    public Point getScientific() {
-        return scientific;
+    public Point getLaboratory() {
+        return laboratory;
     }
 
-    public void setScientific(Point scientific) {
-        this.scientific = scientific;
+    public void setLaboratory(Point laboratory) {
+        this.laboratory = laboratory;
     }
 
-    public Point getCommercial() {
-        return commercial;
+    public Point getAdministration() {
+        return administration;
     }
 
-    public void setCommercial(Point commercial) {
-        this.commercial = commercial;
+    public void setAdministration(Point administration) {
+        this.administration = administration;
     }
 
-    public Point getGuild() {
-        return guild;
+    public Point getAssociation() {
+        return association;
     }
 
-    public void setGuild(Point guild) {
-        this.guild = guild;
+    public void setAssociation(Point association) {
+        this.association = association;
     }
 
     @Override
     public String toString() {
-        return "Score{" + "military=" + military + ", coin=" + coin + ", wonder=" + wonder + ", civilian=" + civilian + ", scientific=" + scientific + ", commercial=" + commercial + ", guild=" + guild + '}';
+        return "Score{" + "totalVictoryPoints=" + totalVictoryPoints + ", classroom=" + classroom + ", coin=" + coin + ", ut=" + ut + ", library=" + library + ", laboratory=" + laboratory + ", administration=" + administration + ", association=" + association + '}';
     }
+
     
     
 }

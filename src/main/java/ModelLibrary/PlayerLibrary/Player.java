@@ -13,34 +13,26 @@ import ModelLibrary.ScoreLibrary.Point;
  * @author Hicham
  */
 public class Player {
-    private int id;
-    private Wonder gameBoard;
+    private UT gameBoard;
     private Score score;
-    private Point victoryPoints;
+    private Deck deck;
+    private Deck cardsPlayed;
 
     public Player() {
     }
 
-    public Player(int id, Wonder gameBoard, Score score, Point victoryPoints) {
-        this.id = id;
+    public Player(UT gameBoard, Score score, Deck deck, Deck cardsPlayed) {
         this.gameBoard = gameBoard;
         this.score = score;
-        this.victoryPoints = victoryPoints;
+        this.deck = deck;
+        this.cardsPlayed = cardsPlayed;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public Wonder getGameBoard() {
+    public UT getGameBoard() {
         return gameBoard;
     }
 
-    public void setGameBoard(Wonder gameBoard) {
+    public void setGameBoard(UT gameBoard) {
         this.gameBoard = gameBoard;
     }
 
@@ -52,18 +44,27 @@ public class Player {
         this.score = score;
     }
 
-    public Point getVictoryPoints() {
-        return victoryPoints;
+    public Deck getDeck() {
+        return deck;
     }
 
-    public void setVictoryPoints(Point victoryPoints) {
-        this.victoryPoints = victoryPoints;
+    public void setDeck(Deck deck) {
+        this.deck = deck;
+    }
+
+    public Deck getCardsPlayed() {
+        return cardsPlayed;
+    }
+
+    public void setCardsPlayed(Deck cardsPlayed) {
+        this.cardsPlayed = cardsPlayed;
     }
 
     @Override
     public String toString() {
-        return "Player{" + "id=" + id + ", gameBoard=" + gameBoard + ", score=" + score + ", victoryPoints=" + victoryPoints + '}';
+        return "Player{" + "gameBoard=" + gameBoard + ", score=" + score + ", deck=" + deck + ", cardsPlayed=" + cardsPlayed + '}';
     }
+
     
     
 }

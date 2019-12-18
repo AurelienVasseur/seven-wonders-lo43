@@ -5,10 +5,13 @@
  */
 package ModelLibrary.CardLibrary;
 
+import ModelLibrary.ScoreLibrary.ProductedResource;
+import java.util.ArrayList;
+
 /**
  *
  * @author Hicham
  */
-public class CivilianCard extends BuildingCard {
-    
+public class AdministrationCard extends BuildingCard {
+    private ArrayList<ProductedResource> listProductedResources;
 }

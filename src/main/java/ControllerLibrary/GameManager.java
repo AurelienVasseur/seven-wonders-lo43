@@ -21,6 +21,29 @@ public class GameManager {
     public GameManager(ArrayList<Player> listPlayers) {
         this.listPlayers = listPlayers;
     }
+    
+    
+    public void start() {
+        throw new java.lang.UnsupportedOperationException("Not Implemented yet.");
+    }
+    
+    public void playTurn() {
+        throw new java.lang.UnsupportedOperationException("Not Implemented yet.");
+    }
+    
+    public void updateLeaderboard() {
+        throw new java.lang.UnsupportedOperationException("Not Implemented yet.");
+    }
+    
+    public void end() {
+        throw new java.lang.UnsupportedOperationException("Not Implemented yet.");
+    }
+    
+    
+    
+    
+    
+    
 
     public ArrayList<Player> getListPlayers() {
         return listPlayers;

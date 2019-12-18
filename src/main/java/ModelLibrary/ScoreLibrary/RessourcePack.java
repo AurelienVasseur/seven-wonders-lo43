@@ -11,15 +11,15 @@ import EnumLibrary.Resource;
  *
  * @author Hicham
  */
-public class Cost {
+public class RessourcePack {
     private Resource type;
     private int value;
 
-    public Cost() {
+    public RessourcePack() {
         
     }
     
-    public Cost(Resource type, int value) {
+    public RessourcePack(Resource type, int value) {
         this.type = type;
         this.value = value;
     }

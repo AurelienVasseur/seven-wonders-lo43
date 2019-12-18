@@ -11,6 +11,6 @@ package EnumLibrary;
  */
 public enum PointType {
     VICTORY,
-    MILITARYPOWER,
-    GUILD
+    KNOWLEDGE,
+    ASSOCIATION
 }

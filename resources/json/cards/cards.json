@@ -4,9 +4,9 @@
         "name": "Le Nom de Ma Super Carte",
         "type": 0,
         "cost": { "type": 0, "value": 2 },
-        "age": 0,
+        "formation": 0,
         "coinsEarned": { "type": 0, "value": 1 },
-        "production": [ 8, 12 ],
+        "listProductRessources": [ 8, 12 ],
         "minimumPlayersRequiredToBePlayed": 5,
         "cardsBecomingFreeAfterPlayingThisCard": [ 2, 7 ],
         "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": 4

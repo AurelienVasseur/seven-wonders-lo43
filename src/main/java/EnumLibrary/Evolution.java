@@ -3,12 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ModelLibrary.CardLibrary;
+package EnumLibrary;
 
 /**
  *
  * @author Hicham
  */
-public abstract class ResourceCard extends Card {
-    
+public enum Evolution {
+    NONE,
+    FIRST,
+    SECOND,
+    THIRD
 }

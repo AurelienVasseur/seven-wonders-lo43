@@ -3,14 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package EnumLibrary;
+package ModelLibrary.CardLibrary;
 
 /**
  *
  * @author Hicham
  */
-public enum Age {
-    FIRST,
-    SECOND,
-    THIRD
+public class LibraryCard extends BuildingCard {
+    
 }
