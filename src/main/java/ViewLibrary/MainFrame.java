@@ -6,9 +6,9 @@
 package ViewLibrary;
 
 import EnumLibrary.PlayersAmount;
-import java.awt.BorderLayout;
+import javax.swing.GroupLayout;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 /**
  *
@@ -17,6 +17,7 @@ import javax.swing.JLabel;
 public class MainFrame extends javax.swing.JFrame {
     private HomePanel homePanel;
     private PlayersAmountSelectionPanel playersAmountSelectionPanel;
+    private JPanel playersPanel;
 
     /**
      * @param args the command line arguments
@@ -32,9 +33,11 @@ public class MainFrame extends javax.swing.JFrame {
     }
     
     private void initComponents(){
-        this.setSize(800,600);
+        this.setSize(1280,720);
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        //jframe.setLayout(new BorderLayout());
+        //this.layout = new GroupLayout(this.getContentPane());
+        //this.getContentPane().setLayout(this.layout);
+        //this.getContentPane().setLayout(null);
         this.setVisible(true);
         
         
@@ -57,9 +60,12 @@ public class MainFrame extends javax.swing.JFrame {
     
     public void displayGame(PlayersAmount playersAmount) {
         this.remove(this.playersAmountSelectionPanel);
+        this.playersPanel = new JPanel();
         for(int i = 0; i < playersAmount.getValue(); ++i) {
-            this.getContentPane().add(new PlayerPanel(i));
+            PlayerPanel playerPanel = new PlayerPanel(i);
+            playersPanel.add(playerPanel);
         }
+        this.getContentPane().add(this.playersPanel);
         this.pack();
         this.setVisible(true);
     }
