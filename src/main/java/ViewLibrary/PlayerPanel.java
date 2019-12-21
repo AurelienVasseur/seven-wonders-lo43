@@ -10,13 +10,16 @@ package ViewLibrary;
  * @author Hicham
  */
 public class PlayerPanel extends javax.swing.JPanel {
+    private MainFrame frame;
     private int playerId;
     
     /**
      * Creates new form PlayerPanel
+     * @param frame
      * @param playerId
      */
-    public PlayerPanel(int playerId) {
+    public PlayerPanel(MainFrame frame, int playerId) {
+        this.frame = frame;
         this.playerId = playerId;
         initComponents();
         this.jLabel1.setText("PlayerPanel number " + this.playerId + " works!");
@@ -32,8 +35,16 @@ public class PlayerPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
+        jButtonLeaderboard = new javax.swing.JButton();
 
         jLabel1.setText("PlayerPanel works!");
+
+        jButtonLeaderboard.setText("Display Leaderboard");
+        jButtonLeaderboard.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonLeaderboardMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -41,20 +52,30 @@ public class PlayerPanel extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(22, 22, 22)
-                .addComponent(jLabel1)
-                .addContainerGap(270, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButtonLeaderboard)
+                    .addComponent(jLabel1))
+                .addContainerGap(232, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addComponent(jLabel1)
-                .addContainerGap(269, Short.MAX_VALUE))
+                .addGap(43, 43, 43)
+                .addComponent(jButtonLeaderboard)
+                .addContainerGap(194, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButtonLeaderboardMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonLeaderboardMouseClicked
+        // TODO add your handling code here:
+        this.frame.displayLeaderboard();
+    }//GEN-LAST:event_jButtonLeaderboardMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonLeaderboard;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

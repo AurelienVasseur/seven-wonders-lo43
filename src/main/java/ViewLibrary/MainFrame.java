@@ -6,9 +6,14 @@
 package ViewLibrary;
 
 import EnumLibrary.PlayersAmount;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.GroupLayout;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JTable;
+import javax.swing.table.TableColumn;
 
 /**
  *
@@ -18,6 +23,8 @@ public class MainFrame extends javax.swing.JFrame {
     private HomePanel homePanel;
     private PlayersAmountSelectionPanel playersAmountSelectionPanel;
     private JPanel playersPanel;
+    private JPanel leaderboardPanel;
+    private JPanel endPanel;
 
     /**
      * @param args the command line arguments
@@ -40,19 +47,20 @@ public class MainFrame extends javax.swing.JFrame {
         //this.getContentPane().setLayout(null);
         this.setVisible(true);
         
-        
-        
+        this.displayHome();
+    }
+    
+    public void displayHome() {
         this.homePanel = new HomePanel(this);
-        //homePanel.setVisible(true);
         this.getContentPane().add(this.homePanel);
-        
         this.pack();
         this.setVisible(true);
     }
     
     public void displayPlayersAmountSelection() {
-        this.playersAmountSelectionPanel = new PlayersAmountSelectionPanel(this);
         this.getContentPane().remove(this.homePanel);
+        this.homePanel.removeAll();
+        this.playersAmountSelectionPanel = new PlayersAmountSelectionPanel(this);
         this.getContentPane().add(this.playersAmountSelectionPanel);
         this.pack();
         this.setVisible(true);
@@ -60,14 +68,63 @@ public class MainFrame extends javax.swing.JFrame {
     
     public void displayGame(PlayersAmount playersAmount) {
         this.remove(this.playersAmountSelectionPanel);
+        this.playersAmountSelectionPanel.removeAll();
         this.playersPanel = new JPanel();
         for(int i = 0; i < playersAmount.getValue(); ++i) {
-            PlayerPanel playerPanel = new PlayerPanel(i);
+            PlayerPanel playerPanel = new PlayerPanel(this, i);
             playersPanel.add(playerPanel);
         }
         this.getContentPane().add(this.playersPanel);
         this.pack();
         this.setVisible(true);
+    }
+    
+    public void displayLeaderboard() {
+        this.remove(this.playersPanel);
+        this.playersPanel.removeAll();
+        this.leaderboardPanel = new JPanel();
+        Object[][] donnees = {
+                {"0", "Sykes"},
+                {"1", "Van de Kampf"},
+                {"2", "Cuthbert"},
+                {"3", "Valance"},
+                {"4", "Schrödinger"},
+                {"5", "Duke"},
+                {"6", "Trump"},
+        };
+ 
+        String[] entetes = {"PlayerID", "Score"};
+        JTable jtable = new JTable(donnees, entetes);
+        this.leaderboardPanel.add(jtable);
+        JButton showEndButton = new JButton("Continue");
+        showEndButton.addActionListener(new ActionListener() {          
+            public void actionPerformed(ActionEvent e) {
+                displayEnd();
+            }
+        });
+        this.leaderboardPanel.add(showEndButton);
+        this.getContentPane().add(this.leaderboardPanel);
+        this.pack();
+        this.setVisible(true);
+    }
+    
+    public void displayEnd(){
+        this.remove(this.leaderboardPanel);
+        this.leaderboardPanel.removeAll();
+        this.endPanel = new EndPanel(this);
+        this.getContentPane().add(this.endPanel);
+        this.pack();
+        this.setVisible(true);
+    }
+    
+    public void end(){
+        this.remove(this.endPanel);
+        this.dispose();
+    }
+    
+    public void playAgain() {
+        this.remove(this.endPanel);
+        this.displayHome();
     }
     
 }

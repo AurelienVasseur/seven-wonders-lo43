@@ -18,8 +18,11 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="270" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jButtonLeaderboard" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="232" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -28,7 +31,9 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="269" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+              <Component id="jButtonLeaderboard" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="194" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -38,6 +43,14 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="PlayerPanel works!"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButtonLeaderboard">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Display Leaderboard"/>
+      </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButtonLeaderboardMouseClicked"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
