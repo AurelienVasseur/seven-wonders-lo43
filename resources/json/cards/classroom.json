@@ -1,0 +1,306 @@
+[{
+ "id": 1,
+  "name": "classroom 1",
+  "type": 5,
+  "cost": { "type": 0, "value": 1 },
+  "formation": 0,
+  "coinsEarned":{"type": 1, "value":1},
+  "listProductRessources": null,
+  "minimumPlayersRequiredToBePlayed": 3,
+  "cardsBecomingFreeAfterPlayingThisCard": null,
+  "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": null
+
+},
+{
+    "id": 2,
+     "name": "classroom 1",
+     "type": 5,
+     "cost": { "type": 0, "value": 1 },
+     "formation": 0,
+     "coinsEarned":{"type": 1, "value":1},
+     "listProductRessources": null,
+     "minimumPlayersRequiredToBePlayed": 7,
+     "cardsBecomingFreeAfterPlayingThisCard": null,
+     "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": null
+   
+   },{
+    "id": 3,
+     "name": "classroom 2",
+     "type": 5,
+     "cost": { "type": 3, "value": 1 },
+     "formation": 0,
+     "coinsEarned":{"type": 1, "value":1},
+     "listProductRessources": null,
+     "minimumPlayersRequiredToBePlayed": 3,
+     "cardsBecomingFreeAfterPlayingThisCard": null,
+     "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": null
+   
+   },{
+    "id": 4,
+     "name": "classroom 2",
+     "type": 5,
+     "cost": { "type": 3, "value": 1 },
+     "formation": 0,
+     "coinsEarned":{"type": 1, "value":1},
+     "listProductRessources": null,
+     "minimumPlayersRequiredToBePlayed": 5,
+     "cardsBecomingFreeAfterPlayingThisCard": null,
+     "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": null
+   
+   },{
+    "id": 5,
+     "name": "classroom 3",
+     "type": 5,
+     "cost": { "type": 2, "value": 1 },
+     "formation": 0,
+     "coinsEarned":{"type": 1, "value":1},
+     "listProductRessources": null,
+     "minimumPlayersRequiredToBePlayed": 3,
+     "cardsBecomingFreeAfterPlayingThisCard": null,
+     "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": null
+   
+   },{
+    "id": 6,
+     "name": "classroom 3",
+     "type": 5,
+     "cost": { "type": 2, "value": 1 },
+     "formation": 0,
+     "coinsEarned":{"type": 1, "value":1},
+     "listProductRessources": null,
+     "minimumPlayersRequiredToBePlayed": 4,
+     "cardsBecomingFreeAfterPlayingThisCard": null,
+     "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": null
+   
+   },
+   {
+    "id": 7,
+     "name": "classroom 4",
+     "type": 5,
+     "cost": { "type": 1, "value": 3 },
+     "formation": 1,
+     "coinsEarned":{"type": 1, "value":2},
+     "listProductRessources": null,
+     "minimumPlayersRequiredToBePlayed": 3,
+     "cardsBecomingFreeAfterPlayingThisCard": 9,
+     "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": null
+   
+   },{
+    "id": 8,
+     "name": "classroom 4",
+     "type": 5,
+     "cost": { "type": 1, "value": 3 },
+     "formation": 1,
+     "coinsEarned":{"type": 1, "value":2},
+     "listProductRessources": null,
+     "minimumPlayersRequiredToBePlayed": 7,
+     "cardsBecomingFreeAfterPlayingThisCard": 10,
+     "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": null
+   
+   },{
+    "id": 9,
+     "name": "classroom super 4",
+     "type": 5,
+     "cost":[{ "type": 3, "value": 3 } ,{ "type": 1, "value": 1 }],
+     "formation": 2,
+     "coinsEarned":{"type": 1, "value":3},
+     "listProductRessources": null,
+     "minimumPlayersRequiredToBePlayed": 3,
+     "cardsBecomingFreeAfterPlayingThisCard": null,
+     "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": 7
+   
+   },{
+    "id": 10,
+     "name": "classroom super 4",
+     "type": 5,
+     "cost":[{ "type": 3, "value": 3 } ,{ "type": 1, "value": 1 }],
+     "formation": 2,
+     "coinsEarned":{"type": 1, "value":3},
+     "listProductRessources": null,
+     "minimumPlayersRequiredToBePlayed": 7,
+     "cardsBecomingFreeAfterPlayingThisCard": null,
+     "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": 8
+   
+   },{
+    "id": 11,
+     "name": "classroom 5",
+     "type": 5,
+     "cost":[{ "type": 3, "value": 2 } ,{ "type": 0, "value": 1 }],
+     "formation": 1,
+     "coinsEarned":{"type": 1, "value":2},
+     "listProductRessources": null,
+     "minimumPlayersRequiredToBePlayed": 4,
+     "cardsBecomingFreeAfterPlayingThisCard": 14,
+     "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": null
+   
+   },{
+    "id": 12,
+     "name": "classroom 5",
+     "type": 5,
+     "cost":[{ "type": 3, "value": 2 } ,{ "type": 0, "value": 1 }],
+     "formation": 1,
+     "coinsEarned":{"type": 1, "value":2},
+     "listProductRessources": null,
+     "minimumPlayersRequiredToBePlayed": 6,
+     "cardsBecomingFreeAfterPlayingThisCard": 15,
+     "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": null
+   
+   },
+   {
+    "id": 13,
+     "name": "classroom 5",
+     "type": 5,
+     "cost":[{ "type": 3, "value": 2 } ,{ "type": 0, "value": 1 }],
+     "formation": 1,
+     "coinsEarned":{"type": 1, "value":2},
+     "listProductRessources": null,
+     "minimumPlayersRequiredToBePlayed": 7,
+     "cardsBecomingFreeAfterPlayingThisCard": 16,
+     "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": null
+   
+   },
+   {
+    "id": 14,
+     "name": "classroom super 5",
+     "type": 5,
+     "cost":[{ "type": 2, "value": 3 } ,{ "type": 1, "value": 1 }],
+     "formation": 2,
+     "coinsEarned":{"type": 1, "value":3},
+     "listProductRessources": null,
+     "minimumPlayersRequiredToBePlayed": 4,
+     "cardsBecomingFreeAfterPlayingThisCard": null,
+     "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": 11
+   },{
+    "id": 15,
+     "name": "classroom super 5",
+     "type": 5,
+     "cost":[{ "type": 2, "value": 3 } ,{ "type": 1, "value": 1 }],
+     "formation": 2,
+     "coinsEarned":{"type": 1, "value":3},
+     "listProductRessources": null,
+     "minimumPlayersRequiredToBePlayed": 5,
+     "cardsBecomingFreeAfterPlayingThisCard": null,
+     "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": 12
+   },{
+    "id": 16,
+     "name": "classroom super 5",
+     "type": 5,
+     "cost":[{ "type": 2, "value": 3 } ,{ "type": 1, "value": 1 }],
+     "formation": 2,
+     "coinsEarned":{"type": 1, "value":3},
+     "listProductRessources": null,
+     "minimumPlayersRequiredToBePlayed": 6,
+     "cardsBecomingFreeAfterPlayingThisCard": null,
+     "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": 13
+   },{
+    "id": 17,
+     "name": "classroom 6",
+     "type": 5,
+     "cost":[{ "type": 0, "value": 2 } ,{ "type": 3, "value": 1 },{ "type": 4, "value": 1 }],
+     "formation": 2,
+     "coinsEarned":{"type": 1, "value":3},
+     "listProductRessources": null,
+     "minimumPlayersRequiredToBePlayed": 3,
+     "cardsBecomingFreeAfterPlayingThisCard": null,
+     "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": null
+   },{
+    "id": 18,
+     "name": "classroom 6",
+     "type": 5,
+     "cost":[{ "type": 0, "value": 2 } ,{ "type": 3, "value": 1 },{ "type": 4, "value": 1 }],
+     "formation": 2,
+     "coinsEarned":{"type": 1, "value":3},
+     "listProductRessources": null,
+     "minimumPlayersRequiredToBePlayed": 4,
+     "cardsBecomingFreeAfterPlayingThisCard": null,
+     "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": null
+   },{
+    "id": 19,
+     "name": "classroom 6",
+     "type": 5,
+     "cost":[{ "type": 0, "value": 2 } ,{ "type": 3, "value": 1 },{ "type": 4, "value": 1 }],
+     "formation": 2,
+     "coinsEarned":{"type": 1, "value":3},
+     "listProductRessources": null,
+     "minimumPlayersRequiredToBePlayed": 7,
+     "cardsBecomingFreeAfterPlayingThisCard": null,
+     "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": null
+   },{
+    "id": 20,
+     "name": "classroom 7",
+     "type": 5,
+     "cost":[{ "type": 0, "value": 1 } ,{ "type": 1, "value": 1 },{ "type": 3, "value": 1 }],
+     "formation": 1,
+     "coinsEarned":{"type": 1, "value":2},
+     "listProductRessources": null,
+     "minimumPlayersRequiredToBePlayed": 3,
+     "cardsBecomingFreeAfterPlayingThisCard": null,
+     "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": null
+   },{
+    "id": 21,
+     "name": "classroom 7",
+     "type": 5,
+     "cost":[{ "type": 0, "value": 1 } ,{ "type": 1, "value": 1 },{ "type": 3, "value": 1 }],
+     "formation": 1,
+     "coinsEarned":{"type": 1, "value":2},
+     "listProductRessources": null,
+     "minimumPlayersRequiredToBePlayed": 5,
+     "cardsBecomingFreeAfterPlayingThisCard": null,
+     "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": null
+   },
+   {
+    "id": 22,
+     "name": "classroom 8",
+     "type": 5,
+     "cost":[{ "type": 0, "value": 2 } ,{ "type": 3, "value": 1 }],
+     "formation": 1,
+     "coinsEarned":{"type": 1, "value":2},
+     "listProductRessources": null,
+     "minimumPlayersRequiredToBePlayed": 3,
+     "cardsBecomingFreeAfterPlayingThisCard": null,
+     "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": null
+   },
+   {
+    "id": 23,
+     "name": "classroom 8",
+     "type": 5,
+     "cost":[{ "type": 0, "value": 2 } ,{ "type": 3, "value": 1 }],
+     "formation": 1,
+     "coinsEarned":{"type": 1, "value":2},
+     "listProductRessources": null,
+     "minimumPlayersRequiredToBePlayed": 6,
+     "cardsBecomingFreeAfterPlayingThisCard": null,
+     "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": null
+   }, {
+    "id": 24,
+     "name": "classroom 9",
+     "type": 5,
+     "cost":[{ "type": 0, "value": 1 } ,{ "type": 1, "value": 3 }],
+     "formation": 1,
+     "coinsEarned":{"type": 1, "value":3},
+     "listProductRessources": null,
+     "minimumPlayersRequiredToBePlayed": 3,
+     "cardsBecomingFreeAfterPlayingThisCard": null,
+     "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": null
+   },
+   {
+    "id": 25,
+     "name": "classroom 9",
+     "type": 5,
+     "cost":[{ "type": 0, "value": 1 } ,{ "type": 1, "value": 3 }],
+     "formation": 1,
+     "coinsEarned":{"type": 1, "value":3},
+     "listProductRessources": null,
+     "minimumPlayersRequiredToBePlayed": 5,
+     "cardsBecomingFreeAfterPlayingThisCard": null,
+     "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": null
+   }
+
+
+
+
+
+
+
+
+
+]
