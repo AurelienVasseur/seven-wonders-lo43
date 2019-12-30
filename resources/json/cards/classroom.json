@@ -81,7 +81,7 @@
      "coinsEarned":{"type": 1, "value":2},
      "listProductRessources": null,
      "minimumPlayersRequiredToBePlayed": 3,
-     "cardsBecomingFreeAfterPlayingThisCard": 9,
+     "cardsBecomingFreeAfterPlayingThisCard": [9],
      "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": null
    
    },{
@@ -93,7 +93,7 @@
      "coinsEarned":{"type": 1, "value":2},
      "listProductRessources": null,
      "minimumPlayersRequiredToBePlayed": 7,
-     "cardsBecomingFreeAfterPlayingThisCard": 10,
+     "cardsBecomingFreeAfterPlayingThisCard": [10],
      "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": null
    
    },{
@@ -106,7 +106,7 @@
      "listProductRessources": null,
      "minimumPlayersRequiredToBePlayed": 3,
      "cardsBecomingFreeAfterPlayingThisCard": null,
-     "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": 7
+     "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": [7]
    
    },{
     "id": 10,
@@ -118,7 +118,7 @@
      "listProductRessources": null,
      "minimumPlayersRequiredToBePlayed": 7,
      "cardsBecomingFreeAfterPlayingThisCard": null,
-     "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": 8
+     "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": [8]
    
    },{
     "id": 11,
@@ -129,7 +129,7 @@
      "coinsEarned":{"type": 1, "value":2},
      "listProductRessources": null,
      "minimumPlayersRequiredToBePlayed": 4,
-     "cardsBecomingFreeAfterPlayingThisCard": 14,
+     "cardsBecomingFreeAfterPlayingThisCard": [14],
      "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": null
    
    },{
@@ -141,7 +141,7 @@
      "coinsEarned":{"type": 1, "value":2},
      "listProductRessources": null,
      "minimumPlayersRequiredToBePlayed": 6,
-     "cardsBecomingFreeAfterPlayingThisCard": 15,
+     "cardsBecomingFreeAfterPlayingThisCard": [15],
      "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": null
    
    },
@@ -154,7 +154,7 @@
      "coinsEarned":{"type": 1, "value":2},
      "listProductRessources": null,
      "minimumPlayersRequiredToBePlayed": 7,
-     "cardsBecomingFreeAfterPlayingThisCard": 16,
+     "cardsBecomingFreeAfterPlayingThisCard": [16],
      "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": null
    
    },
@@ -168,7 +168,7 @@
      "listProductRessources": null,
      "minimumPlayersRequiredToBePlayed": 4,
      "cardsBecomingFreeAfterPlayingThisCard": null,
-     "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": 11
+     "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": [11]
    },{
     "id": 15,
      "name": "classroom super 5",
@@ -179,7 +179,7 @@
      "listProductRessources": null,
      "minimumPlayersRequiredToBePlayed": 5,
      "cardsBecomingFreeAfterPlayingThisCard": null,
-     "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": 12
+     "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": [12]
    },{
     "id": 16,
      "name": "classroom super 5",
@@ -190,7 +190,7 @@
      "listProductRessources": null,
      "minimumPlayersRequiredToBePlayed": 6,
      "cardsBecomingFreeAfterPlayingThisCard": null,
-     "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": 13
+     "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": [13]
    },{
     "id": 17,
      "name": "classroom 6",
@@ -222,75 +222,6 @@
      "coinsEarned":{"type": 1, "value":3},
      "listProductRessources": null,
      "minimumPlayersRequiredToBePlayed": 7,
-     "cardsBecomingFreeAfterPlayingThisCard": null,
-     "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": null
-   },{
-    "id": 20,
-     "name": "classroom 7",
-     "type": 5,
-     "cost":[{ "type": 0, "value": 1 } ,{ "type": 1, "value": 1 },{ "type": 3, "value": 1 }],
-     "formation": 1,
-     "coinsEarned":{"type": 1, "value":2},
-     "listProductRessources": null,
-     "minimumPlayersRequiredToBePlayed": 3,
-     "cardsBecomingFreeAfterPlayingThisCard": null,
-     "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": null
-   },{
-    "id": 21,
-     "name": "classroom 7",
-     "type": 5,
-     "cost":[{ "type": 0, "value": 1 } ,{ "type": 1, "value": 1 },{ "type": 3, "value": 1 }],
-     "formation": 1,
-     "coinsEarned":{"type": 1, "value":2},
-     "listProductRessources": null,
-     "minimumPlayersRequiredToBePlayed": 5,
-     "cardsBecomingFreeAfterPlayingThisCard": null,
-     "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": null
-   },
-   {
-    "id": 22,
-     "name": "classroom 8",
-     "type": 5,
-     "cost":[{ "type": 0, "value": 2 } ,{ "type": 3, "value": 1 }],
-     "formation": 1,
-     "coinsEarned":{"type": 1, "value":2},
-     "listProductRessources": null,
-     "minimumPlayersRequiredToBePlayed": 3,
-     "cardsBecomingFreeAfterPlayingThisCard": null,
-     "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": null
-   },
-   {
-    "id": 23,
-     "name": "classroom 8",
-     "type": 5,
-     "cost":[{ "type": 0, "value": 2 } ,{ "type": 3, "value": 1 }],
-     "formation": 1,
-     "coinsEarned":{"type": 1, "value":2},
-     "listProductRessources": null,
-     "minimumPlayersRequiredToBePlayed": 6,
-     "cardsBecomingFreeAfterPlayingThisCard": null,
-     "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": null
-   }, {
-    "id": 24,
-     "name": "classroom 9",
-     "type": 5,
-     "cost":[{ "type": 0, "value": 1 } ,{ "type": 1, "value": 3 }],
-     "formation": 1,
-     "coinsEarned":{"type": 1, "value":3},
-     "listProductRessources": null,
-     "minimumPlayersRequiredToBePlayed": 3,
-     "cardsBecomingFreeAfterPlayingThisCard": null,
-     "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": null
-   },
-   {
-    "id": 25,
-     "name": "classroom 9",
-     "type": 5,
-     "cost":[{ "type": 0, "value": 1 } ,{ "type": 1, "value": 3 }],
-     "formation": 1,
-     "coinsEarned":{"type": 1, "value":3},
-     "listProductRessources": null,
-     "minimumPlayersRequiredToBePlayed": 5,
      "cardsBecomingFreeAfterPlayingThisCard": null,
      "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": null
    }

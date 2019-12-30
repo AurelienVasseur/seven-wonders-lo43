@@ -84,7 +84,7 @@
      "coinsEarned":null,
      "listProductRessources": [4,5,6],
      "minimumPlayersRequiredToBePlayed": 3,
-     "cardsBecomingFreeAfterPlayingThisCard": 11,
+     "cardsBecomingFreeAfterPlayingThisCard": [11],
      "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": [4,6]
    },{
     "id": 9,
@@ -95,7 +95,7 @@
      "coinsEarned":null,
      "listProductRessources": [4,5,6],
      "minimumPlayersRequiredToBePlayed": 6,
-     "cardsBecomingFreeAfterPlayingThisCard": 12,
+     "cardsBecomingFreeAfterPlayingThisCard": [12],
      "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": [4,6]
    },{
     "id": 10,
@@ -106,7 +106,7 @@
      "coinsEarned":null,
      "listProductRessources": [4,5,6],
      "minimumPlayersRequiredToBePlayed": 7,
-     "cardsBecomingFreeAfterPlayingThisCard": 12,
+     "cardsBecomingFreeAfterPlayingThisCard": [12],
      "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": [5,7]
    },{
     "id": 11,
@@ -118,7 +118,7 @@
      "listProductRessources": null,
      "minimumPlayersRequiredToBePlayed": 3,
      "cardsBecomingFreeAfterPlayingThisCard": null,
-     "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": 8
+     "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": [8]
    },{
     "id": 12,
      "name": "ad 2 super with fonction that brings pieces depends on how many cards of raw material has been played by the user ",
@@ -129,7 +129,7 @@
      "listProductRessources": null,
      "minimumPlayersRequiredToBePlayed": 4,
      "cardsBecomingFreeAfterPlayingThisCard": null,
-     "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": 9
+     "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": [9]
    },{
     "id": 13,
      "name": "ad 3 with fonction left right purchase  manufacture -1",
@@ -139,7 +139,7 @@
      "coinsEarned":null,
      "listProductRessources": null,
      "minimumPlayersRequiredToBePlayed": 3,
-     "cardsBecomingFreeAfterPlayingThisCard": 15,
+     "cardsBecomingFreeAfterPlayingThisCard": [15],
      "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": null
    },{
     "id": 14,
@@ -150,7 +150,7 @@
      "coinsEarned":null,
      "listProductRessources": null,
      "minimumPlayersRequiredToBePlayed": 6,
-     "cardsBecomingFreeAfterPlayingThisCard": 16,
+     "cardsBecomingFreeAfterPlayingThisCard": [16],
      "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": null
    },{
     "id": 15,
@@ -161,8 +161,8 @@
      "coinsEarned":null,
      "listProductRessources":  [0,1,2,3],
      "minimumPlayersRequiredToBePlayed": 3,
-     "cardsBecomingFreeAfterPlayingThisCard": 18,
-     "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": 13
+     "cardsBecomingFreeAfterPlayingThisCard": [18],
+     "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": [13]
    },{
     "id": 16,
      "name": "ad 3 super",
@@ -172,8 +172,8 @@
      "coinsEarned":null,
      "listProductRessources":  [0,1,2,3],
      "minimumPlayersRequiredToBePlayed": 5,
-     "cardsBecomingFreeAfterPlayingThisCard": 18,
-     "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": 14
+     "cardsBecomingFreeAfterPlayingThisCard": [18],
+     "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": [14]
    },{
     "id": 17,
      "name": "ad 3 super",
@@ -183,8 +183,8 @@
      "coinsEarned":null,
      "listProductRessources":  [0,1,2,3],
      "minimumPlayersRequiredToBePlayed": 6,
-     "cardsBecomingFreeAfterPlayingThisCard":19,
-     "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": 14
+     "cardsBecomingFreeAfterPlayingThisCard":[19],
+     "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": [14]
    },{
     "id": 18,
      "name": "ad 3 generation with fonction that brings pieces depends on how many cards of administration have been played by the user  ",
@@ -195,7 +195,7 @@
      "listProductRessources":  [0,1,2,3],
      "minimumPlayersRequiredToBePlayed": 3,
      "cardsBecomingFreeAfterPlayingThisCard":null,
-     "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": 15
+     "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": [15]
    },{
     "id": 19,
      "name": "ad 3 generation with fonction that brings pieces depends on how many cards of administration have been played by the user  ",
@@ -206,7 +206,7 @@
      "listProductRessources":  [0,1,2,3],
      "minimumPlayersRequiredToBePlayed": 6,
      "cardsBecomingFreeAfterPlayingThisCard":null,
-     "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": 17
+     "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": [17]
    },{
     "id": 20,
      "name": "ad 4 with fonction that brings all voisins one piece ",

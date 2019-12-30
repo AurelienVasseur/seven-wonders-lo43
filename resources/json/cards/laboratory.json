@@ -1,0 +1,426 @@
+[
+    {
+    "id": 1,
+     "name": "laboratory 1",
+     "type":3,
+     "cost":[{ "type": 5, "value": 1 }],
+     "formation": 0,
+     "coinsEarned":null,
+     "listProductRessources": [14],
+     "minimumPlayersRequiredToBePlayed": 3,
+     "cardsBecomingFreeAfterPlayingThisCard":[3,4,32,33],
+     "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": null
+   },{
+    "id": 2,
+     "name": "laboratory 1",
+     "type":3,
+     "cost":[{ "type": 5, "value": 1 }],
+     "formation": 0,
+     "coinsEarned":null,
+     "listProductRessources": [14],
+     "minimumPlayersRequiredToBePlayed": 5,
+     "cardsBecomingFreeAfterPlayingThisCard":null,
+     "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": null
+   },{
+    "id": 3,
+     "name": "super laboratory 1",
+     "type":3,
+     "cost":[{ "type": 3, "value": 2 },{ "type": 4, "value": 1 }],
+     "formation": 1,
+     "coinsEarned":null,
+     "listProductRessources": [14],
+     "minimumPlayersRequiredToBePlayed": 3,
+     "cardsBecomingFreeAfterPlayingThisCard":[5,7,8],
+     "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": [1]
+   },{
+    "id": 4,
+     "name": "super laboratory 1",
+     "type":3,
+     "cost":[{ "type": 3, "value": 2 },{ "type": 4, "value": 1 }],
+     "formation": 1,
+     "coinsEarned":null,
+     "listProductRessources": [14],
+     "minimumPlayersRequiredToBePlayed": 4,
+     "cardsBecomingFreeAfterPlayingThisCard":[6],
+     "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": [1]
+   },{
+    "id": 5,
+     "name": "super generator laboratory 1",
+     "type":3,
+     "cost":[{ "type": 2, "value": 2 },{ "type": 5, "value": 1 },{ "type": 6, "value": 1 }],
+     "formation": 2,
+     "coinsEarned":null,
+     "listProductRessources": [14],
+     "minimumPlayersRequiredToBePlayed": 3,
+     "cardsBecomingFreeAfterPlayingThisCard":null,
+     "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": [3]
+   },{
+    "id": 6,
+     "name": "super generator laboratory 1",
+     "type":3,
+     "cost":[{ "type": 2, "value": 2 },{ "type": 5, "value": 1 },{ "type": 6, "value": 1 }],
+     "formation": 2,
+     "coinsEarned":null,
+     "listProductRessources": [14],
+     "minimumPlayersRequiredToBePlayed": 6,
+     "cardsBecomingFreeAfterPlayingThisCard":null,
+     "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": [4]
+   },{
+    "id": 7,
+     "name": "ad6 with fonction that brings pieces by the nombre of etape , 3,6,9 or 12 ",
+     "type": 4,
+     "cost":[{ "type": 2, "value": 2 },{ "type": 6, "value": 1 }],
+     "formation": 2,
+     "coinsEarned":{ "type": 0, "value": 1 },
+     "listProductRessources": null,
+     "minimumPlayersRequiredToBePlayed": 3,
+     "cardsBecomingFreeAfterPlayingThisCard":null,
+     "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": [3]
+   },{
+    "id": 8,
+     "name": "ad6 with fonction that brings pieces by the nombre of etape , 3,6,9 or 12 ",
+     "type": 4,
+     "cost":[{ "type": 2, "value": 2 },{ "type": 6, "value": 1 }],
+     "formation": 2,
+     "coinsEarned":{ "type": 0, "value": 1 },
+     "listProductRessources": null,
+     "minimumPlayersRequiredToBePlayed": 5,
+     "cardsBecomingFreeAfterPlayingThisCard":null,
+     "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": [3]
+   },{
+    "id": 9,
+     "name": "ad6 with fonction that brings pieces by the nombre of etape , 3,6,9 or 12 ",
+     "type": 4,
+     "cost":[{ "type": 2, "value": 2 },{ "type": 6, "value": 1 }],
+     "formation": 2,
+     "coinsEarned":{ "type": 0, "value": 1 },
+     "listProductRessources": null,
+     "minimumPlayersRequiredToBePlayed": 7,
+     "cardsBecomingFreeAfterPlayingThisCard":null,
+     "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": [4]
+   },{
+    "id": 10,
+     "name": "laboratory 2",
+     "type":3,
+     "cost":[{ "type": 4, "value": 1 }],
+     "formation": 0,
+     "coinsEarned":null,
+     "listProductRessources": [15],
+     "minimumPlayersRequiredToBePlayed": 3,
+     "cardsBecomingFreeAfterPlayingThisCard":[35,34],
+     "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": null
+   },{
+    "id": 11,
+     "name": "laboratory 2",
+     "type":3,
+     "cost":[{ "type": 4, "value": 1 }],
+     "formation": 0,
+     "coinsEarned":null,
+     "listProductRessources": [15],
+     "minimumPlayersRequiredToBePlayed": 7,
+     "cardsBecomingFreeAfterPlayingThisCard":null,
+     "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": null
+   },{
+    "id": 12,
+     "name": "super laboratory 2",
+     "type":3,
+     "cost":[{ "type": 2, "value": 2 },{ "type": 6, "value": 1 }],
+     "formation": 1,
+     "coinsEarned":null,
+     "listProductRessources": [15],
+     "minimumPlayersRequiredToBePlayed": 3,
+     "cardsBecomingFreeAfterPlayingThisCard":[14,36],
+     "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": [10]
+   },{
+    "id": 13,
+     "name": "super laboratory 2",
+     "type":3,
+     "cost":[{ "type": 2, "value": 2 },{ "type": 6, "value": 1 }],
+     "formation": 1,
+     "coinsEarned":null,
+     "listProductRessources": [15],
+     "minimumPlayersRequiredToBePlayed": 5,
+     "cardsBecomingFreeAfterPlayingThisCard":[15,37],
+     "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": [10]
+   },{
+    "id": 14,
+     "name": "super generator laboratory 2",
+     "type":3,
+     "cost":[{ "type": 3, "value": 2 },{ "type": 5, "value": 1 },{ "type": 4, "value": 1 }],
+     "formation": 2,
+     "coinsEarned":null,
+     "listProductRessources": [15],
+     "minimumPlayersRequiredToBePlayed": 3,
+     "cardsBecomingFreeAfterPlayingThisCard":null,
+     "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": [12]
+   },{
+    "id": 15,
+     "name": "super generator laboratory 2",
+     "type":3,
+     "cost":[{ "type": 3, "value": 2 },{ "type": 5, "value": 1 },{ "type": 4, "value": 1 }],
+     "formation": 2,
+     "coinsEarned":null,
+     "listProductRessources": [15],
+     "minimumPlayersRequiredToBePlayed": 7,
+     "cardsBecomingFreeAfterPlayingThisCard":null,
+     "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": [13]
+   },{
+    "id": 16,
+     "name": "laboratory 3",
+     "type":3,
+     "cost":[{ "type": 6, "value": 1 }],
+     "formation": 0,
+     "coinsEarned":null,
+     "listProductRessources": [16],
+     "minimumPlayersRequiredToBePlayed": 3,
+     "cardsBecomingFreeAfterPlayingThisCard":[18,20],
+     "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": null
+   },{
+    "id": 17,
+     "name": "laboratory 3",
+     "type":3,
+     "cost":[{ "type": 6, "value": 1 }],
+     "formation": 0,
+     "coinsEarned":null,
+     "listProductRessources": [16],
+     "minimumPlayersRequiredToBePlayed": 4,
+     "cardsBecomingFreeAfterPlayingThisCard":[19,21],
+     "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": null
+   },{
+    "id": 18,
+     "name": "super laboratory 3",
+     "type":3,
+     "cost":[{ "type": 1, "value": 2 },{ "type": 5, "value": 1 }],
+     "formation": 1,
+     "coinsEarned":null,
+     "listProductRessources": [16],
+     "minimumPlayersRequiredToBePlayed": 3,
+     "cardsBecomingFreeAfterPlayingThisCard":[22,23,24,25],
+     "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": [16]
+   },{
+    "id": 19,
+     "name": "super laboratory 3",
+     "type":3,
+     "cost":[{ "type": 1, "value": 2 },{ "type": 5, "value": 1 }],
+     "formation": 1,
+     "coinsEarned":null,
+     "listProductRessources": [16],
+     "minimumPlayersRequiredToBePlayed": 6,
+     "cardsBecomingFreeAfterPlayingThisCard":null,
+     "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": [17]
+   }, {
+    "id": 20,
+      "name": "library 7",
+      "type": 2,
+      "cost": [{ "type": 5, "value": 1 },{ "type": 2, "value": 2 }],
+      "formation": 1,
+      "coinsEarned":{ "type": 0, "value": 4 },
+      "listProductRessources": null,
+      "minimumPlayersRequiredToBePlayed": 3,
+      "cardsBecomingFreeAfterPlayingThisCard": null,
+      "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": [16]
+    },{
+        "id": 21,
+          "name": "library 7",
+          "type": 2,
+          "cost": [{ "type": 5, "value": 1 },{ "type": 2, "value": 2 }],
+          "formation": 1,
+          "coinsEarned":{ "type": 0, "value": 4 },
+          "listProductRessources": null,
+          "minimumPlayersRequiredToBePlayed": 5,
+          "cardsBecomingFreeAfterPlayingThisCard": null,
+          "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": [17]
+        },{
+            "id": 22,
+             "name": "super generator laboratory 3",
+             "type":3,
+             "cost":[{ "type": 0, "value": 2 },{ "type": 4, "value": 1 },{ "type": 6, "value": 1 }],
+             "formation": 2,
+             "coinsEarned":null,
+             "listProductRessources": [16],
+             "minimumPlayersRequiredToBePlayed": 3,
+             "cardsBecomingFreeAfterPlayingThisCard":null,
+             "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": [18]
+           }, 
+           {
+            "id": 23,
+             "name": "super generator laboratory 3",
+             "type":3,
+             "cost":[{ "type": 0, "value": 2 },{ "type": 4, "value": 1 },{ "type": 6, "value": 1 }],
+             "formation": 2,
+             "coinsEarned":null,
+             "listProductRessources": [16],
+             "minimumPlayersRequiredToBePlayed": 4,
+             "cardsBecomingFreeAfterPlayingThisCard":null,
+             "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": [18]
+           }, 
+           {
+            "id": 24,
+              "name": "library 8",
+              "type": 2,
+              "cost": [{ "type": 3, "value": 1 },{ "type": 0, "value": 2 },{ "type": 1, "value": 1 },],
+              "formation": 2,
+              "coinsEarned":{ "type": 0, "value": 6 },
+              "listProductRessources": null,
+              "minimumPlayersRequiredToBePlayed": 3,
+              "cardsBecomingFreeAfterPlayingThisCard": null,
+              "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": [18]
+            },
+            {
+                "id": 25,
+                  "name": "library 8",
+                  "type": 2,
+                  "cost": [{ "type": 3, "value": 1 },{ "type": 0, "value": 2 },{ "type": 1, "value": 1 },],
+                  "formation": 2,
+                  "coinsEarned":{ "type": 0, "value": 6 },
+                  "listProductRessources": null,
+                  "minimumPlayersRequiredToBePlayed": 5,
+                  "cardsBecomingFreeAfterPlayingThisCard": null,
+                  "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": [18]
+                },{
+                    "id": 26,
+                     "name": " laboratory 4",
+                     "type":3,
+                     "cost":[{ "type": 0, "value": 1 },{ "type": 6, "value": 1 }],
+                     "formation": 1,
+                     "coinsEarned":null,
+                     "listProductRessources": [16],
+                     "minimumPlayersRequiredToBePlayed": 3,
+                     "cardsBecomingFreeAfterPlayingThisCard":[28,30,31],
+                     "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": null
+                   }, {
+                    "id": 27,
+                     "name": " laboratory 4",
+                     "type":3,
+                     "cost":[{ "type": 0, "value": 1 },{ "type": 6, "value": 1 }],
+                     "formation": 1,
+                     "coinsEarned":null,
+                     "listProductRessources": [16],
+                     "minimumPlayersRequiredToBePlayed": 7,
+                     "cardsBecomingFreeAfterPlayingThisCard":[29],
+                     "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": null
+                   },  {
+                    "id": 28,
+                     "name": " super laboratory 4A",
+                     "type":3,
+                     "cost":[{ "type": 1, "value": 3 },{ "type": 4, "value": 1 }],
+                     "formation": 2,
+                     "coinsEarned":null,
+                     "listProductRessources": [14],
+                     "minimumPlayersRequiredToBePlayed": 3,
+                     "cardsBecomingFreeAfterPlayingThisCard":null,
+                     "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": [26]
+                   }, {
+                    "id": 29,
+                     "name": " super laboratory 4A",
+                     "type":3,
+                     "cost":[{ "type": 1, "value": 3 },{ "type": 4, "value": 1 }],
+                     "formation": 2,
+                     "coinsEarned":null,
+                     "listProductRessources": [14],
+                     "minimumPlayersRequiredToBePlayed": 7,
+                     "cardsBecomingFreeAfterPlayingThisCard":null,
+                     "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": [27]
+                   }, {
+                    "id": 30,
+                     "name": " super laboratory 4B",
+                     "type":3,
+                     "cost":[{ "type": 0, "value": 1 },{ "type": 5, "value": 1 },{ "type": 6, "value": 1 }],
+                     "formation": 2,
+                     "coinsEarned":null,
+                     "listProductRessources": [15],
+                     "minimumPlayersRequiredToBePlayed": 3,
+                     "cardsBecomingFreeAfterPlayingThisCard":null,
+                     "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": [26]
+                   }, {
+                    "id": 31,
+                     "name": " super laboratory 4B",
+                     "type":3,
+                     "cost":[{ "type": 0, "value": 1 },{ "type": 5, "value": 1 },{ "type": 6, "value": 1 }],
+                     "formation": 2,
+                     "coinsEarned":null,
+                     "listProductRessources": [15],
+                     "minimumPlayersRequiredToBePlayed": 5,
+                     "cardsBecomingFreeAfterPlayingThisCard":null,
+                     "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": [26]
+                   }, 
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   {
+    "id": 32,
+     "name": "classroom 7",
+     "type": 5,
+     "cost":[{ "type": 0, "value": 1 } ,{ "type": 1, "value": 1 },{ "type": 3, "value": 1 }],
+     "formation": 1,
+     "coinsEarned":{"type": 1, "value":2},
+     "listProductRessources": null,
+     "minimumPlayersRequiredToBePlayed": 3,
+     "cardsBecomingFreeAfterPlayingThisCard": null,
+     "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": [1]
+   },{
+    "id": 33,
+     "name": "classroom 7",
+     "type": 5,
+     "cost":[{ "type": 0, "value": 1 } ,{ "type": 1, "value": 1 },{ "type": 3, "value": 1 }],
+     "formation": 1,
+     "coinsEarned":{"type": 1, "value":2},
+     "listProductRessources": null,
+     "minimumPlayersRequiredToBePlayed": 5,
+     "cardsBecomingFreeAfterPlayingThisCard": null,
+     "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": [1]
+   },
+   {
+    "id": 34,
+     "name": "classroom 8",
+     "type": 5,
+     "cost":[{ "type": 0, "value": 2 } ,{ "type": 3, "value": 1 }],
+     "formation": 1,
+     "coinsEarned":{"type": 1, "value":2},
+     "listProductRessources": null,
+     "minimumPlayersRequiredToBePlayed": 3,
+     "cardsBecomingFreeAfterPlayingThisCard": null,
+     "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": [10]
+   },
+   {
+    "id": 35,
+     "name": "classroom 8",
+     "type": 5,
+     "cost":[{ "type": 0, "value": 2 } ,{ "type": 3, "value": 1 }],
+     "formation": 1,
+     "coinsEarned":{"type": 1, "value":2},
+     "listProductRessources": null,
+     "minimumPlayersRequiredToBePlayed": 6,
+     "cardsBecomingFreeAfterPlayingThisCard": null,
+     "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": [10]
+   }, {
+    "id": 36,
+     "name": "classroom 9",
+     "type": 5,
+     "cost":[{ "type": 0, "value": 1 } ,{ "type": 1, "value": 3 }],
+     "formation": 1,
+     "coinsEarned":{"type": 1, "value":3},
+     "listProductRessources": null,
+     "minimumPlayersRequiredToBePlayed": 3,
+     "cardsBecomingFreeAfterPlayingThisCard": null,
+     "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": [12]
+   },
+   {
+    "id": 37,
+     "name": "classroom 9",
+     "type": 5,
+     "cost":[{ "type": 0, "value": 1 } ,{ "type": 1, "value": 3 }],
+     "formation": 1,
+     "coinsEarned":{"type": 1, "value":3},
+     "listProductRessources": null,
+     "minimumPlayersRequiredToBePlayed": 5,
+     "cardsBecomingFreeAfterPlayingThisCard": null,
+     "cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree": [13]
+   }
+]
