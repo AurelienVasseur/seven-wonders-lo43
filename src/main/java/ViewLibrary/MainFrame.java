@@ -18,7 +18,7 @@ import javax.swing.table.TableColumn;
 
 /**
  *
- * @author Hicham
+ * @author Hicham, Aurélien
  */
 public class MainFrame extends javax.swing.JFrame {
     private HomePanel homePanel;
@@ -71,6 +71,7 @@ public class MainFrame extends javax.swing.JFrame {
     public void displayGame(PlayersAmount playersAmount) {
         // Initialisation du Game Manager
         this.gameManager = new GameManager(playersAmount);
+        //this.gameManager.start();  // A ACTIVER
         
         this.remove(this.playersAmountSelectionPanel);
         this.playersAmountSelectionPanel.removeAll();

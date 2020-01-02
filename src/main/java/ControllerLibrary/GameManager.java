@@ -16,7 +16,7 @@ import java.util.Collections;
 
 /**
  *
- * @author Hicham
+ * @author Hicham, Aurélien
  */
 public class GameManager {
     protected ArrayList<Player> listPlayers;
@@ -31,11 +31,11 @@ public class GameManager {
     public GameManager(PlayersAmount playersAmount) {
         int numberOfPlayers = playersAmount.getValue();
         this.listPlayers = new ArrayList<Player>();
-        ArrayList<UT> listUT = this.fetchShuffledUT();
+        //ArrayList<UT> listUT = this.fetchShuffledUT();
         for(int i = 0; i < numberOfPlayers; ++i) {
-            //this.listPlayers.add(new Player()); // Pour tester - à supprimer
-            this.listPlayers.add(new Player(listUT.get(0)));
-            listUT.remove(0);
+            this.listPlayers.add(new Player()); // Pour tester - à supprimer
+            //this.listPlayers.add(new Player(listUT.get(0)));
+            //listUT.remove(0);
             
             System.out.println("joueur " + i);
         }
@@ -63,6 +63,7 @@ public class GameManager {
     }
     
     public void start() {
+        this.initializePlayers();
         // 1. Générer le deck pour le premier age
         Deck firstAgeDeck = this.getDeckForAge(Formation.COMMONCORE);
         // 2. Mélanger les cartes
@@ -71,11 +72,46 @@ public class GameManager {
         this.distributeCards(firstAgeDeck);
         
         // 4. Proposer aux joueurs de jouer leur tour
-        throw new java.lang.UnsupportedOperationException("Not Implemented yet.");
+        //throw new java.lang.UnsupportedOperationException("Not Implemented yet.");
+    }
+    
+    public void initializePlayers() {
+        for(int i = 0; i < this.listPlayers.size(); ++i) {
+            // Initialize player 
+            this.listPlayers.get(i).setIsValidate(false);
+            // TODO : initialize PlayerPanel
+        }
+    }
+    
+    public void checkIfPlayersValidate() {
+        boolean test = true;
+        for(int i = 0; (i < this.listPlayers.size()) && (test == true); ++i) {
+            if(this.listPlayers.get(i).getIsValidate() != true) {
+                test = false;
+            }
+        }
+        if(test == true) {
+            System.out.println("Joueurs READY");
+            this.playTurn();
+        } else {
+            System.out.println("Joueurs NON READY");
+        }
     }
     
     public void playTurn() {
-        throw new java.lang.UnsupportedOperationException("Not Implemented yet.");
+        // throw new java.lang.UnsupportedOperationException("Not Implemented yet.");
+        System.out.println("playTurn");
+        
+        // Gestion des actions sélectionnées par les joueurs
+        for(int i = 0; i < this.listPlayers.size(); ++i) {
+            this.listPlayers.get(i).doAction();
+        }
+        // Passage à la main suivante
+        for(int i = 0; i < this.listPlayers.size(); ++i) {
+            // TODO
+        }
+        
+        this.initializePlayers();
     }
     
     public void updateLeaderboard() {

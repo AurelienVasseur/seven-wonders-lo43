@@ -12,7 +12,7 @@ import ModelLibrary.ScoreLibrary.Point;
 
 /**
  *
- * @author Hicham
+ * @author Hicham, Aurélien
  */
 public class Player {
     private UT gameBoard;
@@ -21,6 +21,7 @@ public class Player {
     private Deck cardsPlayed;
     private Action actionSelected;
     private Card cardSelected;
+    private boolean isValidate; // A validé son tour de jeu
 
     public Player() {
     }
@@ -40,8 +41,36 @@ public class Player {
     }
     
     
-    public void doAction(Action action) {
-        throw new java.lang.UnsupportedOperationException("Not Implemented yet.");
+    public void doAction() {
+        //throw new java.lang.UnsupportedOperationException("Not Implemented yet.");
+        // Action 1. BUILD
+        if (this.actionSelected == Action.BUILD) {
+            // Vérification si ressources nécessaires
+            if(this.checkResourcesToPlayCard(this.getCardSelected()) == true) {
+                // Achat de la carte
+                this.buyCard(this.getCardSelected());
+                // On retire la carte du deck
+                this.deck.removeCard(this.getCardSelected());
+                this.cardsPlayed.addCard(this.cardSelected);
+            }
+        }
+        // Action 2. BUY
+        if (this.actionSelected == Action.BUY) {
+            // TODO
+        }
+        // Action 3. EVOLVE
+        if (this.actionSelected == Action.EVOLVE) {
+            this.gameBoard.evolve();
+        }
+        // Action 4. DISCARD
+        if (this.actionSelected == Action.DISCARD) {
+            // On défausse la carte 
+            this.deck.removeCard(this.cardSelected);
+            // Le joueur gagne 3 pièces
+            Point coin = this.score.getCoin();
+            coin.setValue(coin.getValue() + 3);
+            this.score.setCoin(coin);
+        }
     }
     
     public void selectCard() {
@@ -52,7 +81,15 @@ public class Player {
         throw new java.lang.UnsupportedOperationException("Not Implemented yet.");
     }
     
+    // Vérifie si le joueur à assez de ressources pour jouer la carte
+    public boolean checkResourcesToPlayCard(Card card) {
+        throw new java.lang.UnsupportedOperationException("Not Implemented yet.");
+    }
     
+    // Achat d'une carte -> dépense des ressources nécessaires
+    public void buyCard(Card card) {
+        throw new java.lang.UnsupportedOperationException("Not Implemented yet.");
+    }
     
     public UT getGameBoard() {
         return gameBoard;
@@ -76,6 +113,10 @@ public class Player {
 
     public void setDeck(Deck deck) {
         this.deck = deck;
+    }
+    
+    public Card getCardDeckByName(String name) {
+        return this.deck.getCardByName(name);
     }
 
     public Deck getCardsPlayed() {
@@ -101,7 +142,15 @@ public class Player {
 
     public void setCardSelected(Card cardSelected) {
         this.cardSelected = cardSelected;
-        System.out.println("Card selected : " + this.cardSelected);
+        System.out.println("Card selected : " + this.cardSelected.getName());
+    }
+    
+    public boolean getIsValidate() {
+        return this.isValidate;
+    }
+    
+    public void setIsValidate(boolean isValidate) {
+        this.isValidate = isValidate;
     }
 
     @Override

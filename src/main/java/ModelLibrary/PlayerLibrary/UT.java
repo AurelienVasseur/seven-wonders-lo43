@@ -61,6 +61,22 @@ public class UT {
     public void setListProductRessources(ArrayList<RessourcePack> listProductRessources) {
         this.listProductRessources = listProductRessources;
     }
+    
+    public void evolve() {
+        if(null != this.evolution) switch (this.evolution) {
+            case NONE:
+                this.evolution = Evolution.FIRST;
+                break;
+            case FIRST:
+                this.evolution = Evolution.SECOND;
+                break;
+            case SECOND:
+                this.evolution = Evolution.THIRD;
+                break;
+            default:
+                break;
+        }
+    }
 
     @Override
     public String toString() {

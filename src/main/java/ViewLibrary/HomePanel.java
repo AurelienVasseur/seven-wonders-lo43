@@ -10,7 +10,7 @@ import javax.swing.JLabel;
 
 /**
  *
- * @author Hicham
+ * @author Hicham, Aurélien
  */
 public class HomePanel extends javax.swing.JPanel {
     private MainFrame frame;

@@ -10,6 +10,7 @@ package EnumLibrary;
  * @author Hicham
  */
 public enum PointType {
+    COIN,
     VICTORY,
     KNOWLEDGE,
     ASSOCIATION
