@@ -5,6 +5,12 @@
  */
 package ViewLibrary;
 
+import EnumLibrary.Action;
+import ModelLibrary.CardLibrary.Card;
+import ModelLibrary.PlayerLibrary.Player;
+import java.util.EnumSet;
+import javax.swing.DefaultListModel;
+
 /**
  *
  * @author Hicham
@@ -22,7 +28,18 @@ public class PlayerPanel extends javax.swing.JPanel {
         this.frame = frame;
         this.playerId = playerId;
         initComponents();
-        this.jLabel1.setText("PlayerPanel number " + this.playerId + " works!");
+        this.jLabelPLayerId.setText("Player n° " + this.playerId);
+        
+        // Initialisation de la liste des cartes du deck -  A FINIR !!
+        DefaultListModel modelCards = new DefaultListModel();
+        this.jListCards.setModel(modelCards);
+        // Initialisation de la liste des cartes jouées - A FINIR !!
+        DefaultListModel modelCardsPlayed = new DefaultListModel();
+        this.jListCardsPlayed.setModel(modelCardsPlayed);
+        // Initialisation de la liste des actions
+        DefaultListModel modelActions = new DefaultListModel();
+        EnumSet.allOf(Action.class).forEach(action -> modelActions.addElement(action.toString()));
+        this.jListAction.setModel(modelActions);
     }
 
     /**
@@ -34,10 +51,25 @@ public class PlayerPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        jLabelPLayerId = new javax.swing.JLabel();
         jButtonLeaderboard = new javax.swing.JButton();
+        jButtonSelectCard = new javax.swing.JButton();
+        jScrollPaneCards = new javax.swing.JScrollPane();
+        jListCards = new javax.swing.JList<>();
+        jLabelDeck = new javax.swing.JLabel();
+        jScrollPaneActions = new javax.swing.JScrollPane();
+        jListAction = new javax.swing.JList<>();
+        jButtonSelectAction = new javax.swing.JButton();
+        jLabelActions = new javax.swing.JLabel();
+        jScrollPaneCardsPlayed = new javax.swing.JScrollPane();
+        jListCardsPlayed = new javax.swing.JList<>();
+        jLabelCardsPlayed = new javax.swing.JLabel();
+        jLabelWonderName = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        jSeparator2 = new javax.swing.JSeparator();
+        jLabel1 = new javax.swing.JLabel();
 
-        jLabel1.setText("PlayerPanel works!");
+        jLabelPLayerId.setText("Player n° ID");
 
         jButtonLeaderboard.setText("Display Leaderboard");
         jButtonLeaderboard.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -46,25 +78,146 @@ public class PlayerPanel extends javax.swing.JPanel {
             }
         });
 
+        jButtonSelectCard.setText("Select Card");
+        jButtonSelectCard.setEnabled(false);
+        jButtonSelectCard.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSelectCardActionPerformed(evt);
+            }
+        });
+
+        jListCards.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jListCards.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                jListCardsValueChanged(evt);
+            }
+        });
+        jScrollPaneCards.setViewportView(jListCards);
+
+        jLabelDeck.setText("Deck");
+
+        jListAction.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jListAction.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                jListActionValueChanged(evt);
+            }
+        });
+        jScrollPaneActions.setViewportView(jListAction);
+
+        jButtonSelectAction.setText("Select Action");
+        jButtonSelectAction.setEnabled(false);
+        jButtonSelectAction.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSelectActionActionPerformed(evt);
+            }
+        });
+
+        jLabelActions.setText("Actions");
+
+        jListCardsPlayed.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPaneCardsPlayed.setViewportView(jListCardsPlayed);
+
+        jLabelCardsPlayed.setText("Cards played");
+
+        jLabelWonderName.setText("Wonder's Name");
+
+        jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
+
+        jLabel1.setText("(MONTRER L'ETAT DE LA MERVEILLE)");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButtonLeaderboard)
-                    .addComponent(jLabel1))
-                .addContainerGap(232, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(143, 143, 143)
+                        .addComponent(jLabelWonderName)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButtonLeaderboard, javax.swing.GroupLayout.DEFAULT_SIZE, 375, Short.MAX_VALUE)
+                            .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jScrollPaneCardsPlayed, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGap(18, 18, 18)
+                                                .addComponent(jLabelCardsPlayed)))
+                                        .addGap(10, 10, 10)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                .addComponent(jButtonSelectCard, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(jScrollPaneCards, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGap(33, 33, 33)
+                                                .addComponent(jLabelDeck))))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabelPLayerId)
+                                        .addGap(0, 0, Short.MAX_VALUE)))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jScrollPaneActions)
+                                    .addComponent(jButtonSelectAction, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(38, 38, 38)
+                                        .addComponent(jLabelActions)))))))
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(93, 93, 93)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(15, 15, 15)
+                .addComponent(jLabelPLayerId)
+                .addGap(23, 23, 23)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelDeck)
+                    .addComponent(jLabelActions)
+                    .addComponent(jLabelCardsPlayed))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPaneActions, javax.swing.GroupLayout.DEFAULT_SIZE, 84, Short.MAX_VALUE)
+                            .addComponent(jScrollPaneCards, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButtonSelectCard)
+                            .addComponent(jButtonSelectAction)))
+                    .addComponent(jScrollPaneCardsPlayed, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jSeparator1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabelWonderName)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel1)
-                .addGap(43, 43, 43)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
                 .addComponent(jButtonLeaderboard)
-                .addContainerGap(194, Short.MAX_VALUE))
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -73,9 +226,56 @@ public class PlayerPanel extends javax.swing.JPanel {
         this.frame.displayLeaderboard();
     }//GEN-LAST:event_jButtonLeaderboardMouseClicked
 
+    private void jButtonSelectActionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSelectActionActionPerformed
+        // Récupération de l'action sélectionnée
+        Action actionSelected = Action.valueOf(this.jListAction.getSelectedValue());
+        // Sélection de l'action
+        Player player = this.frame.gameManager.getPlayer(this.playerId);
+        player.setActionSelected(actionSelected);
+        this.frame.gameManager.setPlayer(player, this.playerId);
+    }//GEN-LAST:event_jButtonSelectActionActionPerformed
+
+    private void jButtonSelectCardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSelectCardActionPerformed
+        // Récupération de la carte sélectionnée
+        Card cardSelected = this.jListCards.getSelectedValue();  // Trouver un moyen de stocker un objet dans une jList
+        // Sélection de la carte
+        Player player = this.frame.gameManager.getPlayer(this.playerId);
+        player.setCardSelected(cardSelected);
+        this.frame.gameManager.setPlayer(player, this.playerId);
+    }//GEN-LAST:event_jButtonSelectCardActionPerformed
+
+    private void jListActionValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jListActionValueChanged
+        // activer le bouton permettant de sélectionner une action
+        if(this.jButtonSelectAction.isEnabled() == false) {
+            this.jButtonSelectAction.setEnabled(true);
+        }
+    }//GEN-LAST:event_jListActionValueChanged
+
+    private void jListCardsValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jListCardsValueChanged
+        // activer le bouton permettant de sélectionner une carte
+        if(this.jButtonSelectCard.isEnabled() == false) {
+            this.jButtonSelectCard.setEnabled(true);
+        }
+    }//GEN-LAST:event_jListCardsValueChanged
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonLeaderboard;
+    private javax.swing.JButton jButtonSelectAction;
+    private javax.swing.JButton jButtonSelectCard;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabelActions;
+    private javax.swing.JLabel jLabelCardsPlayed;
+    private javax.swing.JLabel jLabelDeck;
+    private javax.swing.JLabel jLabelPLayerId;
+    private javax.swing.JLabel jLabelWonderName;
+    private javax.swing.JList<String> jListAction;
+    private javax.swing.JList<String> jListCards;
+    private javax.swing.JList<String> jListCardsPlayed;
+    private javax.swing.JScrollPane jScrollPaneActions;
+    private javax.swing.JScrollPane jScrollPaneCards;
+    private javax.swing.JScrollPane jScrollPaneCardsPlayed;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
     // End of variables declaration//GEN-END:variables
 }

@@ -6,6 +6,7 @@
 package ModelLibrary.PlayerLibrary;
 
 import EnumLibrary.Action;
+import ModelLibrary.CardLibrary.Card;
 import ModelLibrary.ScoreLibrary.Score;
 import ModelLibrary.ScoreLibrary.Point;
 
@@ -18,6 +19,8 @@ public class Player {
     private Score score;
     private Deck deck;
     private Deck cardsPlayed;
+    private Action actionSelected;
+    private Card cardSelected;
 
     public Player() {
     }
@@ -81,6 +84,24 @@ public class Player {
 
     public void setCardsPlayed(Deck cardsPlayed) {
         this.cardsPlayed = cardsPlayed;
+    }
+    
+    public Action getActionSelected() {
+        return actionSelected;
+    }
+
+    public void setActionSelected(Action actionSelected) {
+        this.actionSelected = actionSelected;
+        System.out.println("Action selected : " + this.actionSelected);
+    }
+    
+    public Card getCardSelected() {
+        return cardSelected;
+    }
+
+    public void setCardSelected(Card cardSelected) {
+        this.cardSelected = cardSelected;
+        System.out.println("Card selected : " + this.cardSelected);
     }
 
     @Override

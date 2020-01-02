@@ -19,7 +19,7 @@ import java.util.Collections;
  * @author Hicham
  */
 public class GameManager {
-    private ArrayList<Player> listPlayers;
+    protected ArrayList<Player> listPlayers;
 
     public GameManager() {
     }
@@ -33,8 +33,11 @@ public class GameManager {
         this.listPlayers = new ArrayList<Player>();
         ArrayList<UT> listUT = this.fetchShuffledUT();
         for(int i = 0; i < numberOfPlayers; ++i) {
+            //this.listPlayers.add(new Player()); // Pour tester - à supprimer
             this.listPlayers.add(new Player(listUT.get(0)));
             listUT.remove(0);
+            
+            System.out.println("joueur " + i);
         }
     }
     
@@ -95,6 +98,14 @@ public class GameManager {
 
     public void setListPlayers(ArrayList<Player> listPlayers) {
         this.listPlayers = listPlayers;
+    }
+    
+    public Player getPlayer(int id) {
+        return listPlayers.get(id);
+    }
+    
+    public void setPlayer(Player player, int id) {
+        this.listPlayers.set(id, player);
     }
 
     @Override

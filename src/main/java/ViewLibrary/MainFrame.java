@@ -5,6 +5,7 @@
  */
 package ViewLibrary;
 
+import ControllerLibrary.GameManager;
 import EnumLibrary.PlayersAmount;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -25,6 +26,7 @@ public class MainFrame extends javax.swing.JFrame {
     private JPanel playersPanel;
     private JPanel leaderboardPanel;
     private JPanel endPanel;
+    protected GameManager gameManager;
 
     /**
      * @param args the command line arguments
@@ -67,6 +69,9 @@ public class MainFrame extends javax.swing.JFrame {
     }
     
     public void displayGame(PlayersAmount playersAmount) {
+        // Initialisation du Game Manager
+        this.gameManager = new GameManager(playersAmount);
+        
         this.remove(this.playersAmountSelectionPanel);
         this.playersAmountSelectionPanel.removeAll();
         this.playersPanel = new JPanel();
