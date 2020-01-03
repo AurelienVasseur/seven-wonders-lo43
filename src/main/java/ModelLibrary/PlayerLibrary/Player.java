@@ -24,6 +24,26 @@ public class Player {
     private boolean isValidate; // A validé son tour de jeu
 
     public Player() {
+        this.gameBoard = new UT();
+        this.score = new Score();
+        this.deck = new Deck();
+        this.cardsPlayed = new Deck();
+        
+        /* Cartes test -- A SUPPRIMER */
+        Card card = new Card();   
+        card.setId(0);
+        card.setName("Carte deck 1");
+        this.deck.addCard(card);
+        Card card2 = new Card();
+        card2.setId(1);
+        card2.setName("Carte deck 2");
+        this.deck.addCard(card2);
+        
+        Card card3 = new Card();
+        card3.setId(2);
+        card3.setName("Carte played");
+        this.cardsPlayed.addCard(card3);
+        /* ----- */
     }
 
     public Player(UT gameBoard) {
@@ -40,17 +60,22 @@ public class Player {
         this.cardsPlayed = cardsPlayed;
     }
     
+    public void initialize() {
+        this.setIsValidate(false);
+        //this.setCardSelected(null);
+        //this.setActionSelected(null); 
+    }
     
     public void doAction() {
         // Action 1. BUILD
         if (this.actionSelected == Action.BUILD) {
             System.out.println("Player.doAction : BUILD");
             // Vérification si ressources nécessaires
-            if(this.checkResourcesToPlayCard(this.getCardSelected()) == true) {
+            if(this.checkResourcesToPlayCard(this.cardSelected) == true) {
                 // Achat de la carte
                 this.buyCard(this.getCardSelected());
                 // On retire la carte du deck
-                this.deck.removeCard(this.getCardSelected());
+                this.deck.removeCard(this.cardSelected);
                 this.cardsPlayed.addCard(this.cardSelected);
             }
         }
@@ -62,11 +87,14 @@ public class Player {
         // Action 3. EVOLVE
         if (this.actionSelected == Action.EVOLVE) {
             System.out.println("Player.doAction : EVOLVE");
+            System.out.println("Player.doAction : carteSelected : " + this.cardSelected.getName());
+            this.deck.removeCard(cardSelected);
             this.gameBoard.evolve();
         }
         // Action 4. DISCARD
         if (this.actionSelected == Action.DISCARD) {
             System.out.println("Player.doAction : DISCARD");
+            System.out.println("Player.doAction : carteSelected : " + this.cardSelected.getName());
             // On défausse la carte 
             this.deck.removeCard(this.cardSelected);
             // Le joueur gagne 3 pièces

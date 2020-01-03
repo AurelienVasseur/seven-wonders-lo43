@@ -16,7 +16,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Hicham
+ * @author Hicham, Aurélien
  */
 public class Card {
     protected int id;

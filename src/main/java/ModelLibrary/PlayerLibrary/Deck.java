@@ -20,12 +20,14 @@ public class Deck {
     private ArrayList<Card> listCards;
 
     public Deck() {
-        Card card = new Card(); //// A SUPPRIMER - TOUT
-        card.setName("Carte test");
         this.listCards = new ArrayList<Card>();
+        //// A SUPPRIMER - TOUT
+        /*Card card = new Card(); 
+        card.setName("Carte test");
         this.listCards.add(card);
         System.out.println("Ajout carte. Size : " + this.listCards.size());
-        System.out.println(card);
+        System.out.println(card);*/
+        //// FIN SUPP
     }
 
     public Deck(ArrayList<Card> listCards) {

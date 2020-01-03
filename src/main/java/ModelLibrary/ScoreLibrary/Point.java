@@ -9,14 +9,14 @@ import EnumLibrary.PointType;
 
 /**
  *
- * @author Hicham
+ * @author Hicham, Aurélien
  */
 public class Point {
     private PointType type;
     private int value;
 
     public Point() {
-        
+        this.value = 0;
     }
     
     public Point(PointType type, int value) {

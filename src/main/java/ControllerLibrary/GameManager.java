@@ -20,6 +20,8 @@ import java.util.Collections;
  */
 public class GameManager {
     protected ArrayList<Player> listPlayers;
+    int age;
+    int lap; // tour de jeu
 
     public GameManager() {
     }
@@ -64,22 +66,17 @@ public class GameManager {
     
     public void start() {
         this.initializePlayers();
-        // 1. Générer le deck pour le premier age
-        Deck firstAgeDeck = this.getDeckForAge(Formation.COMMONCORE);
-        // 2. Mélanger les cartes
-        firstAgeDeck.shuffle();
-        // 3. Distribuer les cartes du deck aux joueurs
-        this.distributeCards(firstAgeDeck);
         
-        // 4. Proposer aux joueurs de jouer leur tour
-        //throw new java.lang.UnsupportedOperationException("Not Implemented yet.");
+        this.age = 1;
+        this.lap = 1;
+        this.initAge();
+        System.out.println("Age : " + this.age + " / Tour : " + this.lap);
     }
     
     public void initializePlayers() {
         for(int i = 0; i < this.listPlayers.size(); ++i) {
             // Initialize player 
-            this.listPlayers.get(i).setIsValidate(false);
-            // TODO : initialize PlayerPanel
+            this.listPlayers.get(i).initialize();
         }
     }
     
@@ -99,7 +96,6 @@ public class GameManager {
     }
     
     public void playTurn() {
-        // throw new java.lang.UnsupportedOperationException("Not Implemented yet.");
         System.out.println("GameManager : playTurn");
         
         // Gestion des actions sélectionnées par les joueurs
@@ -119,15 +115,58 @@ public class GameManager {
             deckPlayerBefore = deckTmp;
         }
         
+        // Passage au tour suivant
+        this.nextLap();
+        
         this.initializePlayers();
+    }
+    
+    // Gestion passage au tour / à l'âge suivant
+    public void nextLap() {
+        if(this.lap < 6) {
+            this.lap++;
+           
+        } else {
+            if(this.age < 3) {
+                this.age++;
+                this.lap = 1;
+                this.initAge();
+            } else {
+                this.end();
+            }
+        }
+    }
+    
+    public void initAge() {
+        // 1. Générer le deck correspondant à l'âge
+        Deck deck = new Deck();
+        switch (this.age) {
+            case 1:
+                //deck = this.getDeckForAge(Formation.COMMONCORE);  // A ACTIVER !!!
+                break;
+            case 2:
+                //deck = this.getDeckForAge(Formation.BRANCH);  // A ACTIVER !!!
+                break;
+            case 3:
+                //deck = this.getDeckForAge(Formation.SPECIALIZATION);  // A ACTIVER !!!
+                break;
+            default:
+                break;
+        }
+        // 2. Mélanger les  cartes
+        //deck.shuffle();        // A ACTIVER !!!
+        // 3. Distribuer les cartes
+        //this.distributeCards(deck);        // A ACTIVER !!!
     }
     
     public void updateLeaderboard() {
         throw new java.lang.UnsupportedOperationException("Not Implemented yet.");
     }
     
+    // Gestion de la fin de la partie
     public void end() {
-        throw new java.lang.UnsupportedOperationException("Not Implemented yet.");
+        //throw new java.lang.UnsupportedOperationException("Not Implemented yet.");
+        System.out.println("Game Manager : end game");
     }
     
     
@@ -151,7 +190,23 @@ public class GameManager {
     public void setPlayer(Player player, int id) {
         this.listPlayers.set(id, player);
     }
+    
+    public int getAge() {
+        return this.age;
+    }
 
+    public void setAge(int age) {
+        this.age = age;
+    }
+    
+    public int getLap() {
+        return this.lap;
+    }
+    
+    public void setLap(int lap) {
+        this.lap = lap;
+    }
+    
     @Override
     public String toString() {
         return "GameManager{" + "listPlayers=" + listPlayers + '}';

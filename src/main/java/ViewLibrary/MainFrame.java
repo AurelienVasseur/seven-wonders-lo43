@@ -25,6 +25,10 @@ public class MainFrame extends javax.swing.JFrame {
     private HomePanel homePanel;
     private PlayersAmountSelectionPanel playersAmountSelectionPanel;
     private JPanel playersPanel;
+    /* -- */
+    private javax.swing.JLabel jLabelAge;
+    private javax.swing.JLabel jLabelLap;
+    /* -- */
     private JPanel leaderboardPanel;
     private JPanel endPanel;
     protected GameManager gameManager;
@@ -75,11 +79,18 @@ public class MainFrame extends javax.swing.JFrame {
     public void displayGame(PlayersAmount playersAmount) {
         // Initialisation du Game Manager
         this.gameManager = new GameManager(playersAmount);
-        //this.gameManager.start();  // A ACTIVER
+        this.gameManager.start();  
         
         this.remove(this.playersAmountSelectionPanel);
         this.playersAmountSelectionPanel.removeAll();
+        
         this.playersPanel = new JPanel();
+        this.jLabelAge = new javax.swing.JLabel();
+        this.jLabelLap = new javax.swing.JLabel();
+        this.jLabelAge.setText("Age : " + this.gameManager.getAge());
+        this.jLabelLap.setText("Lap : " + this.gameManager.getLap());
+        playersPanel.add(this.jLabelAge);
+        playersPanel.add(this.jLabelLap);
         
         for(int i = 0; i < playersAmount.getValue(); ++i) {
             PlayerPanel playerPanel = new PlayerPanel(this, i);
@@ -92,6 +103,8 @@ public class MainFrame extends javax.swing.JFrame {
     }
     
     public void guiUpdatePlayersPanel() {
+        this.jLabelAge.setText("Age : " + this.gameManager.getAge());
+        this.jLabelLap.setText("Lap : " + this.gameManager.getLap());
         for(int i = 0; i < this.listPlayersPanel.size(); ++i) {
             this.listPlayersPanel.get(i).guiUpdate();
         }

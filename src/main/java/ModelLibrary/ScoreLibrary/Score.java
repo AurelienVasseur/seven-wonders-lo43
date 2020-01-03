@@ -7,7 +7,7 @@ package ModelLibrary.ScoreLibrary;
 
 /**
  *
- * @author Hicham
+ * @author Hicham, Aurélien
  */
 public class Score {
     private Point totalVictoryPoints;
@@ -20,6 +20,14 @@ public class Score {
     private Point association;
 
     public Score() {
+        this.totalVictoryPoints = new Point();
+        this.classroom = new Point();
+        this.coin = new Point();
+        this.ut = new Point();
+        this.library = new Point();
+        this.laboratory = new Point();
+        this.administration = new Point();
+        this.association = new Point();
     }
 
     public Score(Point totalVictoryPoints, Point classroom, Point coin, Point ut, Point library, Point laboratory, Point administration, Point association) {
