@@ -7,7 +7,7 @@ package EnumLibrary;
 
 /**
  *
- * @author Hicham
+ * @author Hicham, Aurélien
  */
 // Formation = Age
 public enum Formation {

@@ -21,6 +21,7 @@ public class UT {
     private ArrayList<RessourcePack> listProductRessources;
 
     public UT() {
+        this.evolution = Evolution.NONE;
     }
 
     public UT(int id, UTCity name, Evolution evolution, ArrayList<RessourcePack> listProductRessources) {

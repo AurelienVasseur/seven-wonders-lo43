@@ -6,9 +6,11 @@
 package ViewLibrary;
 
 import EnumLibrary.Action;
+import EnumLibrary.Evolution;
 import ModelLibrary.CardLibrary.Card;
 import ModelLibrary.PlayerLibrary.Deck;
 import ModelLibrary.PlayerLibrary.Player;
+import java.awt.Color;
 import java.util.EnumSet;
 import javax.swing.DefaultListModel;
 
@@ -59,10 +61,12 @@ public class PlayerPanel extends javax.swing.JPanel {
         jLabelWonderName = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
-        jLabel1 = new javax.swing.JLabel();
         jButtonValidate = new javax.swing.JButton();
         jLabelCoins = new javax.swing.JLabel();
         jLabelCoinsValue = new javax.swing.JLabel();
+        jLabelWonderEvolutionFirst = new javax.swing.JLabel();
+        jLabelWonderEvolutionSecond = new javax.swing.JLabel();
+        jLabelWonderEvolutionThird = new javax.swing.JLabel();
 
         jLabelPLayerId.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabelPLayerId.setText("Player n° ID");
@@ -131,8 +135,6 @@ public class PlayerPanel extends javax.swing.JPanel {
 
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
-        jLabel1.setText("(MONTRER L'ETAT DE LA MERVEILLE)");
-
         jButtonValidate.setText("Validate");
         jButtonValidate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -144,6 +146,13 @@ public class PlayerPanel extends javax.swing.JPanel {
 
         jLabelCoinsValue.setText("0");
 
+        jLabelWonderEvolutionFirst.setForeground(new java.awt.Color(51, 204, 0));
+        jLabelWonderEvolutionFirst.setText("First");
+
+        jLabelWonderEvolutionSecond.setText("Second");
+
+        jLabelWonderEvolutionThird.setText("Third");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -152,13 +161,8 @@ public class PlayerPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(133, 133, 133)
-                                .addComponent(jLabelWonderName))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(83, 83, 83)
-                                .addComponent(jLabel1)))
+                        .addGap(133, 133, 133)
+                        .addComponent(jLabelWonderName)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -200,7 +204,15 @@ public class PlayerPanel extends javax.swing.JPanel {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jLabelCoinsValue))))
                             .addComponent(jSeparator2))
-                        .addContainerGap())))
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(jLabelWonderEvolutionFirst)
+                        .addGap(106, 106, 106)
+                        .addComponent(jLabelWonderEvolutionSecond)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabelWonderEvolutionThird)
+                        .addGap(53, 53, 53))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -237,9 +249,12 @@ public class PlayerPanel extends javax.swing.JPanel {
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabelWonderName)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
+                .addGap(9, 9, 9)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelWonderEvolutionFirst)
+                    .addComponent(jLabelWonderEvolutionSecond)
+                    .addComponent(jLabelWonderEvolutionThird))
+                .addGap(27, 27, 27)
                 .addComponent(jButtonLeaderboard)
                 .addContainerGap())
         );
@@ -312,6 +327,10 @@ public class PlayerPanel extends javax.swing.JPanel {
         
         this.jLabelCoinsValue.setText(Integer.toString(player.getScore().getCoin().getValue()));
         
+        this.jLabelWonderEvolutionFirst.setForeground(Color.black);
+        this.jLabelWonderEvolutionSecond.setForeground(Color.black);
+        this.jLabelWonderEvolutionThird.setForeground(Color.black);
+        
         // Initialisation de la liste des cartes du deck
         DefaultListModel modelCards = new DefaultListModel();
         for(int i=0; i<deck.getListCards().size(); i++) {
@@ -335,6 +354,36 @@ public class PlayerPanel extends javax.swing.JPanel {
         this.jButtonSelectCard.setEnabled(false);
         this.jButtonSelectAction.setEnabled(false);
         this.jButtonValidate.setEnabled(true);
+        
+        // Affichage de l'âge 
+        this.showAge(player.getGameBoard().getEvolution());
+    }
+    
+    public void showAge(Evolution age) {
+        if(null != age) switch (age) {
+            case NONE:
+                this.jLabelWonderEvolutionFirst.setForeground(Color.black);
+                this.jLabelWonderEvolutionSecond.setForeground(Color.black);
+                this.jLabelWonderEvolutionThird.setForeground(Color.black);
+                break;
+            case FIRST:
+                this.jLabelWonderEvolutionFirst.setForeground(Color.green);
+                this.jLabelWonderEvolutionSecond.setForeground(Color.black);
+                this.jLabelWonderEvolutionThird.setForeground(Color.black);
+                break;
+            case SECOND:
+                this.jLabelWonderEvolutionFirst.setForeground(Color.green);
+                this.jLabelWonderEvolutionSecond.setForeground(Color.green);
+                this.jLabelWonderEvolutionThird.setForeground(Color.black);
+                break;
+            case THIRD:
+                this.jLabelWonderEvolutionFirst.setForeground(Color.green);
+                this.jLabelWonderEvolutionSecond.setForeground(Color.green);
+                this.jLabelWonderEvolutionThird.setForeground(Color.green);
+                break;
+            default:
+                break;
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -342,13 +391,15 @@ public class PlayerPanel extends javax.swing.JPanel {
     private javax.swing.JButton jButtonSelectAction;
     private javax.swing.JButton jButtonSelectCard;
     private javax.swing.JButton jButtonValidate;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelActions;
     private javax.swing.JLabel jLabelCardsPlayed;
     private javax.swing.JLabel jLabelCoins;
     private javax.swing.JLabel jLabelCoinsValue;
     private javax.swing.JLabel jLabelDeck;
     private javax.swing.JLabel jLabelPLayerId;
+    private javax.swing.JLabel jLabelWonderEvolutionFirst;
+    private javax.swing.JLabel jLabelWonderEvolutionSecond;
+    private javax.swing.JLabel jLabelWonderEvolutionThird;
     private javax.swing.JLabel jLabelWonderName;
     private javax.swing.JList<String> jListAction;
     private javax.swing.JList<String> jListCards;

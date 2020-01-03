@@ -7,7 +7,7 @@ package EnumLibrary;
 
 /**
  *
- * @author Hicham
+ * @author Hicham, Aurélien
  */
 public enum Evolution {
     NONE,
