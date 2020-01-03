@@ -42,9 +42,9 @@ public class Player {
     
     
     public void doAction() {
-        //throw new java.lang.UnsupportedOperationException("Not Implemented yet.");
         // Action 1. BUILD
         if (this.actionSelected == Action.BUILD) {
+            System.out.println("Player.doAction : BUILD");
             // Vérification si ressources nécessaires
             if(this.checkResourcesToPlayCard(this.getCardSelected()) == true) {
                 // Achat de la carte
@@ -56,14 +56,17 @@ public class Player {
         }
         // Action 2. BUY
         if (this.actionSelected == Action.BUY) {
+            System.out.println("Player.doAction : BUY");
             // TODO
         }
         // Action 3. EVOLVE
         if (this.actionSelected == Action.EVOLVE) {
+            System.out.println("Player.doAction : EVOLVE");
             this.gameBoard.evolve();
         }
         // Action 4. DISCARD
         if (this.actionSelected == Action.DISCARD) {
+            System.out.println("Player.doAction : DISCARD");
             // On défausse la carte 
             this.deck.removeCard(this.cardSelected);
             // Le joueur gagne 3 pièces

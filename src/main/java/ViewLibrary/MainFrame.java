@@ -9,6 +9,7 @@ import ControllerLibrary.GameManager;
 import EnumLibrary.PlayersAmount;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import javax.swing.GroupLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -27,6 +28,7 @@ public class MainFrame extends javax.swing.JFrame {
     private JPanel leaderboardPanel;
     private JPanel endPanel;
     protected GameManager gameManager;
+    protected ArrayList<PlayerPanel> listPlayersPanel;
 
     /**
      * @param args the command line arguments
@@ -48,6 +50,8 @@ public class MainFrame extends javax.swing.JFrame {
         //this.getContentPane().setLayout(this.layout);
         //this.getContentPane().setLayout(null);
         this.setVisible(true);
+        
+        this.listPlayersPanel = new ArrayList<PlayerPanel>();
         
         this.displayHome();
     }
@@ -76,13 +80,21 @@ public class MainFrame extends javax.swing.JFrame {
         this.remove(this.playersAmountSelectionPanel);
         this.playersAmountSelectionPanel.removeAll();
         this.playersPanel = new JPanel();
+        
         for(int i = 0; i < playersAmount.getValue(); ++i) {
             PlayerPanel playerPanel = new PlayerPanel(this, i);
+            this.listPlayersPanel.add(playerPanel);
             playersPanel.add(playerPanel);
         }
         this.getContentPane().add(this.playersPanel);
         this.pack();
         this.setVisible(true);
+    }
+    
+    public void guiUpdatePlayersPanel() {
+        for(int i = 0; i < this.listPlayersPanel.size(); ++i) {
+            this.listPlayersPanel.get(i).guiUpdate();
+        }
     }
     
     public void displayLeaderboard() {

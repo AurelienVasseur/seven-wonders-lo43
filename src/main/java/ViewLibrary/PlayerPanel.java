@@ -30,22 +30,7 @@ public class PlayerPanel extends javax.swing.JPanel {
         initComponents();
         this.jLabelPLayerId.setText("Player n° " + this.playerId);
         
-        // Initialisation de la liste des cartes du deck -  A FINIR !!
-        DefaultListModel modelCards = new DefaultListModel();
-        // TODO : Récupérer les noms des cartes et les ajouter au model
-        // modelCards.addElement(...)
-        //modelCards.addElement("Carte test"); // A EFFACER
-        this.jListCards.setModel(modelCards);
-        // Initialisation de la liste des cartes jouées - A FINIR !!
-        DefaultListModel modelCardsPlayed = new DefaultListModel();
-        // TODO : Récupérer les noms des cartes et les ajouter au model
-        // modelCardsPlayed.addElement(...)
-        //modelCardsPlayed.addElement("Carte test 2"); // A EFFACER
-        this.jListCardsPlayed.setModel(modelCardsPlayed);
-        // Initialisation de la liste des actions
-        DefaultListModel modelActions = new DefaultListModel();
-        EnumSet.allOf(Action.class).forEach(action -> modelActions.addElement(action.toString()));
-        this.jListAction.setModel(modelActions);
+        this.guiUpdate();
     }
 
     /**
@@ -293,9 +278,37 @@ public class PlayerPanel extends javax.swing.JPanel {
         this.frame.gameManager.setPlayer(player, this.playerId);
         
         // On regarde si tous les joueurs ont validés 
-        this.frame.gameManager.checkIfPlayersValidate();
+        if(this.frame.gameManager.checkIfPlayersValidate() == true) {
+            // On joue le tour
+            this.frame.gameManager.playTurn();
+            // GUI update
+            this.frame.guiUpdatePlayersPanel();
+        }
     }//GEN-LAST:event_jButtonValidateActionPerformed
 
+    public void guiUpdate() {
+        // Initialisation de la liste des cartes du deck -  A FINIR !!
+        DefaultListModel modelCards = new DefaultListModel();
+        // TODO : Récupérer les noms des cartes et les ajouter au model
+        // modelCards.addElement(...)
+        //modelCards.addElement("Carte test"); // A EFFACER
+        this.jListCards.setModel(modelCards);
+        // Initialisation de la liste des cartes jouées - A FINIR !!
+        DefaultListModel modelCardsPlayed = new DefaultListModel();
+        // TODO : Récupérer les noms des cartes et les ajouter au model
+        // modelCardsPlayed.addElement(...)
+        //modelCardsPlayed.addElement("Carte test 2"); // A EFFACER
+        this.jListCardsPlayed.setModel(modelCardsPlayed);
+        // Initialisation de la liste des actions
+        DefaultListModel modelActions = new DefaultListModel();
+        EnumSet.allOf(Action.class).forEach(action -> modelActions.addElement(action.toString()));
+        this.jListAction.setModel(modelActions);
+        
+        // Activation et désactivation des boutons
+        this.jButtonSelectCard.setEnabled(false);
+        this.jButtonSelectAction.setEnabled(false);
+        this.jButtonValidate.setEnabled(true);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonLeaderboard;

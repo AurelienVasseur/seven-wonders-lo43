@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Hicham
+ * @author Hicham, Aurélien
  */
 public class UT {
     private int id;

@@ -83,7 +83,7 @@ public class GameManager {
         }
     }
     
-    public void checkIfPlayersValidate() {
+    public boolean checkIfPlayersValidate() {
         boolean test = true;
         for(int i = 0; (i < this.listPlayers.size()) && (test == true); ++i) {
             if(this.listPlayers.get(i).getIsValidate() != true) {
@@ -92,23 +92,31 @@ public class GameManager {
         }
         if(test == true) {
             System.out.println("Joueurs READY");
-            this.playTurn();
         } else {
             System.out.println("Joueurs NON READY");
         }
+        return test;
     }
     
     public void playTurn() {
         // throw new java.lang.UnsupportedOperationException("Not Implemented yet.");
-        System.out.println("playTurn");
+        System.out.println("GameManager : playTurn");
         
         // Gestion des actions sélectionnées par les joueurs
+        System.out.println("GameManager : players do action");
         for(int i = 0; i < this.listPlayers.size(); ++i) {
             this.listPlayers.get(i).doAction();
         }
         // Passage à la main suivante
+        System.out.println("GameManager : players change deck");
+        Deck deckPlayerBefore = this.listPlayers.get(this.listPlayers.size()-1).getDeck();
+        Deck deckTmp;
         for(int i = 0; i < this.listPlayers.size(); ++i) {
-            // TODO
+            Player player = this.listPlayers.get(i);
+            deckTmp = player.getDeck();
+            player.setDeck(deckPlayerBefore);
+            this.listPlayers.set(i, player);
+            deckPlayerBefore = deckTmp;
         }
         
         this.initializePlayers();
