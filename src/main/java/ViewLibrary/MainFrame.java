@@ -35,6 +35,7 @@ public class MainFrame extends javax.swing.JFrame {
     private JPanel endPanel;
     protected GameManager gameManager;
     protected ArrayList<PlayerPanel> listPlayersPanel;
+    private boolean gameIsFinish;  // flag pour gérer la fin de partie
 
     /**
      * @param args the command line arguments
@@ -60,6 +61,7 @@ public class MainFrame extends javax.swing.JFrame {
         this.setVisible(true);
         
         this.listPlayersPanel = new ArrayList<PlayerPanel>();
+        this.gameIsFinish = false;
         
         this.displayHome();
     }
@@ -111,6 +113,13 @@ public class MainFrame extends javax.swing.JFrame {
         this.jLabelLap.setText("Lap : " + this.gameManager.getLap());
         for(int i = 0; i < this.listPlayersPanel.size(); ++i) {
             this.listPlayersPanel.get(i).guiUpdate();
+        }
+    }
+    
+    public void endGame() {
+        if(this.gameIsFinish == false) {
+            this.gameIsFinish = true;
+            this.displayLeaderboard();
         }
     }
     

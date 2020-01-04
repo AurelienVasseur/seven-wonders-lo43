@@ -22,15 +22,19 @@ public class GameManager {
     protected ArrayList<Player> listPlayers;
     int age;
     int lap; // tour de jeu
+    boolean endGame; // indique si la partie est terminée
 
     public GameManager() {
+        this.endGame = false;
     }
 
     public GameManager(ArrayList<Player> listPlayers) {
+        this.endGame = false;
         this.listPlayers = listPlayers;
     }
     
     public GameManager(PlayersAmount playersAmount) {
+        this.endGame = false;
         int numberOfPlayers = playersAmount.getValue();
         this.listPlayers = new ArrayList<Player>();
         //ArrayList<UT> listUT = this.fetchShuffledUT();
@@ -142,21 +146,23 @@ public class GameManager {
         Deck deck = new Deck();
         switch (this.age) {
             case 1:
-                //deck = this.getDeckForAge(Formation.COMMONCORE);  // A ACTIVER !!!
+                deck = this.getDeckForAge(Formation.COMMONCORE);  // A ACTIVER !!!
                 break;
             case 2:
+                deck = this.getDeckForAge(Formation.COMMONCORE);  // A SUPPRIMER !!!
                 //deck = this.getDeckForAge(Formation.BRANCH);  // A ACTIVER !!!
                 break;
             case 3:
+                deck = this.getDeckForAge(Formation.COMMONCORE);  // A SUPPRIMER !!!
                 //deck = this.getDeckForAge(Formation.SPECIALIZATION);  // A ACTIVER !!!
                 break;
             default:
                 break;
         }
         // 2. Mélanger les  cartes
-        //deck.shuffle();        // A ACTIVER !!!
+        deck.shuffle();        
         // 3. Distribuer les cartes
-        //this.distributeCards(deck);        // A ACTIVER !!!
+        this.distributeCards(deck);        
     }
     
     public void updateLeaderboard() {
@@ -167,6 +173,10 @@ public class GameManager {
     public void end() {
         //throw new java.lang.UnsupportedOperationException("Not Implemented yet.");
         System.out.println("Game Manager : end game");
+        // 1. On détermine le classement
+        // TODO
+        // 2. On indique que la partie est terminée
+        this.endGame = true;
     }
     
     
@@ -205,6 +215,14 @@ public class GameManager {
     
     public void setLap(int lap) {
         this.lap = lap;
+    }
+    
+    public boolean getEndGame() {
+        return this.endGame;
+    }
+    
+    public void setEndGame(boolean endGame) {
+        this.endGame = endGame;
     }
     
     @Override

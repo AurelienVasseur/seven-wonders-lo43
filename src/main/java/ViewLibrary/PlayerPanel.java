@@ -75,12 +75,18 @@ public class PlayerPanel extends javax.swing.JPanel {
                 jButtonLeaderboardMouseClicked(evt);
             }
         });
+        jButtonLeaderboard.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonLeaderboardActionPerformed(evt);
+            }
+        });
 
         jListCards.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
+        jListCards.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jListCards.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
             public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
                 jListCardsValueChanged(evt);
@@ -95,6 +101,7 @@ public class PlayerPanel extends javax.swing.JPanel {
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
+        jListAction.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jListAction.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
             public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
                 jListActionValueChanged(evt);
@@ -295,7 +302,21 @@ public class PlayerPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_jButtonValidateActionPerformed
 
+    private void jButtonLeaderboardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLeaderboardActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonLeaderboardActionPerformed
+
+    // Permet de mettre fin à la partie
+    public void end() {
+        this.frame.endGame();
+    }
+    
     public void guiUpdate() {
+        // On commence par vérifier si la partie est terminée
+        if(this.frame.gameManager.getEndGame() == true) {
+            this.end();
+        }
+        
         Player player = this.frame.gameManager.getPlayer(this.playerId);
         Deck deck = player.getDeck();
         Deck cardsPlayed = player.getCardsPlayed();
