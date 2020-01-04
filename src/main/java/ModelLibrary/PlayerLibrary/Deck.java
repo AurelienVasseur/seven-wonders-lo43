@@ -47,7 +47,15 @@ public class Deck {
     
     public Deck filterByPlayersAmount(PlayersAmount playersAmount) {
         ArrayList<Card> filteredCards = this.getListCards();
-        filteredCards.removeIf(card -> (card.getMinimumPlayersRequiredToBePlayed().getValue() != playersAmount.getValue()));
+        // Cas particuler si 2 joueurs il faut également prendre les cartes avec minimum 3 joueurs
+        PlayersAmount nbPlayers;
+        if(playersAmount == PlayersAmount.TWO) {
+            nbPlayers = PlayersAmount.THREE;
+        } else {
+            nbPlayers = playersAmount;
+        }
+        filteredCards.removeIf(card -> ((card.getMinimumPlayersRequiredToBePlayed().getValue() > nbPlayers.getValue())));
+        System.out.println("NB : " + filteredCards.size());
         return new Deck (filteredCards);
     }
     

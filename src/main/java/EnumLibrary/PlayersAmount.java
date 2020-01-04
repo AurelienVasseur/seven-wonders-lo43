@@ -7,7 +7,7 @@ package EnumLibrary;
 
 /**
  *
- * @author Hicham
+ * @author Hicham, Aurélien
  */
 public enum PlayersAmount {
     TWO(2),

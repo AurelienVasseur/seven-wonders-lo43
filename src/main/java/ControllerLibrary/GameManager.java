@@ -55,9 +55,27 @@ public class GameManager {
     }
     
     private Deck getDeckForAge(Formation formation) {
-        // Récupérer toutes les cartes en base, les tri en fonction de l'age et du nombre de joueur
+        // 1. Récupérer toutes les cartes en base
         Deck allCards = new Deck(JSON.readCards("cards.json"));
+        // 2. Tri en fonction de l'âge
         Deck ageCards = allCards.filterByFormation(formation);
+        // 3. Tri en fonction du nombre de joueurs
+        PlayersAmount playersAmount;
+        int nbPlayers = this.listPlayers.size();
+        if(nbPlayers == 2) {
+            playersAmount = PlayersAmount.TWO;
+        } else if(nbPlayers == 3) {
+            playersAmount = PlayersAmount.THREE;
+        } else if(nbPlayers == 4) {
+            playersAmount = PlayersAmount.FOUR;
+        } else if(nbPlayers == 5) {
+            playersAmount = PlayersAmount.FIVE;
+        } else if(nbPlayers == 6) {
+            playersAmount = PlayersAmount.SIX;
+        } else {
+            playersAmount = PlayersAmount.SEVEN;
+        }
+        Deck gameCards = ageCards.filterByPlayersAmount(playersAmount);
         return ageCards;
     }
     
@@ -146,7 +164,7 @@ public class GameManager {
         Deck deck = new Deck();
         switch (this.age) {
             case 1:
-                deck = this.getDeckForAge(Formation.COMMONCORE);  // A ACTIVER !!!
+                deck = this.getDeckForAge(Formation.COMMONCORE);  
                 break;
             case 2:
                 deck = this.getDeckForAge(Formation.COMMONCORE);  // A SUPPRIMER !!!
