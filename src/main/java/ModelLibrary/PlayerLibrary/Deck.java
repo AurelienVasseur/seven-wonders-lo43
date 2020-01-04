@@ -42,11 +42,13 @@ public class Deck {
     public Deck filterByFormation(Formation formation) {
         ArrayList<Card> filteredCards = this.getListCards();
         filteredCards.removeIf(card -> (card.getFormation().getValue() != formation.getValue()));
+        System.out.println("Result filterByFormation : " + filteredCards.size() + " cards");
         return new Deck(filteredCards);
     }
     
     public Deck filterByPlayersAmount(PlayersAmount playersAmount) {
-        ArrayList<Card> filteredCards = this.getListCards();
+        //ArrayList<Card> filteredCards = this.getListCards();
+        ArrayList<Card> filteredCards = new ArrayList<Card>();
         // Cas particuler si 2 joueurs il faut également prendre les cartes avec minimum 3 joueurs
         PlayersAmount nbPlayers;
         if(playersAmount == PlayersAmount.TWO) {
@@ -55,7 +57,12 @@ public class Deck {
             nbPlayers = playersAmount;
         }
         filteredCards.removeIf(card -> ((card.getMinimumPlayersRequiredToBePlayed().getValue() > nbPlayers.getValue())));
-        System.out.println("NB : " + filteredCards.size());
+        for(int i=0; i< this.getListCards().size(); i++) {
+            if(this.getListCards().get(i).getMinimumPlayersRequiredToBePlayed().getValue() <= nbPlayers.getValue()) {
+                filteredCards.add(this.getListCards().get(i));
+            }
+        }
+        System.out.println("Result filterByPlayersAmount : " + filteredCards.size() + " cards");
         return new Deck (filteredCards);
     }
     
