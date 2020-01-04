@@ -9,7 +9,7 @@ import EnumLibrary.Resource;
 
 /**
  *
- * @author Hicham
+ * @author Hicham, Aurélien
  */
 public class RessourcePack {
     private Resource type;

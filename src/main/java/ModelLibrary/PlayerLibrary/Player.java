@@ -9,6 +9,8 @@ import EnumLibrary.Action;
 import ModelLibrary.CardLibrary.Card;
 import ModelLibrary.ScoreLibrary.Score;
 import ModelLibrary.ScoreLibrary.Point;
+import ModelLibrary.ScoreLibrary.ProductedResource;
+import ModelLibrary.ScoreLibrary.RessourcePack;
 
 /**
  *
@@ -76,6 +78,7 @@ public class Player {
                 this.buyCard(this.getCardSelected());
                 // On retire la carte du deck
                 this.deck.removeCard(this.cardSelected);
+                // On ajoute la carte dans la liste des cartes jouées
                 this.cardsPlayed.addCard(this.cardSelected);
             }
         }
@@ -114,12 +117,37 @@ public class Player {
     
     // Vérifie si le joueur à assez de ressources pour jouer la carte
     public boolean checkResourcesToPlayCard(Card card) {
-        throw new java.lang.UnsupportedOperationException("Not Implemented yet.");
+        // 1. Récupération du prix de la carte
+        RessourcePack cost = card.getCost();
+        // 2. On calcul la quantité de la nécessaire possédée par le joueur 
+        //    Il faut parcourir l'ensemble des cartes jouées par le joueur 
+        int totalValueGetByPlayer = 0;
+        for(int i=0; i<this.cardsPlayed.getListCards().size(); i++) {
+            Card cardPlayed = this.cardsPlayed.getListCards().get(i);
+            for(int j=0; j<cardPlayed.getListProductRessources().size(); i++) {
+                ProductedResource productedResource = cardPlayed.getListProductRessources().get(j);
+                if(cost.getType() == productedResource.getResource()) {
+                    totalValueGetByPlayer = totalValueGetByPlayer + productedResource.getQuantity();
+                }
+            }
+        }
+        // 3. Vérification si le joueur à les ressources nécessaires
+        if(totalValueGetByPlayer == cost.getValue()) {
+            // Le joueur peut acheter la carte
+            return true;
+        } else {
+            // Le joueur ne peut pas acheter la carte
+            return false;
+        }
     }
     
     // Achat d'une carte -> dépense des ressources nécessaires
     public void buyCard(Card card) {
-        throw new java.lang.UnsupportedOperationException("Not Implemented yet.");
+        // TODO
+        //throw new java.lang.UnsupportedOperationException("Not Implemented yet.");
+        
+        // 1. Récupération du prix de la carte
+        // 2. Achat de la carte
     }
     
     public UT getGameBoard() {

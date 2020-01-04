@@ -31,6 +31,9 @@ public class Card {
     protected Card cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree;
 
     public Card() {
+        cost = new RessourcePack();
+        listProductRessources = new ArrayList<ProductedResource>();
+        cardsBecomingFreeAfterPlayingThisCard = new ArrayList<Card>();
     }
 
     public Card(int id, String name, CardType type, RessourcePack cost, Formation formation, Point coinsEarned, ArrayList<ProductedResource> listProductRessources, PlayersAmount minimumPlayersRequiredToBePlayed, ArrayList<Card> cardsBecomingFreeAfterPlayingThisCard, Card cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree) {
