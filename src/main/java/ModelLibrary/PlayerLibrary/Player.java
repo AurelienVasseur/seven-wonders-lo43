@@ -11,6 +11,7 @@ import ModelLibrary.ScoreLibrary.Score;
 import ModelLibrary.ScoreLibrary.Point;
 import ModelLibrary.ScoreLibrary.ProductedResource;
 import ModelLibrary.ScoreLibrary.RessourcePack;
+import java.util.ArrayList;
 
 /**
  *
@@ -118,21 +119,23 @@ public class Player {
     // Vérifie si le joueur à assez de ressources pour jouer la carte
     public boolean checkResourcesToPlayCard(Card card) {
         // 1. Récupération du prix de la carte
-        RessourcePack cost = card.getCost();
+        ArrayList<RessourcePack> cost = card.getCost();
         // 2. On calcul la quantité de la nécessaire possédée par le joueur 
         //    Il faut parcourir l'ensemble des cartes jouées par le joueur 
         int totalValueGetByPlayer = 0;
         for(int i=0; i<this.cardsPlayed.getListCards().size(); i++) {
             Card cardPlayed = this.cardsPlayed.getListCards().get(i);
             for(int j=0; j<cardPlayed.getListProductRessources().size(); i++) {
-                ProductedResource productedResource = cardPlayed.getListProductRessources().get(j);
-                if(cost.getType() == productedResource.getResource()) {
-                    totalValueGetByPlayer = totalValueGetByPlayer + productedResource.getQuantity();
+                RessourcePack productedResource = cardPlayed.getListProductRessources().get(j);
+                // ATTENTION, A REVOIR LE IF CI DESSOUS
+                if(cost.get(0).getType() == productedResource.getType()) {
+                    totalValueGetByPlayer = totalValueGetByPlayer + productedResource.getValue();
                 }
             }
         }
         // 3. Vérification si le joueur à les ressources nécessaires
-        if(totalValueGetByPlayer == cost.getValue()) {
+        // ATTENTION, A REVOIR LE IF CI DESSOUS
+        if(totalValueGetByPlayer == cost.get(0).getValue()) {
             // Le joueur peut acheter la carte
             return true;
         } else {

@@ -7,6 +7,8 @@ package ViewLibrary;
 
 import ControllerLibrary.GameManager;
 import EnumLibrary.PlayersAmount;
+import ModelLibrary.CardLibrary.Card;
+import UtilsLibrary.JSON;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -40,6 +42,8 @@ public class MainFrame extends javax.swing.JFrame {
     public static void main(String[] args) {
         // TODO code application logic here
         new MainFrame();
+        ArrayList<Card> allCards = JSON.readCards("cards.json");
+        System.out.println(allCards.toString());
     }
     
     

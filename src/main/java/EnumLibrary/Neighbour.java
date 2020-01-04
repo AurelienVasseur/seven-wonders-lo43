@@ -9,13 +9,8 @@ package EnumLibrary;
  *
  * @author Hicham
  */
-public enum Resource {
-    CS,
-    TM,
-    CG,
-    EC,
-    STAGE,
-    PROJET,
-    ENTREPREUNARIAT,
-    COIN
+public enum Neighbour {
+    LEFT,
+    RIGHT,
+    BOTH
 }
