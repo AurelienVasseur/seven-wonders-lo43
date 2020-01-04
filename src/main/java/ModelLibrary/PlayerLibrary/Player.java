@@ -6,6 +6,7 @@
 package ModelLibrary.PlayerLibrary;
 
 import EnumLibrary.Action;
+import EnumLibrary.Resource;
 import ModelLibrary.CardLibrary.Card;
 import ModelLibrary.ScoreLibrary.Score;
 import ModelLibrary.ScoreLibrary.Point;
@@ -25,6 +26,7 @@ public class Player {
     private Action actionSelected;
     private Card cardSelected;
     private boolean isValidate; // A validé son tour de jeu
+    private ArrayList<RessourcePack> productedRessources;
 
     public Player() {
         this.gameBoard = new UT();
@@ -47,6 +49,7 @@ public class Player {
         card3.setName("Carte played");
         this.cardsPlayed.addCard(card3);
         /* ----- */
+        this.initProductedRessources();
     }
 
     public Player(UT gameBoard) {
@@ -54,6 +57,8 @@ public class Player {
         this.score = new Score();
         this.deck = new Deck();
         this.cardsPlayed = new Deck();
+        this.initProductedRessources();
+        
     }
     
     public Player(UT gameBoard, Score score, Deck deck, Deck cardsPlayed) {
@@ -61,6 +66,29 @@ public class Player {
         this.score = score;
         this.deck = deck;
         this.cardsPlayed = cardsPlayed;
+        this.initProductedRessources();
+    }
+    
+    public void initProductedRessources() {
+        this.productedRessources = new ArrayList<RessourcePack>();
+        this.productedRessources.add(new RessourcePack(Resource.CS, 0));
+        this.productedRessources.add(new RessourcePack(Resource.TM, 0));
+        this.productedRessources.add(new RessourcePack(Resource.CG, 0));
+        this.productedRessources.add(new RessourcePack(Resource.EC, 0));
+        this.productedRessources.add(new RessourcePack(Resource.STAGE, 0));
+        this.productedRessources.add(new RessourcePack(Resource.PROJET, 0));
+        this.productedRessources.add(new RessourcePack(Resource.ENTREPREUNARIAT, 0));
+        this.productedRessources.add(new RessourcePack(Resource.COIN, 0));
+        this.cardsPlayed.getListCards().forEach((Card card) -> {
+            ArrayList<RessourcePack> cardProductRessources = card.getListProductRessources();
+            cardProductRessources.forEach((RessourcePack cardProductRessource) -> {
+                this.productedRessources.forEach((RessourcePack playerProductedRessource) -> {
+                    if(playerProductedRessource.getType() == cardProductRessource.getType()){
+                        playerProductedRessource.setValue(playerProductedRessource.getValue() + cardProductRessource.getValue());
+                    }
+                });
+            });
+        });
     }
     
     public void initialize() {
@@ -86,7 +114,7 @@ public class Player {
         // Action 2. BUY
         if (this.actionSelected == Action.BUY) {
             System.out.println("Player.doAction : BUY");
-            // TODO
+            // TODO : Donner les pièces à l'autre joueur et ajouter la ressource dans productedRessources
         }
         // Action 3. EVOLVE
         if (this.actionSelected == Action.EVOLVE) {
@@ -120,28 +148,26 @@ public class Player {
     public boolean checkResourcesToPlayCard(Card card) {
         // 1. Récupération du prix de la carte
         ArrayList<RessourcePack> cost = card.getCost();
-        // 2. On calcul la quantité de la nécessaire possédée par le joueur 
-        //    Il faut parcourir l'ensemble des cartes jouées par le joueur 
-        int totalValueGetByPlayer = 0;
-        for(int i=0; i<this.cardsPlayed.getListCards().size(); i++) {
-            Card cardPlayed = this.cardsPlayed.getListCards().get(i);
-            for(int j=0; j<cardPlayed.getListProductRessources().size(); i++) {
-                RessourcePack productedResource = cardPlayed.getListProductRessources().get(j);
-                // ATTENTION, A REVOIR LE IF CI DESSOUS
-                if(cost.get(0).getType() == productedResource.getType()) {
-                    totalValueGetByPlayer = totalValueGetByPlayer + productedResource.getValue();
-                }
-            }
+        // 2. On vérifie si le joueur possède suffisamment de ressources pour construire la carte 
+        ArrayList<RessourcePack> cardCosts = card.getCost();
+        if(cardCosts != null) {
+            boolean[] hasResourcesStateWrapper = { true }; // wrap boolean in array to use it in lambda function below
+            cardCosts.forEach((RessourcePack cardCost) -> {
+                this.productedRessources.forEach((RessourcePack productedRessource) -> {
+                    if(productedRessource.getType() == cardCost.getType()) {
+                        if(cardCost.getValue() > productedRessource.getValue()) {
+                            hasResourcesStateWrapper[0] = false;
+                        }
+                    }
+                });
+            });
+           return hasResourcesStateWrapper[0];
         }
-        // 3. Vérification si le joueur à les ressources nécessaires
-        // ATTENTION, A REVOIR LE IF CI DESSOUS
-        if(totalValueGetByPlayer == cost.get(0).getValue()) {
-            // Le joueur peut acheter la carte
+        else {
+            // La carte ne coûte rien à construire donc il peut la construire
             return true;
-        } else {
-            // Le joueur ne peut pas acheter la carte
-            return false;
         }
+        
     }
     
     // Achat d'une carte -> dépense des ressources nécessaires
