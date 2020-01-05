@@ -33,21 +33,6 @@ public class Player {
         this.score = new Score();
         this.deck = new Deck();
         this.cardsPlayed = new Deck();
-        
-        /* Cartes test -- A SUPPRIMER */
-        Card card = new Card();   
-        card.setId(0);
-        card.setName("Carte deck 1");
-        this.deck.addCard(card);
-        Card card2 = new Card();
-        card2.setId(1);
-        card2.setName("Carte deck 2");
-        this.deck.addCard(card2);
-        
-        Card card3 = new Card();
-        card3.setId(2);
-        card3.setName("Carte played");
-        this.cardsPlayed.addCard(card3);
         /* ----- */
         this.initProductedRessources();
     }

@@ -10,6 +10,7 @@ import EnumLibrary.PlayersAmount;
 import ModelLibrary.CardLibrary.Card;
 import ModelLibrary.PlayerLibrary.UT;
 import UtilsLibrary.JSON;
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -17,6 +18,7 @@ import javax.swing.GroupLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.TableColumn;
 
@@ -27,6 +29,8 @@ import javax.swing.table.TableColumn;
 public class MainFrame extends javax.swing.JFrame {
     private HomePanel homePanel;
     private PlayersAmountSelectionPanel playersAmountSelectionPanel;
+    
+    private JScrollPane playersScrollPane;
     private JPanel playersPanel;
     /* -- */
     private javax.swing.JLabel jLabelAge;
@@ -98,7 +102,16 @@ public class MainFrame extends javax.swing.JFrame {
         this.remove(this.playersAmountSelectionPanel);
         this.playersAmountSelectionPanel.removeAll();
         
+                
         this.playersPanel = new JPanel();
+        this.playersPanel.setPreferredSize(new Dimension(1280, 3120));
+        this.playersScrollPane = new JScrollPane(playersPanel);
+        this.playersPanel.setAutoscrolls(true);
+        this.playersScrollPane.setPreferredSize(new Dimension(1280,720));
+        // only a configuration to the jScrollPane...
+        this.playersScrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+        this.playersScrollPane.getVerticalScrollBar().setUnitIncrement(30);
+        
         this.jLabelAge = new javax.swing.JLabel();
         this.jLabelLap = new javax.swing.JLabel();
         this.jLabelAge.setText("Age : " + this.gameManager.getAge());
@@ -111,7 +124,7 @@ public class MainFrame extends javax.swing.JFrame {
             this.listPlayersPanel.add(playerPanel);
             playersPanel.add(playerPanel);
         }
-        this.getContentPane().add(this.playersPanel);
+        this.getContentPane().add(this.playersScrollPane);
         this.pack();
         this.setVisible(true);
     }
@@ -132,7 +145,7 @@ public class MainFrame extends javax.swing.JFrame {
     }
     
     public void displayLeaderboard() {
-        this.remove(this.playersPanel);
+        this.remove(this.playersScrollPane);
         this.playersPanel.removeAll();
         this.leaderboardPanel = new JPanel();
         Object[][] donnees = {

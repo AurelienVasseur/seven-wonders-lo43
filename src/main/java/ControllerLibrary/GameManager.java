@@ -37,10 +37,10 @@ public class GameManager {
         this.endGame = false;
         int numberOfPlayers = playersAmount.getValue();
         this.listPlayers = new ArrayList<Player>();
-        //ArrayList<UT> listUT = this.fetchShuffledUT();
+        ArrayList<UT> listUT = this.fetchShuffledUT();
         for(int i = 0; i < numberOfPlayers; ++i) {
-            this.listPlayers.add(new Player()); // Pour tester - à supprimer
-            //this.listPlayers.add(new Player(listUT.get(0)));
+            //this.listPlayers.add(new Player()); // Pour tester - à supprimer
+            this.listPlayers.add(new Player(listUT.get(i)));
             //listUT.remove(0);
             
             System.out.println("joueur " + i);
@@ -49,7 +49,7 @@ public class GameManager {
     
     private ArrayList<UT> fetchShuffledUT() {
         // TODO : Attribuer au hasard une merveille au joueur
-        ArrayList<UT> listUT = JSON.readUTs("ut.json");
+        ArrayList<UT> listUT = JSON.readUTs("uts.json");
         Collections.shuffle(listUT);
         return listUT;
     }

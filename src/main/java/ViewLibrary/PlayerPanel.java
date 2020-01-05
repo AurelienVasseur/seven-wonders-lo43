@@ -11,9 +11,14 @@ import EnumLibrary.Resource;
 import ModelLibrary.CardLibrary.Card;
 import ModelLibrary.PlayerLibrary.Deck;
 import ModelLibrary.PlayerLibrary.Player;
+import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Rectangle;
 import java.util.EnumSet;
 import javax.swing.DefaultListModel;
+import javax.swing.Scrollable;
+import javax.swing.SwingConstants;
 
 /**
  *
@@ -296,17 +301,19 @@ public class PlayerPanel extends javax.swing.JPanel {
                                                 .addComponent(jLabelKnowledgeValue, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE))
                                             .addComponent(jLabelActions)))))))))
             .addGroup(layout.createSequentialGroup()
-                .addGap(144, 144, 144)
-                .addComponent(jLabelWonderName)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
                 .addGap(35, 35, 35)
                 .addComponent(jLabelWonderEvolutionFirst)
-                .addGap(108, 108, 108)
-                .addComponent(jLabelWonderEvolutionSecond)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabelWonderEvolutionThird)
-                .addGap(52, 52, 52))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(83, 83, 83)
+                        .addComponent(jLabelWonderName)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabelWonderEvolutionSecond)
+                        .addGap(103, 103, 103)
+                        .addComponent(jLabelWonderEvolutionThird)
+                        .addGap(52, 52, 52))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -499,6 +506,23 @@ public class PlayerPanel extends javax.swing.JPanel {
         this.jLabelWonderEvolutionSecond.setForeground(Color.black);
         this.jLabelWonderEvolutionThird.setForeground(Color.black);
         
+        this.jLabelWonderName.setText(player.getGameBoard().getName().toString() + " - " + player.getGameBoard().getEvolution());
+        this.jLabelWonderEvolutionFirst.setText("1.Cost:[");
+        this.jLabelWonderEvolutionSecond.setText("2.Cost:[");
+        this.jLabelWonderEvolutionThird.setText("3.Cost:[");
+        player.getGameBoard().getSteps().get(0).getCost().forEach((cost) -> {
+            this.jLabelWonderEvolutionFirst.setText(this.jLabelWonderEvolutionFirst.getText() + cost.getType() + " : " + cost.getValue() + " | ");
+        });
+        player.getGameBoard().getSteps().get(1).getCost().forEach((cost) -> {
+            this.jLabelWonderEvolutionSecond.setText(this.jLabelWonderEvolutionSecond.getText() + cost.getType() + " : " + cost.getValue() + " | ");
+        });
+        player.getGameBoard().getSteps().get(2).getCost().forEach((cost) -> {
+            this.jLabelWonderEvolutionThird.setText(this.jLabelWonderEvolutionThird.getText() + cost.getType() + " : " + cost.getValue() + " | ");
+        });
+        this.jLabelWonderEvolutionFirst.setText(this.jLabelWonderEvolutionFirst.getText() + "]");
+        this.jLabelWonderEvolutionSecond.setText(this.jLabelWonderEvolutionSecond.getText() + "]");
+        this.jLabelWonderEvolutionThird.setText(this.jLabelWonderEvolutionThird.getText() + "]");
+        
         // Initialisation de la liste des cartes du deck
         DefaultListModel modelCards = new DefaultListModel();
         for(int i=0; i<deck.getListCards().size(); i++) {
@@ -550,6 +574,7 @@ public class PlayerPanel extends javax.swing.JPanel {
                 break;
         }
     }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonLeaderboard;
