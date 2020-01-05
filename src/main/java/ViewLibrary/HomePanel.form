@@ -35,7 +35,7 @@
               <Component id="jLabelTitle" min="-2" pref="33" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="104" max="-2" attributes="0"/>
               <Component id="jButtonPlay" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="125" max="32767" attributes="0"/>
+              <EmptySpace pref="94" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -51,6 +51,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButtonPlay">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Dialog" size="36" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Play"/>
       </Properties>
       <Events>

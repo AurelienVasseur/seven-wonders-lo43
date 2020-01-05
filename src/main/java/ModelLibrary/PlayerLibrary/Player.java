@@ -112,7 +112,8 @@ public class Player {
             System.out.println("Player.doAction : EVOLVE");
             System.out.println("Player.doAction : carteSelected : " + this.cardSelected.getName());
             this.deck.removeCard(cardSelected);
-            this.gameBoard.evolve();
+            this.tryEvolveUT();
+            
         }
         // Action 4. DISCARD
         if (this.actionSelected == Action.DISCARD) {
@@ -126,6 +127,100 @@ public class Player {
             this.score.setCoin(coin);
             
         }
+    }
+    
+    public void tryEvolveUT() {
+        boolean[] canEvolveWrapper = { true };
+            switch(this.gameBoard.getEvolution()) {
+                case NONE:
+                    this.productedRessources.forEach((playerProductedRessource) -> {
+                        this.gameBoard.getSteps().get(0).getCost().forEach((cost) -> {
+                            if(playerProductedRessource.getType() == cost.getType()) {
+                                if(cost.getValue() > playerProductedRessource.getValue()) {
+                                    canEvolveWrapper[0] = false;
+                                }
+                            }
+                        });
+                    });
+                    break;
+                case FIRST:
+                    this.productedRessources.forEach((playerProductedRessource) -> {
+                        this.gameBoard.getSteps().get(1).getCost().forEach((cost) -> {
+                            if(playerProductedRessource.getType() == cost.getType()) {
+                                if(cost.getValue() > playerProductedRessource.getValue()) {
+                                    canEvolveWrapper[0] = false;
+                                }
+                            }
+                        });
+                    });
+                    break;
+                case SECOND:
+                    this.productedRessources.forEach((playerProductedRessource) -> {
+                        this.gameBoard.getSteps().get(2).getCost().forEach((cost) -> {
+                            if(playerProductedRessource.getType() == cost.getType()) {
+                                if(cost.getValue() > playerProductedRessource.getValue()) {
+                                    canEvolveWrapper[0] = false;
+                                }
+                            }
+                        });
+                    });
+                    break;
+            }
+            if(canEvolveWrapper[0]) {
+                this.gameBoard.evolve();
+                switch(this.gameBoard.getEvolution()){
+                    case FIRST:
+                        switch(this.gameBoard.getSteps().get(0).getCoinsEarned().getType()) {
+                            case VICTORY:
+                                this.score.getTotalVictoryPoints().setValue(this.score.getTotalVictoryPoints().getValue() + this.gameBoard.getSteps().get(0).getCoinsEarned().getValue());
+                                break;
+                            case KNOWLEDGE:
+                                this.score.getKnowledge().setValue(this.score.getKnowledge().getValue() + this.gameBoard.getSteps().get(0).getCoinsEarned().getValue());
+                                break;
+                            case COIN:
+                                this.score.getCoin().setValue(this.score.getCoin().getValue() + this.gameBoard.getSteps().get(0).getCoinsEarned().getValue());
+                                break;
+                            default:
+                                break;
+                        }
+                        break;
+                    case SECOND:
+                        switch(this.gameBoard.getSteps().get(1).getCoinsEarned().getType()) {
+                            case VICTORY:
+                                this.score.getTotalVictoryPoints().setValue(this.score.getTotalVictoryPoints().getValue() + this.gameBoard.getSteps().get(0).getCoinsEarned().getValue());
+                                break;
+                            case KNOWLEDGE:
+                                this.score.getKnowledge().setValue(this.score.getKnowledge().getValue() + this.gameBoard.getSteps().get(0).getCoinsEarned().getValue());
+                                break;
+                            case COIN:
+                                this.score.getCoin().setValue(this.score.getCoin().getValue() + this.gameBoard.getSteps().get(0).getCoinsEarned().getValue());
+                                break;
+                            default:
+                                break;
+                        }
+                        break;
+                    case THIRD:
+                        switch(this.gameBoard.getSteps().get(2).getCoinsEarned().getType()) {
+                            case VICTORY:
+                                this.score.getTotalVictoryPoints().setValue(this.score.getTotalVictoryPoints().getValue() + this.gameBoard.getSteps().get(0).getCoinsEarned().getValue());
+                                break;
+                            case KNOWLEDGE:
+                                this.score.getKnowledge().setValue(this.score.getKnowledge().getValue() + this.gameBoard.getSteps().get(0).getCoinsEarned().getValue());
+                                break;
+                            case COIN:
+                                this.score.getCoin().setValue(this.score.getCoin().getValue() + this.gameBoard.getSteps().get(0).getCoinsEarned().getValue());
+                                break;
+                            default:
+                                break;
+                        }
+                        break;
+                }
+            }
+            else {
+                Point coin = this.score.getCoin();
+                coin.setValue(coin.getValue() - 2);
+                this.score.setCoin(coin);
+            }
     }
     
     public void selectCard() {
@@ -147,7 +242,12 @@ public class Player {
             cardCosts.forEach((RessourcePack cardCost) -> {
                 this.productedRessources.forEach((RessourcePack productedRessource) -> {
                     if(productedRessource.getType() == cardCost.getType()) {
-                        if(cardCost.getValue() > productedRessource.getValue()) {
+                        if(cardCost.getType() == Resource.COIN) {
+                            if(cardCost.getValue() > this.score.getCoin().getValue()) {
+                                hasResourcesStateWrapper[0] = false;
+                            }
+                        }
+                        else if(cardCost.getValue() > productedRessource.getValue()) {
                             hasResourcesStateWrapper[0] = false;
                         }
                     }

@@ -38,6 +38,7 @@ public class HomePanel extends javax.swing.JPanel {
         jLabelTitle.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         jLabelTitle.setText("7 Wonders UTBM");
 
+        jButtonPlay.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         jButtonPlay.setText("Play");
         jButtonPlay.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -65,7 +66,7 @@ public class HomePanel extends javax.swing.JPanel {
                 .addComponent(jLabelTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(104, 104, 104)
                 .addComponent(jButtonPlay)
-                .addContainerGap(125, Short.MAX_VALUE))
+                .addContainerGap(94, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
