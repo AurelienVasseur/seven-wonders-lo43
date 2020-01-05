@@ -44,8 +44,12 @@ public class MainFrame extends javax.swing.JFrame {
     public static void main(String[] args) {
         // TODO code application logic here
         new MainFrame();
-        ArrayList<Card> allCards = JSON.readCards("cards.json");
-        System.out.println(allCards.toString());
+        ArrayList<Card> age1 = JSON.readCards("cards.json");
+        System.out.println(age1.toString());
+        ArrayList<Card> age2 = JSON.readCards("cards2.json");
+        System.out.println(age2.toString());
+        ArrayList<Card> age3 = JSON.readCards("cards3.json");
+        System.out.println(age3.toString());
         
         ArrayList<UT> allUTs = JSON.readUTs("uts.json");
         System.out.println(allUTs.toString());
