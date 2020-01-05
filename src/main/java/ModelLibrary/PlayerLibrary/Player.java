@@ -110,6 +110,12 @@ public class Player {
                 // On ajoute la carte dans la liste des cartes jouées
                 this.cardsPlayed.addCard(this.cardSelected);
             }
+            else {
+                this.deck.removeCard(this.cardSelected);
+                Point coin = this.score.getCoin();
+                coin.setValue(coin.getValue() - 2);
+                this.score.setCoin(coin);
+            }
         }
         // Action 2. BUY
         if (this.actionSelected == Action.BUY) {
