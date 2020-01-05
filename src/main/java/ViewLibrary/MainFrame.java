@@ -10,16 +10,19 @@ import EnumLibrary.PlayersAmount;
 import ModelLibrary.CardLibrary.Card;
 import ModelLibrary.PlayerLibrary.UT;
 import UtilsLibrary.JSON;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import javax.swing.BorderFactory;
 import javax.swing.GroupLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.border.Border;
 import javax.swing.table.TableColumn;
 
 /**
@@ -121,6 +124,7 @@ public class MainFrame extends javax.swing.JFrame {
         
         for(int i = 0; i < playersAmount.getValue(); ++i) {
             PlayerPanel playerPanel = new PlayerPanel(this, i);
+            playerPanel.setBorder(BorderFactory.createLineBorder(Color.black));
             this.listPlayersPanel.add(playerPanel);
             playersPanel.add(playerPanel);
         }
