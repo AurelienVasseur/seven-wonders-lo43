@@ -11,33 +11,21 @@ package ModelLibrary.ScoreLibrary;
  */
 public class Score {
     private Point totalVictoryPoints;
-    private Point classroom;
     private Point coin;
-    private Point ut;
-    private Point library;
-    private Point laboratory;
-    private Point administration;
+    private Point knowledge;
     private Point association;
 
     public Score() {
         this.totalVictoryPoints = new Point();
-        this.classroom = new Point();
+        this.knowledge = new Point();
         this.coin = new Point();
-        this.ut = new Point();
-        this.library = new Point();
-        this.laboratory = new Point();
-        this.administration = new Point();
         this.association = new Point();
     }
 
-    public Score(Point totalVictoryPoints, Point classroom, Point coin, Point ut, Point library, Point laboratory, Point administration, Point association) {
+    public Score(Point totalVictoryPoints, Point coin, Point knowledge, Point association) {
         this.totalVictoryPoints = totalVictoryPoints;
-        this.classroom = classroom;
         this.coin = coin;
-        this.ut = ut;
-        this.library = library;
-        this.laboratory = laboratory;
-        this.administration = administration;
+        this.knowledge = knowledge;
         this.association = association;
     }
 
@@ -49,14 +37,6 @@ public class Score {
         this.totalVictoryPoints = totalVictoryPoints;
     }
 
-    public Point getClassroom() {
-        return classroom;
-    }
-
-    public void setClassroom(Point classroom) {
-        this.classroom = classroom;
-    }
-
     public Point getCoin() {
         return coin;
     }
@@ -65,36 +45,12 @@ public class Score {
         this.coin = coin;
     }
 
-    public Point getUt() {
-        return ut;
+    public Point getKnowledge() {
+        return knowledge;
     }
 
-    public void setUt(Point ut) {
-        this.ut = ut;
-    }
-
-    public Point getLibrary() {
-        return library;
-    }
-
-    public void setLibrary(Point library) {
-        this.library = library;
-    }
-
-    public Point getLaboratory() {
-        return laboratory;
-    }
-
-    public void setLaboratory(Point laboratory) {
-        this.laboratory = laboratory;
-    }
-
-    public Point getAdministration() {
-        return administration;
-    }
-
-    public void setAdministration(Point administration) {
-        this.administration = administration;
+    public void setKnowledge(Point knowledge) {
+        this.knowledge = knowledge;
     }
 
     public Point getAssociation() {
@@ -107,9 +63,8 @@ public class Score {
 
     @Override
     public String toString() {
-        return "Score{" + "totalVictoryPoints=" + totalVictoryPoints + ", classroom=" + classroom + ", coin=" + coin + ", ut=" + ut + ", library=" + library + ", laboratory=" + laboratory + ", administration=" + administration + ", association=" + association + '}';
+        return "Score{" + "totalVictoryPoints=" + totalVictoryPoints + ", coin=" + coin + ", knowledge=" + knowledge + ", association=" + association + '}';
     }
 
-    
     
 }

@@ -139,6 +139,7 @@ public class Player {
             Point coin = this.score.getCoin();
             coin.setValue(coin.getValue() + 3);
             this.score.setCoin(coin);
+            
         }
     }
     
@@ -182,6 +183,36 @@ public class Player {
         //throw new java.lang.UnsupportedOperationException("Not Implemented yet.");
         
         // 1. Récupération du prix de la carte
+        if(this.checkResourcesToPlayCard(card) == true) {
+            this.productedRessources.forEach((playerProductedRessource) -> {
+                if(card.getListProductRessources() != null) {
+                    card.getListProductRessources().forEach((cardProductRessource) -> {
+                    if(cardProductRessource.getType() == playerProductedRessource.getType()) {
+                        playerProductedRessource.setValue(playerProductedRessource.getValue() + cardProductRessource.getValue());
+                    }
+                });
+                }
+                
+            });
+            if(card.getCoinsEarned() != null) {
+                    switch(card.getCoinsEarned().getType()) {
+                        case VICTORY:
+                            this.getScore().getTotalVictoryPoints().setValue(this.getScore().getTotalVictoryPoints().getValue() + card.getCoinsEarned().getValue());
+                            break;
+                        case KNOWLEDGE:
+                            this.getScore().getKnowledge().setValue(this.getScore().getKnowledge().getValue() + card.getCoinsEarned().getValue());
+                            break;
+                        case ASSOCIATION:
+                            this.getScore().getAssociation().setValue(this.getScore().getAssociation().getValue() + card.getCoinsEarned().getValue());
+                            break;
+                        case COIN:
+                            this.getScore().getCoin().setValue(this.getScore().getCoin().getValue() + card.getCoinsEarned().getValue());
+                            break;
+                        default:
+                            System.out.println("voir Player.java::buyCard");
+                    }
+                }
+        }
         // 2. Achat de la carte
     }
     
@@ -245,6 +276,14 @@ public class Player {
     
     public void setIsValidate(boolean isValidate) {
         this.isValidate = isValidate;
+    }
+
+    public ArrayList<RessourcePack> getProductedRessources() {
+        return productedRessources;
+    }
+
+    public void setProductedRessources(ArrayList<RessourcePack> productedRessources) {
+        this.productedRessources = productedRessources;
     }
 
     @Override

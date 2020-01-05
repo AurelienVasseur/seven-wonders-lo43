@@ -22,52 +22,131 @@
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <Component id="jScrollPaneCardsPlayed" min="-2" pref="104" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="jSeparator1" min="-2" pref="12" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                              <Component id="jLabelCardsPlayed" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jScrollPaneCards" alignment="0" min="-2" pref="106" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Component id="jScrollPaneCardsPlayed" min="-2" pref="104" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Component id="jSeparator1" min="-2" pref="12" max="-2" attributes="0"/>
+                                  </Group>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                                      <Component id="jLabelDeck" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                                      <Component id="jLabelCardsPlayed" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jButtonValidate" min="-2" pref="237" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jScrollPaneCards" alignment="0" min="-2" pref="106" max="-2" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                                              <Component id="jLabelDeck" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
                                   </Group>
                               </Group>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jButtonValidate" min="-2" pref="237" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="jButtonLeaderboard" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jSeparator2" alignment="0" max="32767" attributes="0"/>
                       </Group>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
-                  <Component id="jButtonLeaderboard" alignment="0" max="32767" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" attributes="0">
                       <Component id="jLabelPLayerId" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jScrollPaneActions" min="-2" pref="108" max="-2" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-                              <Component id="jLabelActions" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <Component id="jLabelCoins" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="jLabelCSName" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelTMName" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelCGName" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                          <Component id="jLabelTMValue" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="jLabelCSValue" alignment="0" min="-2" pref="15" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
+                                      <Component id="jLabelCGValue" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jLabelCoinsValue" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="jLabelStageName" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jLabelStageValue" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <Component id="jLabelProjetName" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="jLabelProjetValue" min="-2" pref="15" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                                              <Component id="jLabelECName" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="jLabelECValue" min="-2" pref="14" max="-2" attributes="0"/>
+                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="jLabelEntrepreunariatName" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Group type="102" alignment="0" attributes="0">
+                                                      <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
+                                                      <Component id="jLabelEntrepreunariatValue" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                              </Group>
+                                          </Group>
+                                      </Group>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Component id="jLabelCoins" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jLabelCoinsValue" min="-2" pref="12" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Component id="jLabelKnowledgeName" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabelVictoryName" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jLabelVictoryValue" min="-2" pref="13" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jScrollPaneActions" min="-2" pref="108" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+                                              <Component id="jLabelKnowledgeValue" min="-2" pref="13" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="jLabelActions" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
                           </Group>
                       </Group>
                   </Group>
-                  <Component id="jSeparator2" alignment="0" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
           </Group>
           <Group type="102" attributes="0">
               <EmptySpace min="-2" pref="144" max="-2" attributes="0"/>
@@ -92,22 +171,67 @@
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                       <Component id="jLabelPLayerId" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabelCoins" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabelCoinsValue" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jLabelECName" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelECValue" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelEntrepreunariatName" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelEntrepreunariatValue" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelCoinsValue" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelCoins" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jLabelStageName" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelStageValue" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelVictoryName" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelVictoryValue" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="103" alignment="1" groupAlignment="3" attributes="0">
+                                      <Component id="jLabelProjetName" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabelProjetValue" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Group type="103" groupAlignment="3" attributes="0">
+                                          <Component id="jLabelKnowledgeName" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabelKnowledgeValue" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jLabelCSName" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelCSValue" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLabelTMName" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelTMValue" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jLabelCGName" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelCGValue" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabelDeck" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabelActions" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabelCardsPlayed" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" max="-2" attributes="0">
                   <Component id="jSeparator1" alignment="0" max="32767" attributes="0"/>
                   <Group type="102" attributes="0">
@@ -118,7 +242,7 @@
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jButtonValidate" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="jScrollPaneCardsPlayed" pref="137" max="32767" attributes="0"/>
+                  <Component id="jScrollPaneCardsPlayed" max="32767" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="jSeparator2" min="-2" pref="10" max="-2" attributes="0"/>
@@ -297,6 +421,96 @@
     <Component class="javax.swing.JLabel" name="jLabelWonderEvolutionThird">
       <Properties>
         <Property name="text" type="java.lang.String" value="Third"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelCSName">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="CS : "/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelCSValue">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="0"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelTMName">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="TM : "/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelTMValue">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="0"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelCGName">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="CG : "/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelCGValue">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="0"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelECName">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="EC : "/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelECValue">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="0"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelStageName">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Stage : "/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelStageValue">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="0"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelEntrepreunariatName">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Entrep&apos; : "/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelEntrepreunariatValue">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="0"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelProjetName">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Projet : "/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelProjetValue">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="0"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelVictoryName">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="PV : "/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelVictoryValue">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="0"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelKnowledgeName">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="PM : "/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelKnowledgeValue">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="0"/>
       </Properties>
     </Component>
   </SubComponents>
