@@ -10,6 +10,7 @@ import EnumLibrary.PlayersAmount;
 import ModelLibrary.PlayerLibrary.Deck;
 import ModelLibrary.PlayerLibrary.Player;
 import ModelLibrary.PlayerLibrary.UT;
+import ModelLibrary.ScoreLibrary.Score;
 import UtilsLibrary.JSON;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -56,7 +57,18 @@ public class GameManager {
     
     private Deck getDeckForAge(Formation formation) {
         // 1. Récupérer toutes les cartes en base
-        Deck allCards = new Deck(JSON.readCards("cards.json"));
+        Deck allCards = null;
+        switch(formation) {
+            case COMMONCORE:
+                allCards = new Deck(JSON.readCards("cards.json"));
+                break;
+            case BRANCH:
+                allCards = new Deck(JSON.readCards("cards2.json"));
+                break;
+            case SPECIALIZATION:
+                allCards = new Deck(JSON.readCards("cards3.json"));
+                break;
+        }
         // 2. Tri en fonction de l'âge
         Deck ageCards = allCards.filterByFormation(formation);
         // 3. Tri en fonction du nombre de joueurs
@@ -149,6 +161,7 @@ public class GameManager {
             this.lap++;
            
         } else {
+            this.endAge(); // bataille militaire
             if(this.age < 3) {
                 this.age++;
                 this.lap = 1;
@@ -167,12 +180,10 @@ public class GameManager {
                 deck = this.getDeckForAge(Formation.COMMONCORE);  
                 break;
             case 2:
-                deck = this.getDeckForAge(Formation.COMMONCORE);  // A SUPPRIMER !!!
-                //deck = this.getDeckForAge(Formation.BRANCH);  // A ACTIVER !!!
+                deck = this.getDeckForAge(Formation.BRANCH);
                 break;
             case 3:
-                deck = this.getDeckForAge(Formation.COMMONCORE);  // A SUPPRIMER !!!
-                //deck = this.getDeckForAge(Formation.SPECIALIZATION);  // A ACTIVER !!!
+                deck = this.getDeckForAge(Formation.SPECIALIZATION);
                 break;
             default:
                 break;
@@ -183,8 +194,36 @@ public class GameManager {
         this.distributeCards(deck);        
     }
     
-    public void updateLeaderboard() {
-        throw new java.lang.UnsupportedOperationException("Not Implemented yet.");
+    public void endAge() {
+        //bataille militaire
+        for(int i = 0; i < this.listPlayers.size(); ++i) {
+            int previousPlayerId = i - 1;
+            int nextPlayerId = i + 1;
+            if(i == 0) {
+                previousPlayerId = listPlayers.size() - 1;
+            }
+            if(i == (listPlayers.size() - 1)) {
+                nextPlayerId = 0;
+            }
+            Player previousPlayer = listPlayers.get(previousPlayerId);
+            Player currentPlayer = listPlayers.get(i);
+            Player nextPlayer = listPlayers.get(nextPlayerId);
+            // current player wins if it has more military points than his neighbours
+            if(currentPlayer.getScore().getKnowledge().getValue() > previousPlayer.getScore().getKnowledge().getValue() && currentPlayer.getScore().getKnowledge().getValue() > nextPlayer.getScore().getKnowledge().getValue()) {
+                currentPlayer.getScore().getTotalVictoryPoints().setValue(currentPlayer.getScore().getTotalVictoryPoints().getValue() + (2 * this.age + 1));
+            }
+            else {
+                currentPlayer.getScore().getTotalVictoryPoints().setValue(currentPlayer.getScore().getTotalVictoryPoints().getValue() - 1);
+            }
+        }
+    }
+    
+    public ArrayList<Score> fetchScores() {
+        ArrayList<Score> scores = new ArrayList<Score>();
+        this.listPlayers.forEach((player) -> {
+            scores.add(player.getScore());
+        });
+        return scores;
     }
     
     // Gestion de la fin de la partie

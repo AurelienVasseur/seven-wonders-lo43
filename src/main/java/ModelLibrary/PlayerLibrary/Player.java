@@ -180,6 +180,15 @@ public class Player {
                             case COIN:
                                 this.score.getCoin().setValue(this.score.getCoin().getValue() + this.gameBoard.getSteps().get(0).getCoinsEarned().getValue());
                                 break;
+                            case CENTRIFUGE:
+                                this.score.getCentrifuge().setValue(this.score.getCentrifuge().getValue() + this.gameBoard.getSteps().get(0).getCoinsEarned().getValue());
+                                break;
+                            case PUMP:
+                                this.score.getPump().setValue(this.score.getPump().getValue() + this.gameBoard.getSteps().get(0).getCoinsEarned().getValue());
+                                break;
+                            case PROOFER:
+                                this.score.getProofer().setValue(this.score.getProofer().getValue() + this.gameBoard.getSteps().get(0).getCoinsEarned().getValue());
+                                break;
                             default:
                                 break;
                         }
@@ -187,13 +196,22 @@ public class Player {
                     case SECOND:
                         switch(this.gameBoard.getSteps().get(1).getCoinsEarned().getType()) {
                             case VICTORY:
-                                this.score.getTotalVictoryPoints().setValue(this.score.getTotalVictoryPoints().getValue() + this.gameBoard.getSteps().get(0).getCoinsEarned().getValue());
+                                this.score.getTotalVictoryPoints().setValue(this.score.getTotalVictoryPoints().getValue() + this.gameBoard.getSteps().get(1).getCoinsEarned().getValue());
                                 break;
                             case KNOWLEDGE:
-                                this.score.getKnowledge().setValue(this.score.getKnowledge().getValue() + this.gameBoard.getSteps().get(0).getCoinsEarned().getValue());
+                                this.score.getKnowledge().setValue(this.score.getKnowledge().getValue() + this.gameBoard.getSteps().get(1).getCoinsEarned().getValue());
                                 break;
                             case COIN:
-                                this.score.getCoin().setValue(this.score.getCoin().getValue() + this.gameBoard.getSteps().get(0).getCoinsEarned().getValue());
+                                this.score.getCoin().setValue(this.score.getCoin().getValue() + this.gameBoard.getSteps().get(1).getCoinsEarned().getValue());
+                                break;
+                            case CENTRIFUGE:
+                                this.score.getCentrifuge().setValue(this.score.getCentrifuge().getValue() + this.gameBoard.getSteps().get(1).getCoinsEarned().getValue());
+                                break;
+                            case PUMP:
+                                this.score.getPump().setValue(this.score.getPump().getValue() + this.gameBoard.getSteps().get(1).getCoinsEarned().getValue());
+                                break;
+                            case PROOFER:
+                                this.score.getProofer().setValue(this.score.getProofer().getValue() + this.gameBoard.getSteps().get(1).getCoinsEarned().getValue());
                                 break;
                             default:
                                 break;
@@ -202,13 +220,22 @@ public class Player {
                     case THIRD:
                         switch(this.gameBoard.getSteps().get(2).getCoinsEarned().getType()) {
                             case VICTORY:
-                                this.score.getTotalVictoryPoints().setValue(this.score.getTotalVictoryPoints().getValue() + this.gameBoard.getSteps().get(0).getCoinsEarned().getValue());
+                                this.score.getTotalVictoryPoints().setValue(this.score.getTotalVictoryPoints().getValue() + this.gameBoard.getSteps().get(2).getCoinsEarned().getValue());
                                 break;
                             case KNOWLEDGE:
-                                this.score.getKnowledge().setValue(this.score.getKnowledge().getValue() + this.gameBoard.getSteps().get(0).getCoinsEarned().getValue());
+                                this.score.getKnowledge().setValue(this.score.getKnowledge().getValue() + this.gameBoard.getSteps().get(2).getCoinsEarned().getValue());
                                 break;
                             case COIN:
-                                this.score.getCoin().setValue(this.score.getCoin().getValue() + this.gameBoard.getSteps().get(0).getCoinsEarned().getValue());
+                                this.score.getCoin().setValue(this.score.getCoin().getValue() + this.gameBoard.getSteps().get(2).getCoinsEarned().getValue());
+                                break;
+                            case CENTRIFUGE:
+                                this.score.getCentrifuge().setValue(this.score.getCentrifuge().getValue() + this.gameBoard.getSteps().get(2).getCoinsEarned().getValue());
+                                break;
+                            case PUMP:
+                                this.score.getPump().setValue(this.score.getPump().getValue() + this.gameBoard.getSteps().get(2).getCoinsEarned().getValue());
+                                break;
+                            case PROOFER:
+                                this.score.getProofer().setValue(this.score.getProofer().getValue() + this.gameBoard.getSteps().get(2).getCoinsEarned().getValue());
                                 break;
                             default:
                                 break;
@@ -293,8 +320,18 @@ public class Player {
                         case COIN:
                             this.getScore().getCoin().setValue(this.getScore().getCoin().getValue() + card.getCoinsEarned().getValue());
                             break;
+                        case CENTRIFUGE:
+                            this.getScore().getCentrifuge().setValue(this.getScore().getCentrifuge().getValue() + card.getCoinsEarned().getValue());
+                            break;
+                        case PUMP:
+                            this.getScore().getPump().setValue(this.getScore().getPump().getValue() + card.getCoinsEarned().getValue());
+                            break;
+                        case PROOFER:
+                            this.getScore().getProofer().setValue(this.getScore().getProofer().getValue() + card.getCoinsEarned().getValue());
+                            break;
                         default:
                             System.out.println("voir Player.java::buyCard");
+                            break;
                     }
                 }
         }

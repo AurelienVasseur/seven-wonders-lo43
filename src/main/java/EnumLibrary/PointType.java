@@ -14,9 +14,10 @@ public enum PointType {
     KNOWLEDGE,
     ASSOCIATION,
     COIN,
-    LABO_RESOURCE1,
-    LABO_RESOURCE2,
-    LABO_RESOURCE3,
+    CENTRIFUGE, // labo ressource 1
+    PUMP, // labo ressource 2
+    PROOFER, // labo ressource 3
+    // special point obtained under condition :
     VICTORYPOINT_PER_CREDITCARD,
     VICTORYPOINT_PER_SKILLCARD,
     VICTORYPOINT_PER_LIBRARYCARD,

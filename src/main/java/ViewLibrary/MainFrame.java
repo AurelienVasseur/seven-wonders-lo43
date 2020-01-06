@@ -9,6 +9,7 @@ import ControllerLibrary.GameManager;
 import EnumLibrary.PlayersAmount;
 import ModelLibrary.CardLibrary.Card;
 import ModelLibrary.PlayerLibrary.UT;
+import ModelLibrary.ScoreLibrary.Score;
 import UtilsLibrary.JSON;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -23,6 +24,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.border.Border;
+import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 
 /**
@@ -152,19 +154,23 @@ public class MainFrame extends javax.swing.JFrame {
         this.remove(this.playersScrollPane);
         this.playersPanel.removeAll();
         this.leaderboardPanel = new JPanel();
-        Object[][] donnees = {
-                {"0", "Sykes"},
-                {"1", "Van de Kampf"},
-                {"2", "Cuthbert"},
-                {"3", "Valance"},
-                {"4", "Schrödinger"},
-                {"5", "Duke"},
-                {"6", "Trump"},
-        };
- 
-        String[] entetes = {"PlayerID", "Score"};
-        JTable jtable = new JTable(donnees, entetes);
-        this.leaderboardPanel.add(jtable);
+        
+        String[] entetes = {"PlayerID", "Victory Points", "Military Points", "Coins", "Centrifuge", "Pump", "Proofer"};
+        DefaultTableModel tableModel = new DefaultTableModel(entetes, 0);
+        JTable jtable = new JTable(tableModel);
+        ArrayList<Score> scores = this.gameManager.fetchScores();
+        for(int i = 0; i < scores.size(); ++i) {
+            String playerId = Integer.toString(i);
+            String victoryPoints = Integer.toString(scores.get(i).getTotalVictoryPoints().getValue());
+            String militaryPoints = Integer.toString(scores.get(i).getKnowledge().getValue());
+            String coins = Integer.toString(scores.get(i).getCoin().getValue());
+            String centrifuge = Integer.toString(scores.get(i).getCentrifuge().getValue());
+            String pump = Integer.toString(scores.get(i).getPump().getValue());
+            String proofer = Integer.toString(scores.get(i).getProofer().getValue());
+            String[] row = { playerId, victoryPoints, militaryPoints, coins, centrifuge, pump, proofer };
+            tableModel.addRow(row);
+        }
+        this.leaderboardPanel.add(new JScrollPane(jtable));
         JButton showEndButton = new JButton("Continue");
         showEndButton.addActionListener(new ActionListener() {          
             public void actionPerformed(ActionEvent e) {
