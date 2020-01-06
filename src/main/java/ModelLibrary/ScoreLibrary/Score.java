@@ -10,6 +10,7 @@ package ModelLibrary.ScoreLibrary;
  * @author Hicham, Aurélien
  */
 public class Score {
+    private Point finalScore;
     private Point totalVictoryPoints;
     private Point coin;
     private Point knowledge;
@@ -19,6 +20,7 @@ public class Score {
     private Point proofer;
 
     public Score() {
+        this.finalScore = new Point();
         this.totalVictoryPoints = new Point();
         this.knowledge = new Point();
         this.coin = new Point();
@@ -28,7 +30,8 @@ public class Score {
         this.proofer = new Point();
     }
 
-    public Score(Point totalVictoryPoints, Point coin, Point knowledge, Point association, Point centrifuge, Point pump, Point proofer) {
+    public Score(Point finalScore, Point totalVictoryPoints, Point coin, Point knowledge, Point association, Point centrifuge, Point pump, Point proofer) {
+        this.finalScore = finalScore;
         this.totalVictoryPoints = totalVictoryPoints;
         this.coin = coin;
         this.knowledge = knowledge;
@@ -38,7 +41,13 @@ public class Score {
         this.proofer = proofer;
     }
 
-    
+    public Point getFinalScore() {
+        return finalScore;
+    }
+
+    public void setFinalScore(Point finalScore) {
+        this.finalScore = finalScore;
+    }
 
     public Point getTotalVictoryPoints() {
         return totalVictoryPoints;
@@ -98,8 +107,7 @@ public class Score {
 
     @Override
     public String toString() {
-        return "Score{" + "totalVictoryPoints=" + totalVictoryPoints + ", coin=" + coin + ", knowledge=" + knowledge + ", association=" + association + ", centrifuge=" + centrifuge + ", pump=" + pump + ", proofer=" + proofer + '}';
+        return "Score{" + "finalScore=" + finalScore + ", totalVictoryPoints=" + totalVictoryPoints + ", coin=" + coin + ", knowledge=" + knowledge + ", association=" + association + ", centrifuge=" + centrifuge + ", pump=" + pump + ", proofer=" + proofer + '}';
     }
-    
     
 }

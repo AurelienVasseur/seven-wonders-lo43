@@ -221,6 +221,15 @@ public class GameManager {
     public ArrayList<Score> fetchScores() {
         ArrayList<Score> scores = new ArrayList<Score>();
         this.listPlayers.forEach((player) -> {
+            //Calculate final score
+            int centrifugePoints = player.getScore().getCentrifuge().getValue() * player.getScore().getCentrifuge().getValue();
+            int pumpPoints = player.getScore().getPump().getValue() * player.getScore().getPump().getValue();
+            int prooferPoints = player.getScore().getProofer().getValue() * player.getScore().getProofer().getValue();
+            int laboPoints = centrifugePoints + pumpPoints + prooferPoints;
+            int score = player.getScore().getTotalVictoryPoints().getValue() + player.getScore().getKnowledge().getValue() + (player.getScore().getCoin().getValue() / 3) + laboPoints;
+            // set final score to user's Score
+            player.getScore().getFinalScore().setValue(score);
+            // add to result list
             scores.add(player.getScore());
         });
         return scores;

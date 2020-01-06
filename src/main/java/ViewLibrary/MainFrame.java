@@ -155,19 +155,20 @@ public class MainFrame extends javax.swing.JFrame {
         this.playersPanel.removeAll();
         this.leaderboardPanel = new JPanel();
         
-        String[] entetes = {"PlayerID", "Victory Points", "Military Points", "Coins", "Centrifuge", "Pump", "Proofer"};
+        String[] entetes = {"PlayerID", "Score", "Victory Points", "Military Points", "Coins", "Centrifuge", "Pump", "Proofer"};
         DefaultTableModel tableModel = new DefaultTableModel(entetes, 0);
         JTable jtable = new JTable(tableModel);
         ArrayList<Score> scores = this.gameManager.fetchScores();
         for(int i = 0; i < scores.size(); ++i) {
             String playerId = Integer.toString(i);
+            String score = Integer.toString(scores.get(i).getFinalScore().getValue());
             String victoryPoints = Integer.toString(scores.get(i).getTotalVictoryPoints().getValue());
             String militaryPoints = Integer.toString(scores.get(i).getKnowledge().getValue());
             String coins = Integer.toString(scores.get(i).getCoin().getValue());
             String centrifuge = Integer.toString(scores.get(i).getCentrifuge().getValue());
             String pump = Integer.toString(scores.get(i).getPump().getValue());
             String proofer = Integer.toString(scores.get(i).getProofer().getValue());
-            String[] row = { playerId, victoryPoints, militaryPoints, coins, centrifuge, pump, proofer };
+            String[] row = { playerId, score, victoryPoints, militaryPoints, coins, centrifuge, pump, proofer };
             tableModel.addRow(row);
         }
         this.leaderboardPanel.add(new JScrollPane(jtable));
