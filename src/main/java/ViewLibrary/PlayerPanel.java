@@ -429,7 +429,7 @@ public class PlayerPanel extends javax.swing.JPanel {
                                                     .addComponent(jLabelCardRequiredToPlayForFree)
                                                     .addGap(18, 18, 18)
                                                     .addComponent(jLabelCardRequiredToPlayForFreeValue, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)))
                                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18))
                             .addGroup(layout.createSequentialGroup()
@@ -461,7 +461,7 @@ public class PlayerPanel extends javax.swing.JPanel {
                                                     .addGroup(layout.createSequentialGroup()
                                                         .addComponent(jLabelCostToBuy)
                                                         .addGap(27, 27, 27)
-                                                        .addComponent(jLabelCostToBuyValue, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))))))))
+                                                        .addComponent(jLabelCostToBuyValue, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))))))))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                     .addComponent(jLabelCardsPlayed)
@@ -952,7 +952,7 @@ public class PlayerPanel extends javax.swing.JPanel {
                 this.jLabelTypeValue.setText(card.getType().toString());
             }
             if(card.getCoinsEarned() != null) {
-                this.jLabelCoinsEarnedValue.setText(Integer.toString(card.getCoinsEarned().getValue()));
+                this.jLabelCoinsEarnedValue.setText(card.getCoinsEarned().getValue() + " " + card.getCoinsEarned().getType());
             }
             if(card.getCardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree() != null) {
                 this.jLabelCardRequiredToPlayForFreeValue.setText(card.getCardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree().getName());
