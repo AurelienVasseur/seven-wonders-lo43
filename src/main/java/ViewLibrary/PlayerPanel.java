@@ -11,6 +11,7 @@ import EnumLibrary.Resource;
 import ModelLibrary.CardLibrary.Card;
 import ModelLibrary.PlayerLibrary.Deck;
 import ModelLibrary.PlayerLibrary.Player;
+import ModelLibrary.ScoreLibrary.RessourcePack;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -113,6 +114,14 @@ public class PlayerPanel extends javax.swing.JPanel {
         jLabelCardBecomingFree = new javax.swing.JLabel();
         jLabelCardBecomingFreeValue = new javax.swing.JLabel();
         jSeparator3 = new javax.swing.JSeparator();
+        jScrollPaneBuyNeighbourBeforeRessourcesValue = new javax.swing.JScrollPane();
+        jListBuyNeighbourBeforeRessourcesValue = new javax.swing.JList<>();
+        jLabelBuyNeighborsRessources = new javax.swing.JLabel();
+        jButtonBuy = new javax.swing.JButton();
+        jLabelCostToBuy = new javax.swing.JLabel();
+        jLabelCostToBuyValue = new javax.swing.JLabel();
+        jScrollPaneBuyNeighbourAfterRessourcesValue = new javax.swing.JScrollPane();
+        jListBuyNeighbourAfterRessourcesValue = new javax.swing.JList<>();
 
         jLabelPLayerId.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabelPLayerId.setText("Player n° ID");
@@ -253,7 +262,7 @@ public class PlayerPanel extends javax.swing.JPanel {
 
         jLabelTypeValue.setText("/");
 
-        jLabelCost.setText("Cost :");
+        jLabelCost.setText("Cost to build :");
 
         jListCostValue.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -285,6 +294,44 @@ public class PlayerPanel extends javax.swing.JPanel {
 
         jSeparator3.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
+        jListBuyNeighbourBeforeRessourcesValue.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jListBuyNeighbourBeforeRessourcesValue.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                jListBuyNeighbourBeforeRessourcesValueValueChanged(evt);
+            }
+        });
+        jScrollPaneBuyNeighbourBeforeRessourcesValue.setViewportView(jListBuyNeighbourBeforeRessourcesValue);
+
+        jLabelBuyNeighborsRessources.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabelBuyNeighborsRessources.setText("Buy ressources producted by neighbors' cards");
+
+        jButtonBuy.setText("Buy");
+        jButtonBuy.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonBuyActionPerformed(evt);
+            }
+        });
+
+        jLabelCostToBuy.setText("Cost to buy :");
+
+        jLabelCostToBuyValue.setText("/");
+
+        jListBuyNeighbourAfterRessourcesValue.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jListBuyNeighbourAfterRessourcesValue.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                jListBuyNeighbourAfterRessourcesValueValueChanged(evt);
+            }
+        });
+        jScrollPaneBuyNeighbourAfterRessourcesValue.setViewportView(jListBuyNeighbourAfterRessourcesValue);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -293,140 +340,151 @@ public class PlayerPanel extends javax.swing.JPanel {
                 .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabelWonderEvolutionFirst)
-                        .addGap(46, 745, Short.MAX_VALUE))
+                        .addGap(42, 42, 42)
+                        .addComponent(jSeparator2))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(42, 42, 42)
-                                .addComponent(jSeparator2))
-                            .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabelCoinsEarned)
+                                        .addGap(20, 20, 20)
+                                        .addComponent(jLabelCoinsEarnedValue, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGap(110, 110, 110))
+                                    .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jLabelCoinsEarned)
-                                                .addGap(20, 20, 20)
-                                                .addComponent(jLabelCoinsEarnedValue, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addGap(110, 110, 110))
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                .addGap(0, 0, Short.MAX_VALUE)
-                                                .addComponent(jLabelCardInfos)
-                                                .addGap(155, 155, 155))
                                             .addGroup(layout.createSequentialGroup()
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addGroup(layout.createSequentialGroup()
-                                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                            .addComponent(jLabelName)
-                                                            .addComponent(jLabelType)
-                                                            .addComponent(jLabelCost))
-                                                        .addGap(18, 18, 18)
-                                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                                            .addComponent(jLabelTypeValue, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE)
-                                                            .addComponent(jLabelNameValue, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                                    .addComponent(jLabelProductedRessources)
-                                                    .addGroup(layout.createSequentialGroup()
-                                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                            .addComponent(jLabelCardRequiredToPlayForFree)
-                                                            .addComponent(jLabelCardBecomingFree))
-                                                        .addGap(18, 18, 18)
-                                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                            .addComponent(jLabelCardBecomingFreeValue, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                            .addComponent(jLabelCardRequiredToPlayForFreeValue, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                                    .addGroup(layout.createSequentialGroup()
-                                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                                                .addGroup(layout.createSequentialGroup()
-                                                                    .addComponent(jLabelCoins)
-                                                                    .addGap(18, 18, 18)
-                                                                    .addComponent(jLabelCoinsValue, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                                .addGroup(layout.createSequentialGroup()
-                                                                    .addComponent(jLabelCSName)
-                                                                    .addGap(32, 32, 32)
-                                                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                                        .addComponent(jLabelTMValue, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                        .addComponent(jLabelCSValue, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                        .addComponent(jLabelCGValue, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                        .addComponent(jLabelECValue, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                                            .addComponent(jLabelTMName)
-                                                            .addComponent(jLabelCGName)
-                                                            .addComponent(jLabelECName))
-                                                        .addGap(33, 33, 33)
-                                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                            .addGroup(layout.createSequentialGroup()
-                                                                .addGap(4, 4, 4)
-                                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                                    .addComponent(jLabelProoferName, javax.swing.GroupLayout.Alignment.LEADING)
-                                                                    .addComponent(jLabelEntrepreunariatName, javax.swing.GroupLayout.Alignment.LEADING)
-                                                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                                                        .addComponent(jLabelPumpName)
-                                                                        .addGap(35, 35, 35)
-                                                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                                            .addComponent(jLabelProoferValue, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                            .addComponent(jLabelPumpValue, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                            .addComponent(jLabelEntrepreunariatValue, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                                                            .addGroup(layout.createSequentialGroup()
-                                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                                    .addGroup(layout.createSequentialGroup()
-                                                                        .addComponent(jLabelStageName)
-                                                                        .addGap(34, 34, 34)
-                                                                        .addComponent(jLabelStageValue, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                        .addGap(28, 28, 28)
-                                                                        .addComponent(jLabelVictoryName))
-                                                                    .addGroup(layout.createSequentialGroup()
-                                                                        .addComponent(jLabelCentrifugeName)
-                                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                                        .addComponent(jLabelCentrifugeValue, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                        .addGap(21, 21, 21)
-                                                                        .addComponent(jLabelKnowledgeName)))
-                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                                    .addComponent(jLabelVictoryValue, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                    .addComponent(jLabelKnowledgeValue, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                                    .addComponent(jLabelName)
+                                                    .addComponent(jLabelType)
+                                                    .addComponent(jLabelCost))
+                                                .addGap(18, 18, 18)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                    .addComponent(jLabelTypeValue, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE)
+                                                    .addComponent(jLabelNameValue, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                            .addComponent(jLabelProductedRessources)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                                        .addComponent(jScrollPaneCostValue, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 227, Short.MAX_VALUE)
-                                                        .addComponent(jScrollPaneProductedRessourcesValue, javax.swing.GroupLayout.Alignment.LEADING)))
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                        .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabelProjetName)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jLabelProjetValue, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                                        .addGroup(layout.createSequentialGroup()
+                                                            .addComponent(jLabelCoins)
+                                                            .addGap(18, 18, 18)
+                                                            .addComponent(jLabelCoinsValue, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                        .addGroup(layout.createSequentialGroup()
+                                                            .addComponent(jLabelCSName)
+                                                            .addGap(32, 32, 32)
+                                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                .addComponent(jLabelTMValue, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addComponent(jLabelCSValue, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addComponent(jLabelCGValue, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addComponent(jLabelECValue, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                                    .addComponent(jLabelTMName)
+                                                    .addComponent(jLabelCGName)
+                                                    .addComponent(jLabelECName))
+                                                .addGap(23, 23, 23)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addGroup(layout.createSequentialGroup()
+                                                        .addGap(14, 14, 14)
+                                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                            .addComponent(jLabelProoferName, javax.swing.GroupLayout.Alignment.LEADING)
+                                                            .addComponent(jLabelEntrepreunariatName, javax.swing.GroupLayout.Alignment.LEADING)
+                                                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                                                .addComponent(jLabelPumpName)
+                                                                .addGap(35, 35, 35)
+                                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                    .addComponent(jLabelProoferValue, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                    .addComponent(jLabelPumpValue, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                    .addComponent(jLabelEntrepreunariatValue, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                                    .addGroup(layout.createSequentialGroup()
+                                                        .addGap(10, 10, 10)
+                                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                            .addGroup(layout.createSequentialGroup()
+                                                                .addComponent(jLabelStageName)
+                                                                .addGap(34, 34, 34)
+                                                                .addComponent(jLabelStageValue, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addGap(28, 28, 28)
+                                                                .addComponent(jLabelVictoryName))
+                                                            .addGroup(layout.createSequentialGroup()
+                                                                .addComponent(jLabelCentrifugeName)
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                                .addComponent(jLabelCentrifugeValue, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addGap(21, 21, 21)
+                                                                .addComponent(jLabelKnowledgeName)))
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                            .addComponent(jLabelVictoryValue, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                            .addComponent(jLabelKnowledgeValue, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                        .addComponent(jLabelCardInfos)
+                                                        .addGap(140, 140, 140))))
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                .addComponent(jScrollPaneCostValue, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 227, Short.MAX_VALUE)
+                                                .addComponent(jScrollPaneProductedRessourcesValue, javax.swing.GroupLayout.Alignment.LEADING))
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                .addGroup(layout.createSequentialGroup()
+                                                    .addComponent(jLabelCardBecomingFree)
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                    .addComponent(jLabelCardBecomingFreeValue, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGroup(layout.createSequentialGroup()
+                                                    .addComponent(jLabelCardRequiredToPlayForFree)
+                                                    .addGap(18, 18, 18)
+                                                    .addComponent(jLabelCardRequiredToPlayForFreeValue, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)))
+                                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabelProjetName)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabelProjetValue, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(128, 128, 128)
+                                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addGap(128, 128, 128)
-                                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(11, 11, 11)
+                                        .addComponent(jLabelPLayerId))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(layout.createSequentialGroup()
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(jButtonValidate, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addComponent(jScrollPaneCards, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(68, 68, 68)
+                                                .addComponent(jScrollPaneActions, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
                                             .addGroup(layout.createSequentialGroup()
-                                                .addGap(11, 11, 11)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(jScrollPaneBuyNeighbourAfterRessourcesValue, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(jScrollPaneBuyNeighbourBeforeRessourcesValue, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGap(28, 28, 28)
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                    .addComponent(jLabelPLayerId)
-                                                    .addComponent(jScrollPaneCards, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(jScrollPaneActions, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                                    .addComponent(jButtonBuy, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addGroup(layout.createSequentialGroup()
+                                                        .addComponent(jLabelCostToBuy)
+                                                        .addGap(27, 27, 27)
+                                                        .addComponent(jLabelCostToBuyValue, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))))))))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addComponent(jLabelCardsPlayed)
+                                    .addGap(82, 82, 82)
+                                    .addComponent(jLabelDeck)
+                                    .addGap(87, 87, 87)
+                                    .addComponent(jLabelActions)
+                                    .addGap(35, 35, 35))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addComponent(jScrollPaneCardsPlayed, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                            .addComponent(jLabelCardsPlayed)
-                                            .addGap(82, 82, 82)
-                                            .addComponent(jLabelDeck)
-                                            .addGap(87, 87, 87)
-                                            .addComponent(jLabelActions)
-                                            .addGap(35, 35, 35))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                            .addComponent(jScrollPaneCardsPlayed, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(274, 274, 274)))))
-                            .addComponent(jButtonLeaderboard, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabelWonderEvolutionSecond)
-                                    .addComponent(jLabelWonderEvolutionThird))
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addContainerGap())))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addGap(69, 69, 69)
+                                            .addComponent(jButtonValidate, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addGap(54, 54, 54)
+                                            .addComponent(jLabelBuyNeighborsRessources))))))
+                        .addGap(44, 44, 44))
+                    .addComponent(jButtonLeaderboard, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabelWonderEvolutionFirst)
+                    .addComponent(jLabelWonderEvolutionSecond)
+                    .addComponent(jLabelWonderEvolutionThird))
+                .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(318, 318, 318)
                 .addComponent(jLabelWonderName)
@@ -493,48 +551,61 @@ public class PlayerPanel extends javax.swing.JPanel {
                             .addComponent(jLabelProjetValue))
                         .addGap(18, 18, Short.MAX_VALUE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabelCardInfos)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabelName)
-                                    .addComponent(jLabelNameValue))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabelType)
-                                    .addComponent(jLabelTypeValue))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabelCost)
-                                .addGap(9, 9, 9)
-                                .addComponent(jScrollPaneCostValue, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabelProductedRessources)
-                                .addGap(9, 9, 9)
-                                .addComponent(jScrollPaneProductedRessourcesValue, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabelCoinsEarned)
-                                    .addComponent(jLabelCoinsEarnedValue)))
-                            .addComponent(jScrollPaneCards)
-                            .addComponent(jScrollPaneActions))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabelCardRequiredToPlayForFree)
-                                    .addComponent(jLabelCardRequiredToPlayForFreeValue))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabelCardBecomingFree)
-                                    .addComponent(jLabelCardBecomingFreeValue)))
-                            .addComponent(jButtonValidate))
-                        .addGap(25, 25, 25))
                     .addComponent(jScrollPaneCardsPlayed)
                     .addComponent(jSeparator1)
-                    .addComponent(jSeparator3))
-                .addGap(18, 23, Short.MAX_VALUE)
+                    .addComponent(jSeparator3)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabelCardInfos)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabelName)
+                            .addComponent(jLabelNameValue))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabelType)
+                            .addComponent(jLabelTypeValue))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabelCost)
+                        .addGap(9, 9, 9)
+                        .addComponent(jScrollPaneCostValue, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabelProductedRessources)
+                        .addGap(9, 9, 9)
+                        .addComponent(jScrollPaneProductedRessourcesValue, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabelCoinsEarned)
+                            .addComponent(jLabelCoinsEarnedValue))
+                        .addGap(17, 17, 17)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabelCardRequiredToPlayForFree)
+                            .addComponent(jLabelCardRequiredToPlayForFreeValue))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabelCardBecomingFree)
+                            .addComponent(jLabelCardBecomingFreeValue)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jScrollPaneCards, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
+                            .addComponent(jScrollPaneActions, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addGap(22, 22, 22)
+                        .addComponent(jLabelBuyNeighborsRessources)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabelCostToBuyValue)
+                                .addComponent(jLabelCostToBuy))
+                            .addComponent(jScrollPaneBuyNeighbourBeforeRessourcesValue, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(jScrollPaneBuyNeighbourAfterRessourcesValue, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(28, 28, 28)
+                                .addComponent(jButtonBuy)))
+                        .addGap(54, 54, 54)
+                        .addComponent(jButtonValidate)))
+                .addGap(18, 18, Short.MAX_VALUE)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabelWonderName)
@@ -620,6 +691,107 @@ public class PlayerPanel extends javax.swing.JPanel {
     private void jButtonLeaderboardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLeaderboardActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonLeaderboardActionPerformed
+
+    private void jButtonBuyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuyActionPerformed
+        // 1. Récupération de la carte sélectionnée
+        Player player = this.frame.gameManager.getListPlayers().get(this.playerId);
+        Card cardSelected = player.getCardSelectedToBuyRessources();
+        if(cardSelected != null) {
+            // 2. Calcul du prix
+            int priceCoins = 0;
+            if(cardSelected.getListProductRessources() != null) {
+                for(int i=0; i<cardSelected.getListProductRessources().size(); i++) {
+                    priceCoins = priceCoins + (cardSelected.getListProductRessources().get(i).getValue() * 2);
+                }
+            }
+            // 3. Achat des ressources
+            if(priceCoins <= player.getScore().getCoin().getValue()) {
+                // Le joueur possède suffisament de coins
+                // 3.1. Récupération des ressources
+                for(int i=0; i<cardSelected.getListProductRessources().size(); i++) {
+                    RessourcePack ressource = cardSelected.getListProductRessources().get(i);
+                    for(int j=0; j<player.getProductedRessources().size(); j++) {
+                        if(player.getProductedRessources().get(j).getType() == ressource.getType()) {
+                            player.getProductedRessources().get(j).setValue(player.getProductedRessources().get(j).getValue() + ressource.getValue());
+                        }
+                    }        
+                }
+                // 3.2. Le joueur voisin récupére le priceCoins
+                int id = player.getIdPlayerCardSelectedToBuyRessources();
+                Player playerNeighbour = this.frame.gameManager.getListPlayers().get(id);
+                playerNeighbour.getScore().getCoin().setValue(playerNeighbour.getScore().getCoin().getValue() + priceCoins);
+                // 3.3. Le joueur perd le princeCoins
+                player.getScore().getCoin().setValue(player.getScore().getCoin().getValue() - priceCoins);
+            } else {
+                // Le joueur ne possède pas suffisament de coins
+                player.getScore().getCoin().setValue(player.getScore().getCoin().getValue() - 2);
+            }
+        }
+        // 4. Actualisation 
+        this.frame.guiUpdatePlayersPanel();
+        // 5. Désactivation du bouton et de la sélection des jList
+        this.jButtonBuy.setEnabled(false);
+        this.jListBuyNeighbourBeforeRessourcesValue.setEnabled(false);
+        this.jListBuyNeighbourAfterRessourcesValue.setEnabled(false);
+    }//GEN-LAST:event_jButtonBuyActionPerformed
+
+    private void jListBuyNeighbourBeforeRessourcesValueValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jListBuyNeighbourBeforeRessourcesValueValueChanged
+        int id;
+        if(this.playerId == 0) {
+            id = this.frame.gameManager.getListPlayers().size() - 1;
+        } else {
+            id = this.playerId - 1;
+        }
+        Player player = this.frame.gameManager.getPlayer(id);
+        this.frame.gameManager.getPlayer(this.playerId).setIdPlayerCardSelectedToBuyRessources(id);
+        // 1. Récupération de la carte sélectionnée
+        String nameCardSelected = this.jListBuyNeighbourBeforeRessourcesValue.getSelectedValue();
+        Card cardSelected = player.getCardPlayedByName(nameCardSelected);
+        this.frame.gameManager.getListPlayers().get(this.playerId).setCardSelectedToBuyRessources(cardSelected);
+        // 2. Update Card Infos
+        this.showCardInfos(cardSelected);
+        // 3. Update price to buy
+        int priceCoins = 0;
+        if(cardSelected != null && cardSelected.getListProductRessources() != null) {
+            for(int i=0; i<cardSelected.getListProductRessources().size(); i++) {
+                priceCoins = priceCoins + (cardSelected.getListProductRessources().get(i).getValue() * 2);
+            }
+        }
+        this.jLabelCostToBuyValue.setText(priceCoins + " Coins");
+        // 4. Suppression de la sélection de la liste concernant l'autre voisin
+        jListBuyNeighbourAfterRessourcesValue.setSelectedValue(null, true);
+        // 5. Activation du bouton permettant l'achat
+        this.jButtonBuy.setEnabled(true);
+    }//GEN-LAST:event_jListBuyNeighbourBeforeRessourcesValueValueChanged
+
+    private void jListBuyNeighbourAfterRessourcesValueValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jListBuyNeighbourAfterRessourcesValueValueChanged
+        int id;
+        if(this.playerId == this.frame.gameManager.getListPlayers().size() - 1) {
+            id = 0;
+        } else {
+            id = this.playerId + 1;
+        }
+        Player player = this.frame.gameManager.getPlayer(id);
+        this.frame.gameManager.getPlayer(this.playerId).setIdPlayerCardSelectedToBuyRessources(id);
+        // 1. Récupération de la carte sélectionnée
+        String nameCardSelected = this.jListBuyNeighbourAfterRessourcesValue.getSelectedValue();
+        Card cardSelected = player.getCardPlayedByName(nameCardSelected);
+        this.frame.gameManager.getListPlayers().get(this.playerId).setCardSelectedToBuyRessources(cardSelected);
+        // 2. Update Card Infos
+        this.showCardInfos(cardSelected);
+        // 3. Update price to buy
+        int priceCoins = 0;
+        if(cardSelected != null && cardSelected.getListProductRessources() != null) {
+            for(int i=0; i<cardSelected.getListProductRessources().size(); i++) {
+                priceCoins = priceCoins + (cardSelected.getListProductRessources().get(i).getValue() * 2);
+            }
+        }
+        this.jLabelCostToBuyValue.setText(priceCoins + " Coins");
+        // 4. Suppression de la sélection de la liste concernant l'autre voisin
+        jListBuyNeighbourBeforeRessourcesValue.setSelectedValue(null, true);
+        // 5. Activation du bouton permettant l'achat
+        this.jButtonBuy.setEnabled(true);
+    }//GEN-LAST:event_jListBuyNeighbourAfterRessourcesValueValueChanged
 
     // Permet de mettre fin à la partie
     public void end() {
@@ -712,9 +884,44 @@ public class PlayerPanel extends javax.swing.JPanel {
             modelCardsPlayed.addElement(cardsPlayed.getListCards().get(i).getName());
         }
         this.jListCardsPlayed.setModel(modelCardsPlayed);
+        // Initialisation de la liste des cartes jouées par les autres joueurs
+        int id;
+        // Récupération des cartes jouées par le joueur N-1
+        DefaultListModel modelCardsPlayedBuyRessourcesNeighbourBefore = new DefaultListModel();
+        if(this.playerId == 0) {
+            id = this.frame.gameManager.getListPlayers().size() - 1;
+        } else {
+            id = this.playerId - 1;
+        }
+        Deck cardsPlayedNeighbourBefore = this.frame.gameManager.getListPlayers().get(id).getCardsPlayed();
+        for(int i=0; i< cardsPlayedNeighbourBefore.getListCards().size(); i++) {
+            Card _card = cardsPlayedNeighbourBefore.getListCards().get(i);
+            modelCardsPlayedBuyRessourcesNeighbourBefore.addElement(_card.getName());
+        }
+        this.jListBuyNeighbourBeforeRessourcesValue.setModel(modelCardsPlayedBuyRessourcesNeighbourBefore);
+        this.jListBuyNeighbourBeforeRessourcesValue.setEnabled(true);
+        // Récupération des cartes jouées par le joueur N+1
+        DefaultListModel modelCardsPlayedBuyRessourcesNeighbourAfter = new DefaultListModel();
+        if(this.playerId == this.frame.gameManager.getListPlayers().size() - 1) {
+            id = 0;
+        } else {
+            id = this.playerId + 1;
+        }
+        Deck cardsPlayedNeighbourAfter = this.frame.gameManager.getListPlayers().get(id).getCardsPlayed();
+        for(int i=0; i< cardsPlayedNeighbourAfter.getListCards().size(); i++) {
+            Card _card = cardsPlayedNeighbourAfter.getListCards().get(i);
+            modelCardsPlayedBuyRessourcesNeighbourAfter.addElement(_card.getName());
+        }
+        this.jListBuyNeighbourAfterRessourcesValue.setModel(modelCardsPlayedBuyRessourcesNeighbourAfter);
+        this.jListBuyNeighbourAfterRessourcesValue.setEnabled(true);
+        // Désactivation du bouton d'achat
+        this.jButtonBuy.setEnabled(false);
+        // Initialisation du prix d'achat
+        this.jLabelCostToBuyValue.setText("/");
         // Initialisation de la liste des actions
         DefaultListModel modelActions = new DefaultListModel();
         EnumSet.allOf(Action.class).forEach(action -> modelActions.addElement(action.toString()));
+        modelActions.removeElement(Action.BUY.toString());
         this.jListAction.setModel(modelActions);
         // Désactivation du bouton
         this.jButtonValidate.setEnabled(false);
@@ -801,9 +1008,11 @@ public class PlayerPanel extends javax.swing.JPanel {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonBuy;
     private javax.swing.JButton jButtonLeaderboard;
     private javax.swing.JButton jButtonValidate;
     private javax.swing.JLabel jLabelActions;
+    private javax.swing.JLabel jLabelBuyNeighborsRessources;
     private javax.swing.JLabel jLabelCGName;
     private javax.swing.JLabel jLabelCGValue;
     private javax.swing.JLabel jLabelCSName;
@@ -821,6 +1030,8 @@ public class PlayerPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabelCoinsEarnedValue;
     private javax.swing.JLabel jLabelCoinsValue;
     private javax.swing.JLabel jLabelCost;
+    private javax.swing.JLabel jLabelCostToBuy;
+    private javax.swing.JLabel jLabelCostToBuyValue;
     private javax.swing.JLabel jLabelDeck;
     private javax.swing.JLabel jLabelECName;
     private javax.swing.JLabel jLabelECValue;
@@ -851,11 +1062,15 @@ public class PlayerPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabelWonderEvolutionThird;
     private javax.swing.JLabel jLabelWonderName;
     private javax.swing.JList<String> jListAction;
+    private javax.swing.JList<String> jListBuyNeighbourAfterRessourcesValue;
+    private javax.swing.JList<String> jListBuyNeighbourBeforeRessourcesValue;
     private javax.swing.JList<String> jListCards;
     private javax.swing.JList<String> jListCardsPlayed;
     private javax.swing.JList<String> jListCostValue;
     private javax.swing.JList<String> jListProductedRessourcesValue;
     private javax.swing.JScrollPane jScrollPaneActions;
+    private javax.swing.JScrollPane jScrollPaneBuyNeighbourAfterRessourcesValue;
+    private javax.swing.JScrollPane jScrollPaneBuyNeighbourBeforeRessourcesValue;
     private javax.swing.JScrollPane jScrollPaneCards;
     private javax.swing.JScrollPane jScrollPaneCardsPlayed;
     private javax.swing.JScrollPane jScrollPaneCostValue;

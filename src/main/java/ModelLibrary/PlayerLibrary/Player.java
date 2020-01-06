@@ -25,6 +25,8 @@ public class Player {
     private Deck cardsPlayed;
     private Action actionSelected;
     private Card cardSelected;
+    private Card cardSelectedToBuyRessources;
+    private int idPlayerCardSelectedToBuyRessources;
     private boolean isValidate; // A validé son tour de jeu
     private ArrayList<RessourcePack> productedRessources;
 
@@ -365,6 +367,10 @@ public class Player {
     public Card getCardDeckByName(String name) {
         return this.deck.getCardByName(name);
     }
+    
+    public Card getCardPlayedByName(String name) {
+        return this.cardsPlayed.getCardByName(name);
+    }
 
     public Deck getCardsPlayed() {
         return cardsPlayed;
@@ -390,6 +396,22 @@ public class Player {
     public void setCardSelected(Card cardSelected) {
         this.cardSelected = cardSelected;
         System.out.println("Card selected : " + this.cardSelected.getName());
+    }
+    
+    public Card getCardSelectedToBuyRessources() {
+        return this.cardSelectedToBuyRessources;
+    }
+    
+    public void setCardSelectedToBuyRessources(Card cardSelectedToBuyRessources) {
+        this.cardSelectedToBuyRessources = cardSelectedToBuyRessources;
+    }
+    
+    public int getIdPlayerCardSelectedToBuyRessources() {
+        return this.idPlayerCardSelectedToBuyRessources;
+    }
+    
+    public void setIdPlayerCardSelectedToBuyRessources(int idPlayerCardSelectedToBuyRessources) {
+        this.idPlayerCardSelectedToBuyRessources = idPlayerCardSelectedToBuyRessources;
     }
     
     public boolean getIsValidate() {
