@@ -64,7 +64,7 @@ public class Player {
         this.productedRessources.add(new RessourcePack(Resource.EC, 0));
         this.productedRessources.add(new RessourcePack(Resource.STAGE, 0));
         this.productedRessources.add(new RessourcePack(Resource.PROJET, 0));
-        this.productedRessources.add(new RessourcePack(Resource.ENTREPREUNARIAT, 0));
+        this.productedRessources.add(new RessourcePack(Resource.ENTREPRENEURSHIP, 0));
         this.productedRessources.add(new RessourcePack(Resource.COIN, 0));
         this.cardsPlayed.getListCards().forEach((Card card) -> {
             ArrayList<RessourcePack> cardProductRessources = card.getListProductRessources();

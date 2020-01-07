@@ -828,7 +828,7 @@ public class PlayerPanel extends javax.swing.JPanel {
                 case PROJET:
                     this.jLabelProjetValue.setText(Integer.toString(productedRessource.getValue()));
                     break;
-                case ENTREPREUNARIAT:
+                case ENTREPRENEURSHIP:
                     this.jLabelEntrepreunariatValue.setText(Integer.toString(productedRessource.getValue()));
                     break;
             }

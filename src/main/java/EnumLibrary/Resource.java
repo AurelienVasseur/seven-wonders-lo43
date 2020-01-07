@@ -16,6 +16,6 @@ public enum Resource {
     EC,
     STAGE,
     PROJET,
-    ENTREPREUNARIAT,
+    ENTREPRENEURSHIP,
     COIN
 }
