@@ -175,7 +175,11 @@ public class PlayerPanel extends javax.swing.JPanel {
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jListCardsPlayed.setEnabled(false);
+        jListCardsPlayed.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                jListCardsPlayedValueChanged(evt);
+            }
+        });
         jScrollPaneCardsPlayed.setViewportView(jListCardsPlayed);
 
         jLabelCardsPlayed.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -792,6 +796,15 @@ public class PlayerPanel extends javax.swing.JPanel {
         // 5. Activation du bouton permettant l'achat
         this.jButtonBuy.setEnabled(true);
     }//GEN-LAST:event_jListBuyNeighbourAfterRessourcesValueValueChanged
+
+    private void jListCardsPlayedValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jListCardsPlayedValueChanged
+        Player player = this.frame.gameManager.getPlayer(this.playerId);
+        // 1. Récupération de la carte sélectionnée
+        String nameCardSelected = this.jListCardsPlayed.getSelectedValue();
+        Card cardSelected = player.getCardPlayedByName(nameCardSelected);
+        // 2. Update Card Infos
+        this.showCardInfos(cardSelected);
+    }//GEN-LAST:event_jListCardsPlayedValueChanged
 
     // Permet de mettre fin à la partie
     public void end() {
