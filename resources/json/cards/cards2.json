@@ -1,7 +1,7 @@
 [
     {
         "id": 1,
-        "name": "Scierie",
+        "name": "Statistics",
         "type": 0,
         "cost": [ { "type": 7, "value": 1} ],
         "formation": 1,
@@ -14,7 +14,7 @@
     },
     {
         "id": 2,
-        "name": "Scierie",
+        "name": "Statistics",
         "type": 0,
         "cost": [ { "type": 7, "value": 1} ],
         "formation": 1,
@@ -27,7 +27,7 @@
     },
     {
         "id": 3,
-        "name": "Carrière",
+        "name": "IT certification",
         "type": 0,
         "cost": [ { "type": 7, "value": 1} ],
         "formation": 1,
@@ -40,7 +40,7 @@
     },
     {
         "id": 4,
-        "name": "Carrière",
+        "name": "IT certification",
         "type": 0,
         "cost": [ { "type": 7, "value": 1} ],
         "formation": 1,
@@ -53,7 +53,7 @@
     },
     {
         "id": 5,
-        "name": "Briqueterie",
+        "name": "Ethical corruption",
         "type": 0,
         "cost": [ { "type": 7, "value": 1} ],
         "formation": 1,
@@ -66,7 +66,7 @@
     },
     {
         "id": 6,
-        "name": "Briqueterie",
+        "name": "Ethical corruption",
         "type": 0,
         "cost": [ { "type": 7, "value": 1} ],
         "formation": 1,
@@ -79,7 +79,7 @@
     },
     {
         "id": 7,
-        "name": "Fonderie",
+        "name": "Translate tool",
         "type": 0,
         "cost": [ { "type": 7, "value": 1} ],
         "formation": 1,
@@ -92,7 +92,7 @@
     },
     {
         "id": 8,
-        "name": "Fonderie",
+        "name": "Translate tool",
         "type": 0,
         "cost": [ { "type": 7, "value": 1} ],
         "formation": 1,
@@ -105,7 +105,7 @@
     },
     {
         "id": 9,
-        "name": "Métier à tisser",
+        "name": "Alumni",
         "type": 1,
         "cost": null,
         "formation": 1,
@@ -118,7 +118,7 @@
     },
     {
         "id": 10,
-        "name": "Métier à tisser",
+        "name": "Alumni",
         "type": 1,
         "cost": null,
         "formation": 1,
@@ -131,7 +131,7 @@
     },
     {
         "id": 11,
-        "name": "Verrerie",
+        "name": "Java Game Project",
         "type": 1,
         "cost": null,
         "formation": 1,
@@ -144,7 +144,7 @@
     },
     {
         "id": 12,
-        "name": "Verrerie",
+        "name": "Java Game Project",
         "type": 1,
         "cost": null,
         "formation": 1,
@@ -157,7 +157,7 @@
     },
     {
         "id": 13,
-        "name": "Presse",
+        "name": "Communication",
         "type": 1,
         "cost": null,
         "formation": 1,
@@ -170,7 +170,7 @@
     },
     {
         "id": 14,
-        "name": "Presse",
+        "name": "Communication",
         "type": 1,
         "cost": null,
         "formation": 1,
@@ -183,7 +183,7 @@
     },
     {
         "id": 15,
-        "name": "Aqueduc",
+        "name": "Software revolution",
         "type": 2,
         "cost": [ {"type": 1, "value": 3} ],
         "formation": 1,
@@ -196,7 +196,7 @@
     },
     {
         "id": 16,
-        "name": "Aqueduc",
+        "name": "Sotftware revolution",
         "type": 2,
         "cost": [ {"type": 1, "value": 3} ],
         "formation": 1,
@@ -209,7 +209,7 @@
     },
     {
         "id": 17,
-        "name": "Temple",
+        "name": "Startup",
         "type": 2,
         "cost": [ {"type": 0, "value": 1}, {"type": 2, "value": 1}, {"type": 5, "value": 1} ],
         "formation": 1,
@@ -222,7 +222,7 @@
     },
     {
         "id": 18,
-        "name": "Temple",
+        "name": "Startup",
         "type": 2,
         "cost": [ {"type": 0, "value": 1}, {"type": 2, "value": 1}, {"type": 5, "value": 1} ],
         "formation": 1,
@@ -235,7 +235,7 @@
     },
     {
         "id": 19,
-        "name": "Statue",
+        "name": "Bilingual engineer",
         "type": 2,
         "cost": [ {"type": 0, "value": 1}, {"type": 3, "value": 2} ],
         "formation": 1,
@@ -248,7 +248,7 @@
     },
     {
         "id": 20,
-        "name": "Statue",
+        "name": "Bilingual engineer",
         "type": 2,
         "cost": [ {"type": 0, "value": 1}, {"type": 3, "value": 2} ],
         "formation": 1,
@@ -261,7 +261,7 @@
     },
     {
         "id": 21,
-        "name": "Tribunal",
+        "name": "Favorable jury",
         "type": 2,
         "cost": [ {"type": 2, "value": 2}, {"type": 4, "value": 1} ],
         "formation": 1,
@@ -274,7 +274,7 @@
     },
     {
         "id": 22,
-        "name": "Tribunal",
+        "name": "Favorable jury",
         "type": 2,
         "cost": [ {"type": 2, "value": 2}, {"type": 4, "value": 1} ],
         "formation": 1,
@@ -326,7 +326,7 @@
     },
     {
         "id": 26,
-        "name": "Caravansérail",
+        "name": "Learn to learn",
         "type": 3,
         "cost": [ {"type": 0, "value": 2} ],
         "formation": 1,
@@ -339,7 +339,7 @@
     },
     {
         "id": 27,
-        "name": "Caravansérail",
+        "name": "Learn to learn",
         "type": 3,
         "cost": [ {"type": 0, "value": 2} ],
         "formation": 1,
@@ -352,7 +352,7 @@
     },
     {
         "id": 28,
-        "name": "Caravansérail",
+        "name": "Learn to learn",
         "type": 3,
         "cost": [ {"type": 0, "value": 2} ],
         "formation": 1,
@@ -365,7 +365,7 @@
     },
     {
         "id": 29,
-        "name": "Vignoble",
+        "name": "Ecologist",
         "type": 3,
         "cost": null,
         "formation": 1,
@@ -378,7 +378,7 @@
     },
     {
         "id": 30,
-        "name": "Vignoble",
+        "name": "Ecologist",
         "type": 3,
         "cost": null,
         "formation": 1,
@@ -391,7 +391,7 @@
     },
     {
         "id": 31,
-        "name": "Bazar",
+        "name": "Capitalist",
         "type": 3,
         "cost": null,
         "formation": 1,
@@ -404,7 +404,7 @@
     },
     {
         "id": 32,
-        "name": "Bazar",
+        "name": "Capitalist",
         "type": 3,
         "cost": null,
         "formation": 1,
@@ -417,7 +417,7 @@
     },
     {
         "id": 33,
-        "name": "Muraille",
+        "name": "Firewall",
         "type": 4,
         "cost": [ { "type": 1, "value": 3 } ],
         "formation": 1,
@@ -430,7 +430,7 @@
     },
     {
         "id": 34,
-        "name": "Muraille",
+        "name": "Firewall",
         "type": 4,
         "cost": [ { "type": 1, "value": 3 } ],
         "formation": 1,
@@ -443,7 +443,7 @@
     },
     {
         "id": 35,
-        "name": "Place d'armes",
+        "name": "Multilingual scientist",
         "type": 4,
         "cost": [ { "type": 0, "value": 1 }, { "type": 3, "value": 2 } ],
         "formation": 1,
@@ -456,7 +456,7 @@
     },
     {
         "id": 36,
-        "name": "Place d'armes",
+        "name": "Multilingual scientist",
         "type": 4,
         "cost": [ { "type": 0, "value": 1 }, { "type": 3, "value": 2 } ],
         "formation": 1,
@@ -469,7 +469,7 @@
     },
     {
         "id": 37,
-        "name": "Place d'armes",
+        "name": "Multilingual scientist",
         "type": 4,
         "cost": [ { "type": 0, "value": 1 }, { "type": 3, "value": 2 } ],
         "formation": 1,
@@ -482,7 +482,7 @@
     },
     {
         "id": 38,
-        "name": "Écuries",
+        "name": "Modern slavery",
         "type": 4,
         "cost": [ { "type": 0, "value": 1 }, { "type": 2, "value": 1 }, { "type": 3, "value": 1 } ],
         "formation": 1,
@@ -495,7 +495,7 @@
     },
     {
         "id": 39,
-        "name": "Écuries",
+        "name": "Modern slavery",
         "type": 4,
         "cost": [ { "type": 0, "value": 1 }, { "type": 2, "value": 1 }, { "type": 3, "value": 1 } ],
         "formation": 1,
@@ -508,7 +508,7 @@
     },
     {
         "id": 40,
-        "name": "Champs de tir",
+        "name": "ERASMUS",
         "type": 4,
         "cost": [ { "type": 0, "value": 2 }, { "type": 3, "value": 1 } ],
         "formation": 1,
@@ -521,7 +521,7 @@
     },
     {
         "id": 41,
-        "name": "Champs de tir",
+        "name": "ERASMUS",
         "type": 4,
         "cost": [ { "type": 0, "value": 2 }, { "type": 3, "value": 1 } ],
         "formation": 1,
@@ -534,7 +534,7 @@
     },
     {
         "id": 42,
-        "name": "Dispensaire",
+        "name": "Insane project",
         "type": 5,
         "cost": [ { "type": 3, "value": 2 }, { "type": 5, "value": 1 } ],
         "formation": 1,
@@ -547,7 +547,7 @@
     },
     {
         "id": 43,
-        "name": "Dispensaire",
+        "name": "Insane project",
         "type": 5,
         "cost": [ { "type": 3, "value": 2 }, { "type": 5, "value": 1 } ],
         "formation": 1,
@@ -560,7 +560,7 @@
     },
     {
         "id": 44,
-        "name": "Laboratoire",
+        "name": "Crunch Lab",
         "type": 5,
         "cost": [ { "type": 2, "value": 2 }, { "type": 6, "value": 1 } ],
         "formation": 1,
@@ -573,7 +573,7 @@
     },
     {
         "id": 45,
-        "name": "Laboratoire",
+        "name": "Crunch Lab",
         "type": 5,
         "cost": [ { "type": 2, "value": 2 }, { "type": 6, "value": 1 } ],
         "formation": 1,
@@ -586,7 +586,7 @@
     },
     {
         "id": 46,
-        "name": "Bibliothèque",
+        "name": "Bibl'UT",
         "type": 5,
         "cost": [ { "type": 1, "value": 2 }, { "type": 4, "value": 1 } ],
         "formation": 1,
@@ -599,7 +599,7 @@
     },
     {
         "id": 47,
-        "name": "Bibliothèque",
+        "name": "Bibl'UT",
         "type": 5,
         "cost": [ { "type": 1, "value": 2 }, { "type": 4, "value": 1 } ],
         "formation": 1,
@@ -612,7 +612,7 @@
     },
     {
         "id": 48,
-        "name": "École",
+        "name": "PEPITE prize",
         "type": 5,
         "cost": [ { "type": 0, "value": 1 }, { "type": 6, "value": 1 } ],
         "formation": 1,
@@ -625,7 +625,7 @@
     },
     {
         "id": 49,
-        "name": "École",
+        "name": "PEPITE prize",
         "type": 5,
         "cost": [ { "type": 0, "value": 1 }, { "type": 6, "value": 1 } ],
         "formation": 1,

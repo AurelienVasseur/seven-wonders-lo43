@@ -1,7 +1,7 @@
 [
     {
         "id": 1,
-        "name": "Chantier",
+        "name": "Fundamental mathematics",
         "type": 0,
         "cost": null,
         "formation": 0,
@@ -14,7 +14,7 @@
     },
     {
         "id": 2,
-        "name": "Chantier",
+        "name": "Fundamental mathematics",
         "type": 0,
         "cost": null,
         "formation": 0,
@@ -27,7 +27,7 @@
     },
     {
         "id": 3,
-        "name": "Cavité",
+        "name": "Technical internship",
         "type": 0,
         "cost": null,
         "formation": 0,
@@ -40,7 +40,7 @@
     },
     {
         "id": 4,
-        "name": "Cavité",
+        "name": "Technical internship",
         "type": 0,
         "cost": null,
         "formation": 0,
@@ -53,7 +53,7 @@
     },
     {
         "id": 5,
-        "name": "Bassin Argileux",
+        "name": "Humanity",
         "type": 0,
         "cost": null,
         "formation": 0,
@@ -66,7 +66,7 @@
     },
     {
         "id": 6,
-        "name": "Bassin Argileux",
+        "name": "Humanity",
         "type": 0,
         "cost": null,
         "formation": 0,
@@ -79,7 +79,7 @@
     },
     {
         "id": 7,
-        "name": "Filon",
+        "name": "LE0X",
         "type": 0,
         "cost": null,
         "formation": 0,
@@ -92,7 +92,7 @@
     },
     {
         "id": 8,
-        "name": "Filon",
+        "name": "LE0X",
         "type": 0,
         "cost": null,
         "formation": 0,
@@ -105,7 +105,7 @@
     },
     {
         "id": 9,
-        "name": "Friche",
+        "name": "Ethical scientist",
         "type": 0,
         "cost": [ { "type": 7, "value": 1 } ],
         "formation": 0,
@@ -118,7 +118,7 @@
     },
     {
         "id": 10,
-        "name": "Excavation",
+        "name": "Ethical technician",
         "type": 0,
         "cost": [ { "type": 7, "value": 1 } ],
         "formation": 0,
@@ -131,7 +131,7 @@
     },
     {
         "id": 11,
-        "name": "Fosse Argileuse",
+        "name": "Internationnal ethics",
         "type": 0,
         "cost": [ { "type": 7, "value": 1 } ],
         "formation": 0,
@@ -144,7 +144,7 @@
     },
     {
         "id": 12,
-        "name": "Exploitation Forestière",
+        "name": "Corrupted professor",
         "type": 0,
         "cost": [ { "type": 7, "value": 1 } ],
         "formation": 0,
@@ -157,7 +157,7 @@
     },
     {
         "id": 13,
-        "name": "Gisement",
+        "name": "LO47",
         "type": 0,
         "cost": [ { "type": 7, "value": 1 } ],
         "formation": 0,
@@ -170,7 +170,7 @@
     },
     {
         "id": 14,
-        "name": "Mine",
+        "name": "Foreign technician",
         "type": 0,
         "cost": [ { "type": 7, "value": 1 } ],
         "formation": 0,
@@ -183,7 +183,7 @@
     },
     {
         "id": 15,
-        "name": "Métier à tisser",
+        "name": "Alumni",
         "type": 1,
         "cost": null,
         "formation": 0,
@@ -196,7 +196,7 @@
     },
     {
         "id": 16,
-        "name": "Métier à tisser",
+        "name": "Alumni",
         "type": 1,
         "cost": null,
         "formation": 0,
@@ -209,7 +209,7 @@
     },
     {
         "id": 17,
-        "name": "Verrerie",
+        "name": "Java Game Project",
         "type": 1,
         "cost": null,
         "formation": 0,
@@ -222,7 +222,7 @@
     },
     {
         "id": 18,
-        "name": "Verrerie",
+        "name": "Java Game Project",
         "type": 1,
         "cost": null,
         "formation": 0,
@@ -235,7 +235,7 @@
     },
     {
         "id": 19,
-        "name": "Presse",
+        "name": "Crunch Time",
         "type": 1,
         "cost": null,
         "formation": 0,
@@ -248,7 +248,7 @@
     },
     {
         "id": 20,
-        "name": "Presse",
+        "name": "Crunch Time",
         "type": 1,
         "cost": null,
         "formation": 0,
@@ -261,7 +261,7 @@
     },
     {
         "id": 21,
-        "name": "Prêteur sur gages",
+        "name": "Neophyte genius",
         "type": 2,
         "cost": null,
         "formation": 0,
@@ -274,7 +274,7 @@
     },
     {
         "id": 22,
-        "name": "Prêteur sur gages",
+        "name": "Neophyte genius",
         "type": 2,
         "cost": null,
         "formation": 0,
@@ -287,7 +287,7 @@
     },
     {
         "id": 23,
-        "name": "Bains",
+        "name": "Technology",
         "type": 2,
         "cost": [ { "type": 1, "value": 1 } ],
         "formation": 0,
@@ -300,7 +300,7 @@
     },
     {
         "id": 24,
-        "name": "Bains",
+        "name": "Technology",
         "type": 2,
         "cost": [ { "type": 1, "value": 1 } ],
         "formation": 0,
@@ -313,7 +313,7 @@
     },
     {
         "id": 25,
-        "name": "Autel",
+        "name": "Jury's grace",
         "type": 2,
         "cost": null,
         "formation": 0,
@@ -326,7 +326,7 @@
     },
     {
         "id": 26,
-        "name": "Autel",
+        "name": "Jury's grace",
         "type": 2,
         "cost": null,
         "formation": 0,
@@ -339,7 +339,7 @@
     },
     {
         "id": 27,
-        "name": "Théâtre",
+        "name": "Comedy",
         "type": 2,
         "cost": null,
         "formation": 0,
@@ -352,7 +352,7 @@
     },
     {
         "id": 28,
-        "name": "Théâtre",
+        "name": "Comedy",
         "type": 2,
         "cost": null,
         "formation": 0,
@@ -365,7 +365,7 @@
     },
     {
         "id": 29,
-        "name": "Taverne",
+        "name": "Student house",
         "type": 3,
         "cost": null,
         "formation": 0,
@@ -378,7 +378,7 @@
     },
     {
         "id": 30,
-        "name": "Taverne",
+        "name": "Student house",
         "type": 3,
         "cost": null,
         "formation": 0,
@@ -391,7 +391,7 @@
     },
     {
         "id": 31,
-        "name": "Taverne",
+        "name": "Student house",
         "type": 3,
         "cost": null,
         "formation": 0,
@@ -404,7 +404,7 @@
     },
     {
         "id": 32,
-        "name": "Comptoir Est",
+        "name": "UTSEUS partnership",
         "type": 3,
         "cost": null,
         "formation": 0,
@@ -417,7 +417,7 @@
     },
     {
         "id": 33,
-        "name": "Comptoir Est",
+        "name": "UTSEUS partnership",
         "type": 3,
         "cost": null,
         "formation": 0,
@@ -430,7 +430,7 @@
     },
     {
         "id": 34,
-        "name": "Comptoir Ouest",
+        "name": "Canadian university",
         "type": 3,
         "cost": null,
         "formation": 0,
@@ -443,7 +443,7 @@
     },
     {
         "id": 35,
-        "name": "Comptoir Ouest",
+        "name": "Canadian university",
         "type": 3,
         "cost": null,
         "formation": 0,
@@ -456,7 +456,7 @@
     },
     {
         "id": 36,
-        "name": "Marché",
+        "name": "Open House",
         "type": 3,
         "cost": null,
         "formation": 0,
@@ -469,7 +469,7 @@
     },
     {
         "id": 37,
-        "name": "Marché",
+        "name": "Open House",
         "type": 3,
         "cost": null,
         "formation": 0,
@@ -482,7 +482,7 @@
     },
     {
         "id": 38,
-        "name": "Pallissade",
+        "name": "Political science",
         "type": 4,
         "cost": [ { "type": 0, "value": 1 } ],
         "formation": 0,
@@ -495,7 +495,7 @@
     },
     {
         "id": 39,
-        "name": "Pallissade",
+        "name": "Political science",
         "type": 4,
         "cost": [ { "type": 0, "value": 1 } ],
         "formation": 0,
@@ -508,7 +508,7 @@
     },
     {
         "id": 40,
-        "name": "Caserne",
+        "name": "Frenglish negociation",
         "type": 4,
         "cost": [ { "type": 3, "value": 1 } ],
         "formation": 0,
@@ -521,7 +521,7 @@
     },
     {
         "id": 41,
-        "name": "Caserne",
+        "name": "Frenglish negociation",
         "type": 4,
         "cost": [ { "type": 3, "value": 1 } ],
         "formation": 0,
@@ -534,7 +534,7 @@
     },
     {
         "id": 42,
-        "name": "Tour de garde",
+        "name": "Overview",
         "type": 4,
         "cost": [ { "type": 2, "value": 1 } ],
         "formation": 0,
@@ -547,7 +547,7 @@
     },
     {
         "id": 43,
-        "name": "Tour de garde",
+        "name": "Overview",
         "type": 4,
         "cost": [ { "type": 2, "value": 1 } ],
         "formation": 0,
@@ -560,7 +560,7 @@
     },
     {
         "id": 44,
-        "name": "Officine",
+        "name": "Gravitationnal physicist",
         "type": 5,
         "cost": [ { "type": 4, "value": 1 } ],
         "formation": 0,
@@ -573,7 +573,7 @@
     },
     {
         "id": 45,
-        "name": "Officine",
+        "name": "Gravitationnal physicist",
         "type": 5,
         "cost": [ { "type": 4, "value": 1 } ],
         "formation": 0,
@@ -586,7 +586,7 @@
     },
     {
         "id": 46,
-        "name": "Atelier",
+        "name": "Workshop",
         "type": 5,
         "cost": [ { "type": 5, "value": 1 } ],
         "formation": 0,
@@ -599,7 +599,7 @@
     },
     {
         "id": 47,
-        "name": "Atelier",
+        "name": "Workshop",
         "type": 5,
         "cost": [ { "type": 5, "value": 1 } ],
         "formation": 0,
@@ -612,7 +612,7 @@
     },
     {
         "id": 48,
-        "name": "Scriptorium",
+        "name": "CEO Student",
         "type": 5,
         "cost": [ { "type": 6, "value": 1 } ],
         "formation": 0,
@@ -625,7 +625,7 @@
     },
     {
         "id": 49,
-        "name": "Scriptorium",
+        "name": "CEO Student",
         "type": 5,
         "cost": [ { "type": 6, "value": 1 } ],
         "formation": 0,
