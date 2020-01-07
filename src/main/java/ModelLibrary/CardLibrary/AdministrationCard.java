@@ -5,7 +5,7 @@
  */
 package ModelLibrary.CardLibrary;
 
-import ModelLibrary.ScoreLibrary.ProductedResource;
+import ModelLibrary.ScoreLibrary.RessourcePack;
 import java.util.ArrayList;
 
 /**
@@ -13,5 +13,5 @@ import java.util.ArrayList;
  * @author Hicham
  */
 public class AdministrationCard extends BuildingCard {
-    private ArrayList<ProductedResource> listProductedResources;
+    private ArrayList<RessourcePack> listProductedResources;
 }

@@ -10,7 +10,6 @@ import EnumLibrary.Resource;
 import ModelLibrary.CardLibrary.Card;
 import ModelLibrary.ScoreLibrary.Score;
 import ModelLibrary.ScoreLibrary.Point;
-import ModelLibrary.ScoreLibrary.ProductedResource;
 import ModelLibrary.ScoreLibrary.RessourcePack;
 import java.util.ArrayList;
 

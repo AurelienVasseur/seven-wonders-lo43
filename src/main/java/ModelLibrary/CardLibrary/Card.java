@@ -12,7 +12,6 @@ import EnumLibrary.PlayersAmount;
 import ModelLibrary.ScoreLibrary.Partnership;
 import ModelLibrary.ScoreLibrary.Point;
 import ModelLibrary.ScoreLibrary.RessourcePack;
-import ModelLibrary.ScoreLibrary.ProductedResource;
 import java.util.ArrayList;
 
 /**
