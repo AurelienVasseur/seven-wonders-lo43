@@ -6,6 +6,8 @@
 package ModelLibrary.PlayerLibrary;
 
 import EnumLibrary.Action;
+import EnumLibrary.CardType;
+import EnumLibrary.PointType;
 import EnumLibrary.Resource;
 import ModelLibrary.CardLibrary.Card;
 import ModelLibrary.ScoreLibrary.Score;
@@ -32,6 +34,8 @@ public class Player {
     public Player() {
         this.gameBoard = new UT();
         this.score = new Score();
+        // Argent de départ de chaque joueur
+        this.initPlayerMoney();
         this.deck = new Deck();
         this.cardsPlayed = new Deck();
         /* ----- */
@@ -41,6 +45,8 @@ public class Player {
     public Player(UT gameBoard) {
         this.gameBoard = gameBoard;
         this.score = new Score();
+        // Argent de départ de chaque joueur
+        this.initPlayerMoney();
         this.deck = new Deck();
         this.cardsPlayed = new Deck();
         this.initProductedRessources();
@@ -53,6 +59,10 @@ public class Player {
         this.deck = deck;
         this.cardsPlayed = cardsPlayed;
         this.initProductedRessources();
+    }
+    
+    public void initPlayerMoney() {
+        this.score.getCoin().setValue(3);
     }
     
     public void initProductedRessources() {
@@ -330,13 +340,56 @@ public class Player {
                         case PROOFER:
                             this.getScore().getProofer().setValue(this.getScore().getProofer().getValue() + card.getCoinsEarned().getValue());
                             break;
-                        default:
-                            System.out.println("voir Player.java::buyCard");
+                        case VICTORYPOINT_PER_CREDITCARD:
+                            this.getScore().getTotalVictoryPoints().setValue(this.getScore().getTotalVictoryPoints().getValue() + (card.getCoinsEarned().getValue() * this.getNumberOfPlayedCardsByType(CardType.CREDIT)));
+                            break;
+                        case VICTORYPOINT_PER_SKILLCARD:
+                            this.getScore().getTotalVictoryPoints().setValue(this.getScore().getTotalVictoryPoints().getValue() + (card.getCoinsEarned().getValue() * this.getNumberOfPlayedCardsByType(CardType.SKILL)));
+                            break;
+                        case VICTORYPOINT_PER_LIBRARYCARD:
+                            this.getScore().getTotalVictoryPoints().setValue(this.getScore().getTotalVictoryPoints().getValue() + (card.getCoinsEarned().getValue() * this.getNumberOfPlayedCardsByType(CardType.LIBRARYCARD)));
+                            break;
+                        case VICTORYPOINT_PER_ADMINISTRATIONCARD:
+                            this.getScore().getTotalVictoryPoints().setValue(this.getScore().getTotalVictoryPoints().getValue() + (card.getCoinsEarned().getValue() * this.getNumberOfPlayedCardsByType(CardType.ASSOCIATION)));
+                            break;
+                        case VICTORYPOINT_PER_CLASSROOMCARD:
+                            this.getScore().getTotalVictoryPoints().setValue(this.getScore().getTotalVictoryPoints().getValue() + (card.getCoinsEarned().getValue() * this.getNumberOfPlayedCardsByType(CardType.CLASSROOM)));
+                            break;
+                        case VICTORYPOINT_PER_LABORATORYCARD:
+                            this.getScore().getTotalVictoryPoints().setValue(this.getScore().getTotalVictoryPoints().getValue() + (card.getCoinsEarned().getValue() * this.getNumberOfPlayedCardsByType(CardType.LABORATORY)));
+                            break;
+                        case VICTORYPOINT_PER_ASSOCIATIONCARD:
+                            this.getScore().getTotalVictoryPoints().setValue(this.getScore().getTotalVictoryPoints().getValue() + (card.getCoinsEarned().getValue() * this.getNumberOfPlayedCardsByType(CardType.ASSOCIATION)));
+                            break;
+                        case VICTORYPOINT_PER_UTSTEP:
+                            int evolutionCoeff = 0;
+                            switch(this.gameBoard.getEvolution()) {
+                                case FIRST:
+                                    evolutionCoeff = 1;
+                                    break;
+                                case SECOND:
+                                    evolutionCoeff = 2;
+                                    break;
+                                case THIRD:
+                                    evolutionCoeff = 3;
+                                    break;
+                            }
+                            this.getScore().getTotalVictoryPoints().setValue(this.getScore().getTotalVictoryPoints().getValue() + (card.getCoinsEarned().getValue() * evolutionCoeff));
                             break;
                     }
                 }
         }
         // 2. Achat de la carte
+    }
+    
+    private int getNumberOfPlayedCardsByType(CardType type) {
+        int[] nbCards = { 0 };
+        this.cardsPlayed.getListCards().forEach((card) -> {
+            if(card.getType() == type) {
+                nbCards[0]++;
+            }
+        });
+        return nbCards[0];
     }
     
     public UT getGameBoard() {
