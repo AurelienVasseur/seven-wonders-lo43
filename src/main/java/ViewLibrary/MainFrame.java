@@ -123,6 +123,7 @@ public class MainFrame extends javax.swing.JFrame {
         this.gameStatePanel.getjLabelLapValue().setText(Integer.toString(this.gameManager.getLap()));
         playersPanel.add(this.gameStatePanel);
         
+        
         for(int i = 0; i < playersAmount.getValue(); ++i) {
             PlayerPanel playerPanel = new PlayerPanel(this, i);
             playerPanel.setBorder(BorderFactory.createLineBorder(Color.black));
