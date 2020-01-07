@@ -38,6 +38,7 @@ public class MainFrame extends javax.swing.JFrame {
     private JScrollPane playersScrollPane;
     private JPanel playersPanel;
     /* -- */
+    private GameStatePanel gameStatePanel;
     private javax.swing.JLabel jLabelAge;
     private javax.swing.JLabel jLabelLap;
     /* -- */
@@ -117,12 +118,10 @@ public class MainFrame extends javax.swing.JFrame {
         this.playersScrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
         this.playersScrollPane.getVerticalScrollBar().setUnitIncrement(30);
         
-        this.jLabelAge = new javax.swing.JLabel();
-        this.jLabelLap = new javax.swing.JLabel();
-        this.jLabelAge.setText("Age : " + this.gameManager.getAge());
-        this.jLabelLap.setText("Lap : " + this.gameManager.getLap());
-        playersPanel.add(this.jLabelAge);
-        playersPanel.add(this.jLabelLap);
+        this.gameStatePanel = new GameStatePanel();
+        this.gameStatePanel.getjLabelFormationValue().setText(this.gameManager.getAge().toString());
+        this.gameStatePanel.getjLabelLapValue().setText(Integer.toString(this.gameManager.getLap()));
+        playersPanel.add(this.gameStatePanel);
         
         for(int i = 0; i < playersAmount.getValue(); ++i) {
             PlayerPanel playerPanel = new PlayerPanel(this, i);
@@ -136,8 +135,8 @@ public class MainFrame extends javax.swing.JFrame {
     }
     
     public void guiUpdatePlayersPanel() {
-        this.jLabelAge.setText("Age : " + this.gameManager.getAge());
-        this.jLabelLap.setText("Lap : " + this.gameManager.getLap());
+        this.gameStatePanel.getjLabelFormationValue().setText(this.gameManager.getAge().toString());
+        this.gameStatePanel.getjLabelLapValue().setText(Integer.toString(this.gameManager.getLap()));
         for(int i = 0; i < this.listPlayersPanel.size(); ++i) {
             this.listPlayersPanel.get(i).guiUpdate();
         }

@@ -21,7 +21,7 @@ import java.util.Collections;
  */
 public class GameManager {
     protected ArrayList<Player> listPlayers;
-    int age;
+    Formation age;
     int lap; // tour de jeu
     boolean endGame; // indique si la partie est terminée
 
@@ -101,7 +101,7 @@ public class GameManager {
     public void start() {
         this.initializePlayers();
         
-        this.age = 1;
+        this.age = Formation.COMMONCORE;
         this.lap = 1;
         this.initAge();
         System.out.println("Age : " + this.age + " / Tour : " + this.lap);
@@ -162,8 +162,15 @@ public class GameManager {
            
         } else {
             this.endAge(); // bataille militaire
-            if(this.age < 3) {
-                this.age++;
+            if(this.age.getValue() < 2) {
+                switch(this.age) {
+                    case COMMONCORE:
+                        this.age = Formation.BRANCH;
+                        break;
+                    case BRANCH:
+                        this.age = Formation.SPECIALIZATION;
+                        break;
+                }
                 this.lap = 1;
                 this.initAge();
             } else {
@@ -175,19 +182,7 @@ public class GameManager {
     public void initAge() {
         // 1. Générer le deck correspondant à l'âge
         Deck deck = new Deck();
-        switch (this.age) {
-            case 1:
-                deck = this.getDeckForAge(Formation.COMMONCORE);  
-                break;
-            case 2:
-                deck = this.getDeckForAge(Formation.BRANCH);
-                break;
-            case 3:
-                deck = this.getDeckForAge(Formation.SPECIALIZATION);
-                break;
-            default:
-                break;
-        }
+        deck = this.getDeckForAge(this.age);
         // 2. Mélanger les  cartes
         deck.shuffle();        
         // 3. Distribuer les cartes
@@ -210,7 +205,7 @@ public class GameManager {
             Player nextPlayer = listPlayers.get(nextPlayerId);
             // current player wins if it has more military points than his neighbours
             if(currentPlayer.getScore().getKnowledge().getValue() > previousPlayer.getScore().getKnowledge().getValue() && currentPlayer.getScore().getKnowledge().getValue() > nextPlayer.getScore().getKnowledge().getValue()) {
-                currentPlayer.getScore().getTotalVictoryPoints().setValue(currentPlayer.getScore().getTotalVictoryPoints().getValue() + (2 * this.age + 1));
+                currentPlayer.getScore().getTotalVictoryPoints().setValue(currentPlayer.getScore().getTotalVictoryPoints().getValue() + (2 * this.age.getValue() + 1));
             }
             else {
                 currentPlayer.getScore().getTotalVictoryPoints().setValue(currentPlayer.getScore().getTotalVictoryPoints().getValue() - 1);
@@ -267,11 +262,11 @@ public class GameManager {
         this.listPlayers.set(id, player);
     }
     
-    public int getAge() {
+    public Formation getAge() {
         return this.age;
     }
 
-    public void setAge(int age) {
+    public void setAge(Formation age) {
         this.age = age;
     }
     
