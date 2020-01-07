@@ -712,14 +712,17 @@ public class PlayerPanel extends javax.swing.JPanel {
             if(priceCoins <= player.getScore().getCoin().getValue()) {
                 // Le joueur possède suffisament de coins
                 // 3.1. Récupération des ressources
-                for(int i=0; i<cardSelected.getListProductRessources().size(); i++) {
-                    RessourcePack ressource = cardSelected.getListProductRessources().get(i);
-                    for(int j=0; j<player.getProductedRessources().size(); j++) {
-                        if(player.getProductedRessources().get(j).getType() == ressource.getType()) {
-                            player.getProductedRessources().get(j).setValue(player.getProductedRessources().get(j).getValue() + ressource.getValue());
-                        }
-                    }        
+                if(cardSelected.getListProductRessources() != null){
+                    for(int i=0; i<cardSelected.getListProductRessources().size(); i++) {
+                        RessourcePack ressource = cardSelected.getListProductRessources().get(i);
+                        for(int j=0; j<player.getProductedRessources().size(); j++) {
+                            if(player.getProductedRessources().get(j).getType() == ressource.getType()) {
+                                player.getProductedRessources().get(j).setValue(player.getProductedRessources().get(j).getValue() + ressource.getValue());
+                            }
+                        }        
+                    }
                 }
+                
                 // 3.2. Le joueur voisin récupére le priceCoins
                 int id = player.getIdPlayerCardSelectedToBuyRessources();
                 Player playerNeighbour = this.frame.gameManager.getListPlayers().get(id);
