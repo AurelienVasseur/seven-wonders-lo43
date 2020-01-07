@@ -742,6 +742,9 @@ public class PlayerPanel extends javax.swing.JPanel {
                     priceCoins = priceCoins + (cardSelected.getListProductRessources().get(i).getValue() * 2);
                 }
             }
+            else {
+                priceCoins = 2;
+            }
             // 3. Achat des ressources
             if(priceCoins <= player.getScore().getCoin().getValue()) {
                 // Le joueur possède suffisament de coins
@@ -757,11 +760,11 @@ public class PlayerPanel extends javax.swing.JPanel {
                     }
                 }
                 
-                // 3.2. Le joueur voisin récupére le priceCoins
+                // 3.2. Le joueur voisin récupére les priceCoins
                 int id = player.getIdPlayerCardSelectedToBuyRessources();
                 Player playerNeighbour = this.frame.gameManager.getListPlayers().get(id);
                 playerNeighbour.getScore().getCoin().setValue(playerNeighbour.getScore().getCoin().getValue() + priceCoins);
-                // 3.3. Le joueur perd le princeCoins
+                // 3.3. Le joueur actuel perd les priceCoins
                 player.getScore().getCoin().setValue(player.getScore().getCoin().getValue() - priceCoins);
             } else {
                 // Le joueur ne possède pas suffisament de coins
@@ -777,27 +780,33 @@ public class PlayerPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_jButtonBuyActionPerformed
 
     private void jListBuyNeighbourBeforeRessourcesValueValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jListBuyNeighbourBeforeRessourcesValueValueChanged
-        int id;
+        int id = this.playerId - 1;
+        // Gestion du voisin précédent en début de liste
         if(this.playerId == 0) {
             id = this.frame.gameManager.getListPlayers().size() - 1;
-        } else {
-            id = this.playerId - 1;
         }
+        // Récupération du voisin précédent
         Player player = this.frame.gameManager.getPlayer(id);
         this.frame.gameManager.getPlayer(this.playerId).setIdPlayerCardSelectedToBuyRessources(id);
         // 1. Récupération de la carte sélectionnée
         String nameCardSelected = this.jListBuyNeighbourBeforeRessourcesValue.getSelectedValue();
         Card cardSelected = player.getCardPlayedByName(nameCardSelected);
         this.frame.gameManager.getListPlayers().get(this.playerId).setCardSelectedToBuyRessources(cardSelected);
-        // 2. Update Card Infos
+        // 2. Mise à jour des informations de la carte
         this.showCardInfos(cardSelected);
-        // 3. Update price to buy
+        // 3. Mise à jour du prix à acheter
         int priceCoins = 0;
+        // Le prix double pour chaque ressource produite par la carte
         if(cardSelected != null && cardSelected.getListProductRessources() != null) {
             for(int i=0; i<cardSelected.getListProductRessources().size(); i++) {
                 priceCoins = priceCoins + (cardSelected.getListProductRessources().get(i).getValue() * 2);
             }
         }
+        // Si aucune ressource n'est produite, le prix est de 2 par défaut
+        if(cardSelected != null && cardSelected.getListProductRessources() == null) {
+            priceCoins = 2;
+        }
+        // On affiche alors le prix à payer
         this.jLabelCostToBuyValue.setText(priceCoins + " Coins");
         // 4. Suppression de la sélection de la liste concernant l'autre voisin
         jListBuyNeighbourAfterRessourcesValue.setSelectedValue(null, true);
@@ -857,7 +866,7 @@ public class PlayerPanel extends javax.swing.JPanel {
         Player player = this.frame.gameManager.getPlayer(this.playerId);
         Deck deck = player.getDeck();
         Deck cardsPlayed = player.getCardsPlayed();
-        
+        // Mise à jour des ressources produites par les cartes du joueur depuis le début de la partie
         player.getProductedRessources().forEach((productedRessource) -> {
             switch(productedRessource.getType()) {
                 case CS:
@@ -883,6 +892,7 @@ public class PlayerPanel extends javax.swing.JPanel {
                     break;
             }
         });
+        // Mise à jour des éléments constitutif du score final du joueur
         this.jLabelCoinsValue.setText(Integer.toString(player.getScore().getCoin().getValue()));
         this.jLabelVictoryValue.setText(Integer.toString(player.getScore().getTotalVictoryPoints().getValue()));
         this.jLabelKnowledgeValue.setText(Integer.toString(player.getScore().getKnowledge().getValue()));
@@ -893,7 +903,7 @@ public class PlayerPanel extends javax.swing.JPanel {
         this.jLabelWonderEvolutionFirst.setForeground(Color.black);
         this.jLabelWonderEvolutionSecond.setForeground(Color.black);
         this.jLabelWonderEvolutionThird.setForeground(Color.black);
-        
+        // Mise à jour de l'UT (Merveille) : nom, évolution, coûts.
         this.jLabelWonderName.setText(player.getGameBoard().getName().toString() + " - " + player.getGameBoard().getEvolution());
         this.jLabelWonderEvolutionFirst.setText("1.Cost:[");
         this.jLabelWonderEvolutionSecond.setText("2.Cost:[");
@@ -911,7 +921,7 @@ public class PlayerPanel extends javax.swing.JPanel {
         this.jLabelWonderEvolutionSecond.setText(this.jLabelWonderEvolutionSecond.getText() + "]");
         this.jLabelWonderEvolutionThird.setText(this.jLabelWonderEvolutionThird.getText() + "]");
         
-        // Initialise le Card Infos
+        // Initialisation des informations de la carte sélectionnée
         this.jLabelNameValue.setText("/");
         this.jLabelTypeValue.setText("/");
         this.jLabelCoinsEarnedValue.setText("/");
@@ -928,7 +938,7 @@ public class PlayerPanel extends javax.swing.JPanel {
             modelCards.addElement(deck.getListCards().get(i).getName());
         }
         this.jListCards.setModel(modelCards);
-        // Initialisation de la liste des cartes jouées - A FINIR / VERIFIER !!
+        // Initialisation de la liste des cartes jouées
         DefaultListModel modelCardsPlayed = new DefaultListModel();
         for(int i=0; i<cardsPlayed.getListCards().size(); i++) {
             modelCardsPlayed.addElement(cardsPlayed.getListCards().get(i).getName());

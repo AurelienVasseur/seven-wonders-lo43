@@ -190,7 +190,7 @@ public class GameManager {
     }
     
     public void endAge() {
-        //bataille militaire
+        // Bataille Militaire
         for(int i = 0; i < this.listPlayers.size(); ++i) {
             int previousPlayerId = i - 1;
             int nextPlayerId = i + 1;
