@@ -109,7 +109,7 @@ public class MainFrame extends javax.swing.JFrame {
         
                 
         this.playersPanel = new JPanel();
-        this.playersPanel.setPreferredSize(new Dimension(1280, 3120));
+        this.playersPanel.setPreferredSize(new Dimension(1280, 5760));
         this.playersScrollPane = new JScrollPane(playersPanel);
         this.playersPanel.setAutoscrolls(true);
         this.playersScrollPane.setPreferredSize(new Dimension(1280,720));

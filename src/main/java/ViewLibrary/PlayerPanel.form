@@ -262,11 +262,13 @@
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jLabelPumpName" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabelTMName" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabelTMValue" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabelPumpValue" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabelTMName" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelTMValue" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelPumpValue" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -343,7 +345,7 @@
                   </Group>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="jScrollPaneCards" alignment="0" pref="146" max="32767" attributes="0"/>
+                          <Component id="jScrollPaneCards" alignment="0" max="32767" attributes="0"/>
                           <Component id="jScrollPaneActions" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>

@@ -519,11 +519,12 @@ public class PlayerPanel extends javax.swing.JPanel {
                         .addComponent(jLabelCentrifugeName)
                         .addComponent(jLabelCentrifugeValue)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabelPumpName)
-                    .addComponent(jLabelTMName)
-                    .addComponent(jLabelTMValue)
-                    .addComponent(jLabelPumpValue))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabelTMName)
+                        .addComponent(jLabelTMValue)
+                        .addComponent(jLabelPumpValue)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelProoferValue, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -586,7 +587,7 @@ public class PlayerPanel extends javax.swing.JPanel {
                             .addComponent(jLabelCardBecomingFreeValue)))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jScrollPaneCards, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
+                            .addComponent(jScrollPaneCards, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPaneActions, javax.swing.GroupLayout.Alignment.LEADING))
                         .addGap(22, 22, 22)
                         .addComponent(jLabelBuyNeighborsRessources)
@@ -621,8 +622,7 @@ public class PlayerPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonLeaderboardMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonLeaderboardMouseClicked
-        // TODO add your handling code here:
-        this.frame.displayLeaderboard();
+        new LeaderboardDialog(this.frame.gameManager);
     }//GEN-LAST:event_jButtonLeaderboardMouseClicked
 
     
