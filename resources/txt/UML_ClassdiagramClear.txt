@@ -30,6 +30,11 @@ class UT {
 }
 
 
+class Step {
+--
+}
+
+
 
 abstract class RessourceCard {
 --
@@ -93,7 +98,6 @@ Card o-- RessourcePack
 Card o-- Point
 
 UT o-- RessourcePack
-
-
+UT o-- Step
 
 @enduml

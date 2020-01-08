@@ -3,11 +3,22 @@ set namespaceSeparator ::
 
 class GameManager {
 # listPlayers : ArrayList<Player>
+# age : Formation
+# endGame : boolean
+# lap : int
 --
 + start() : void
 + playTurn() : void
 + updateLeaderboard() : ArrayList<Score>
 + end() : void
++ checkIfPlayersValidate() : boolean
++ distributeCards(Deck) : void
++ endAge() : void
++ fetchScores() : ArrayList<Score>
++ fetchShuffledUT() : ArrayList<UT>
++ initAge() : void
++ initializePlayers() : void
++ nextLap() : void
 }
 
 class Player {
@@ -15,10 +26,22 @@ class Player {
 # score : Score
 # deck : Deck
 # cardsPlayed : Deck
+# actionSelected : Action
+# cardSelected : Card
+# cardSelectedToBuyRessources : Card
+# idPlayerSelectedToBuyRessources : int
+# isValidate : boolean
+# productedRessources : ArrayList<RessourcePack>
 --
 + do(action : Action) : void
 + selectCard() : void
 + giveDeckTo(player : Player) : void
++ buyCard(Card) : void
++ checkRessourcesToPlayCard(Card): boolean
++ doAction() : void
++ initProductedRessources() : void
++ initialize() : void
++ tryEvolveUT() : void
 }
 
 abstract class Card {
@@ -32,6 +55,7 @@ abstract class Card {
 # minimumPlayerRequiredToBePlayed : PlayersAmount
 # cardsBecomingFreeAfterPlayingThisCard : ArrayList<Card>
 # cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree : Card
+# partnership : Partnership
 --
 }
 
@@ -45,7 +69,12 @@ class RessourcePack {
 class Deck {
 # listCards : ArrayList<Card>
 --
-+ shuffle()
++ shuffle() : void
++ addCard(Card) : void
++ filterByFormation(Formation) : Deck
++ filterByPlayersAmount(PlayersAmount) : Deck
++ removeCard(Card): void
++ subDeck(int, int) : Deck
 }
 
 
@@ -54,11 +83,18 @@ class UT {
 # id : int
 # name : UTCity
 # evolution : Evolution
-# listProductRessources : ArrayList<RessourcePack>
+# initialProductRessources : ArrayList<RessourcePack>
+# steps : ArrayList<Step>
 --
 + evolve()
 }
 
+
+class Step {
+# coinsEarned : Point
+# cost : ArrayList<RessourcePack>
+--
+}
 
 
 abstract class RessourceCard {
@@ -97,29 +133,31 @@ class Point {
 
 class Score {
 # totalVictorypoints : Point
-# classroom : Point
-# coin : Point
-# ut : Point
-# library : Point
-# laboratory : Point
-# administration : Point
 # association : Point
+# centrifuge : Point
+# coin : Point
+# finalScore : Point
+# knowledge : Point
+# proofer : Point
+# pump : Point
 --
 }
 
 enum Ressource {
++ CG
++ COIN
 + CS
-+ TM
-+ OM
-+ QC
 + EC
-+ ST
++ ENTREPRENEURSHIP
++ PROJET
++ STAGE
++ TM
 }
 
 enum Formation {
-+ CommonCore
-+ Branch
-+ Specialization
++ COMMONCORE
++ BRANCH
++ SPECIALIZATION
 }
 
 enum PlayersAmount {
@@ -134,42 +172,54 @@ enum PlayersAmount {
 }
 
 enum UTCity {
-+ Belfort
-+ Sevenans
-+ Montbeliard
-+ Troyes
-+ Compiegne
-+ Shanghai
-+ Santiago
++ BELFORT
++ COMPIEGNE
++ MONTBELIARD
++ SANTIAGO
++ SEVENANS
++ SHANGHAI
++ TROYES
 }
 
 enum Action {
-+ Build
-+ Buy
-+ Evolve
-+ Discard
++ BUILD
++ BUY
++ EVOLVE
++ DISCARD
 }
 
 enum CardType {
-+ Credit
-+ Skill
-+ LibraryCard
-+ Laboratory
-+ Administration
-+ Classroom
-+ Association
++ CREDIT
++ SKILL
++ LIBRARYCARD
++ LABORATORY
++ ADMINISTRATION
++ CLASSROOM
++ ASSOCIATION
 }
 enum Evolution {
-+ None
-+ First
-+ Second
-+ Third
++ NONE
++ FIRST
++ SECOND
++ THIRD
 }
 
 enum PointType {
-+ Victory
-+ Knowledge
-+ Association
++ ASSOCIATION
++ CENTRIFUGE
++ COIN
++ KNOWLEDGE
++ PROOFER
++ PUMP
++ VICTORY
++ VICTORYPOINT_PER_ADMINISTRATIONCARD
++ VICTORYPOINT_PER_ASSOCIATIONCARD
++ VICTORYPOINT_PER_CLASSROOMCARD
++ VICTORYPOINT_PER_CREDITCARD
++ VICTORYPOINT_PER_LABORATORYCARD
++ VICTORYPOINT_PER_LIBRARYCARD
++ VICTORYPOINT_PER_SKILLCARD
++ VICTORYPOINT_PER_UVSTEP
 }
 
 GameManager *--"2..7" Player
@@ -197,6 +247,7 @@ Card o-- RessourcePack
 Card o-- Point
 
 UT o-- RessourcePack
+UT o-- Step
 
 GameManager ..> Score
 
