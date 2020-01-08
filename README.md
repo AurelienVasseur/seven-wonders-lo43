@@ -1,8 +1,12 @@
+# Run
+
+> Simply open `SevenWondersUTBM-RUNNABLE.jar`
+
 # UML
 
 ## Class Diagram
 
-!(UML Class Diagram)[./resources/png/UML_ClassDiagram.png]
+!(UML Class Diagram)[./resources/png/UML_ClassDiagramClear.png]
 
 ```
 @startuml
