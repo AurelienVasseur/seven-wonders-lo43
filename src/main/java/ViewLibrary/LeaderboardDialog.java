@@ -24,18 +24,22 @@ public class LeaderboardDialog extends JDialog {
 
     public LeaderboardDialog(GameManager gameManager) {
         this.gameManager = gameManager;
+        // Configure le jDialog
         this.setTitle( "Leaderboard" );
         this.setModal( true );
         this.setResizable( false );
         this.setDefaultCloseOperation( WindowConstants.DISPOSE_ON_CLOSE );
         this.getContentPane().setLayout( new BorderLayout() );
-        
+        // Crée et rempli le jTable (tableau des scores)
         this.createLeaderboard();
-        
+        // Pack et affiche la fenêtre
         this.pack();
         this.setVisible(true);
     }
     
+    /**
+     * Instancie et rempli le tableau des scores avec les données des joueurs et l'ajoute à la jDialog
+     */
     private void createLeaderboard() {
     String[] entetes = {"PlayerID", "Score", "Victory Points", "Military Points", "Coins", "Centrifuge", "Pump", "Proofer"};
     DefaultTableModel tableModel = new DefaultTableModel(entetes, 0);

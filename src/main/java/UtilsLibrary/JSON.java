@@ -16,7 +16,6 @@ import org.json.simple.parser.ParseException;
 import ModelLibrary.CardLibrary.Card;
 import ModelLibrary.PlayerLibrary.UT;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.json.simple.JSONObject;
 
 
 
@@ -29,6 +28,11 @@ public class JSON {
     private static String relativePathJSONCards = "./resources/json/cards/";
     private static String relativePathJSONUTs = "./resources/json/wonders/";
     
+    /**
+     * Renvoi une liste d'UT (merveilles) d'un fichier JSON
+     * @param fileName
+     * @return ArraList<UT> listUTs
+     */
     public static ArrayList<UT> readUTs(String fileName)
     {
         JSONArray jsonArray = null;
@@ -60,6 +64,11 @@ public class JSON {
         return arrayList;
     }
     
+    /**
+     * Retourne une liste de carte d'un fichier JSON
+     * @param fileName
+     * @return ArraList<Card> listCards
+     */
     public static ArrayList<Card> readCards(String fileName)
     {
         JSONArray jsonArray = null;

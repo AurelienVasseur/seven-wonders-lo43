@@ -7,7 +7,6 @@ package ModelLibrary.PlayerLibrary;
 
 import EnumLibrary.Action;
 import EnumLibrary.CardType;
-import EnumLibrary.PointType;
 import EnumLibrary.Resource;
 import ModelLibrary.CardLibrary.Card;
 import ModelLibrary.ScoreLibrary.Score;
@@ -38,7 +37,6 @@ public class Player {
         this.initPlayerMoney();
         this.deck = new Deck();
         this.cardsPlayed = new Deck();
-        /* ----- */
         this.initProductedRessources();
     }
 
@@ -61,10 +59,16 @@ public class Player {
         this.initProductedRessources();
     }
     
+    /**
+     * Offre 3 pièces à chaque joueur en début de partie
+     */
     public void initPlayerMoney() {
         this.score.getCoin().setValue(3);
     }
     
+    /**
+     * Initialise toutes les ressources récoltables par le joueur à 0
+     */
     public void initProductedRessources() {
         this.productedRessources = new ArrayList<RessourcePack>();
         this.productedRessources.add(new RessourcePack(Resource.CS, 0));
@@ -87,16 +91,38 @@ public class Player {
         });
     }
     
+    /**
+     * Débute le tour du joueur (affirme qu'il n'a pas terminé son tour)
+     */
     public void initialize() {
-        this.setIsValidate(false);
-        //this.setCardSelected(null);
-        //this.setActionSelected(null); 
+        this.setIsValidate(false); 
     }
     
+    /**
+     * Gestion des actions possibles par le joueur
+     */
     public void doAction() {
         // Action 1. BUILD
         if (this.actionSelected == Action.BUILD) {
-            System.out.println("Player.doAction : BUILD");
+            this.build();
+        }
+        // Action 2. BUY
+        // BUY étant une action particulière, elle est gérée ailleurs
+        // Action 3. EVOLVE
+        if (this.actionSelected == Action.EVOLVE) {
+            this.evolve();
+        }
+        // Action 4. DISCARD
+        if (this.actionSelected == Action.DISCARD) {
+            this.discard();            
+        }
+    }
+    
+    /**
+     * Achat d'une carte, récupération des ressources et ajout aux cartes jouées
+     */
+    private void build() {
+        System.out.println("Player.doAction : BUILD");
             // Vérification si ressources nécessaires
             if(this.checkResourcesToPlayCard(this.cardSelected) == true) {
                 // Achat de la carte
@@ -112,23 +138,23 @@ public class Player {
                 coin.setValue(coin.getValue() - 2);
                 this.score.setCoin(coin);
             }
-        }
-        // Action 2. BUY
-        if (this.actionSelected == Action.BUY) {
-            System.out.println("Player.doAction : BUY");
-            // TODO : Donner les pièces à l'autre joueur et ajouter la ressource dans productedRessources
-        }
-        // Action 3. EVOLVE
-        if (this.actionSelected == Action.EVOLVE) {
-            System.out.println("Player.doAction : EVOLVE");
+    }
+    
+    /**
+     * Évolution de l'UT (merveille) si les conditions sont réunies
+     */
+    private void evolve() {
+        System.out.println("Player.doAction : EVOLVE");
             System.out.println("Player.doAction : carteSelected : " + this.cardSelected.getName());
             this.deck.removeCard(cardSelected);
             this.tryEvolveUT();
-            
-        }
-        // Action 4. DISCARD
-        if (this.actionSelected == Action.DISCARD) {
-            System.out.println("Player.doAction : DISCARD");
+    }
+    
+    /**
+     * Vente d'une carte contre de l'argent
+     */
+    private void discard() {
+        System.out.println("Player.doAction : DISCARD");
             System.out.println("Player.doAction : carteSelected : " + this.cardSelected.getName());
             // On défausse la carte 
             this.deck.removeCard(this.cardSelected);
@@ -136,12 +162,15 @@ public class Player {
             Point coin = this.score.getCoin();
             coin.setValue(coin.getValue() + 3);
             this.score.setCoin(coin);
-            
-        }
     }
     
-    public void tryEvolveUT() {
+    /**
+     * Vérifie si le joueur a les ressources nécessaires pour évoluer à la N-ième étape de sa merveille
+     * Le cas échéant, valide récupère les récompenses d'évolutions et valide l'évolution
+     */
+    private void tryEvolveUT() {
         boolean[] canEvolveWrapper = { true };
+        // Vérifie que le joueur possède les ressources pour évoluer sa merveille
             switch(this.gameBoard.getEvolution()) {
                 case NONE:
                     this.productedRessources.forEach((playerProductedRessource) -> {
@@ -177,6 +206,7 @@ public class Player {
                     });
                     break;
             }
+            // S'il peut évoluer, récupère les ressources et évolue
             if(canEvolveWrapper[0]) {
                 this.gameBoard.evolve();
                 switch(this.gameBoard.getEvolution()){
@@ -254,6 +284,7 @@ public class Player {
                         break;
                 }
             }
+            // Si le joueur essaie d'évoluer sans avoir les ressources, lui prive de 2 pièces
             else {
                 Point coin = this.score.getCoin();
                 coin.setValue(coin.getValue() - 2);
@@ -261,16 +292,10 @@ public class Player {
             }
     }
     
-    public void selectCard() {
-        throw new java.lang.UnsupportedOperationException("Not Implemented yet.");
-    }
-    
-    public void giveDeckTo(Player player) {
-        throw new java.lang.UnsupportedOperationException("Not Implemented yet.");
-    }
-    
-    // Vérifie si le joueur à assez de ressources pour jouer la carte
-    public boolean checkResourcesToPlayCard(Card card) {
+    /**
+     * Vérifie si le joueur possède assez de ressources pour jouer une carte
+     */
+    private boolean checkResourcesToPlayCard(Card card) {
         // 1. Récupération du prix de la carte
         ArrayList<RessourcePack> cost = card.getCost();
         // 2. On vérifie si le joueur possède suffisamment de ressources pour construire la carte 
@@ -300,13 +325,12 @@ public class Player {
         
     }
     
-    // Achat d'une carte -> dépense des ressources nécessaires
-    public void buyCard(Card card) {
-        // TODO
-        //throw new java.lang.UnsupportedOperationException("Not Implemented yet.");
-        
-        // 1. Récupération du prix de la carte
+    /**
+     * Dépense des ressources nécessaires pour acheter une carte
+     */
+    private void buyCard(Card card) {
         if(this.checkResourcesToPlayCard(card) == true) {
+            // Ajout des ressources produites par la carte aux ressources du joueur
             this.productedRessources.forEach((playerProductedRessource) -> {
                 if(card.getListProductRessources() != null) {
                     card.getListProductRessources().forEach((cardProductRessource) -> {
@@ -315,8 +339,8 @@ public class Player {
                     }
                 });
                 }
-                
             });
+            // Ajout des éléments de scoring (score, points de victoires, etc.) offertes par la carte
             if(card.getCoinsEarned() != null) {
                     switch(card.getCoinsEarned().getType()) {
                         case VICTORY:
@@ -347,7 +371,7 @@ public class Player {
                             this.getScore().getTotalVictoryPoints().setValue(this.getScore().getTotalVictoryPoints().getValue() + (card.getCoinsEarned().getValue() * this.getNumberOfPlayedCardsByType(CardType.SKILL)));
                             break;
                         case VICTORYPOINT_PER_LIBRARYCARD:
-                            this.getScore().getTotalVictoryPoints().setValue(this.getScore().getTotalVictoryPoints().getValue() + (card.getCoinsEarned().getValue() * this.getNumberOfPlayedCardsByType(CardType.LIBRARYCARD)));
+                            this.getScore().getTotalVictoryPoints().setValue(this.getScore().getTotalVictoryPoints().getValue() + (card.getCoinsEarned().getValue() * this.getNumberOfPlayedCardsByType(CardType.LIBRARY)));
                             break;
                         case VICTORYPOINT_PER_ADMINISTRATIONCARD:
                             this.getScore().getTotalVictoryPoints().setValue(this.getScore().getTotalVictoryPoints().getValue() + (card.getCoinsEarned().getValue() * this.getNumberOfPlayedCardsByType(CardType.ASSOCIATION)));
@@ -379,9 +403,11 @@ public class Player {
                     }
                 }
         }
-        // 2. Achat de la carte
     }
     
+    /**
+     * Retourne le nombre de cartes jouées d'un certain type
+     */
     private int getNumberOfPlayedCardsByType(CardType type) {
         int[] nbCards = { 0 };
         this.cardsPlayed.getListCards().forEach((card) -> {

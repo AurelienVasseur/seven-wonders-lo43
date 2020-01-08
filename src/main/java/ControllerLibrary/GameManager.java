@@ -40,16 +40,11 @@ public class GameManager {
         this.listPlayers = new ArrayList<Player>();
         ArrayList<UT> listUT = this.fetchShuffledUT();
         for(int i = 0; i < numberOfPlayers; ++i) {
-            //this.listPlayers.add(new Player()); // Pour tester - à supprimer
             this.listPlayers.add(new Player(listUT.get(i)));
-            //listUT.remove(0);
-            
-            System.out.println("joueur " + i);
         }
     }
     
     private ArrayList<UT> fetchShuffledUT() {
-        // TODO : Attribuer au hasard une merveille au joueur
         ArrayList<UT> listUT = JSON.readUTs("uts.json");
         Collections.shuffle(listUT);
         return listUT;
@@ -114,6 +109,9 @@ public class GameManager {
         }
     }
     
+    /**
+     * Vérifie si les joueurs ont tous joués leur tour
+     */
     public boolean checkIfPlayersValidate() {
         boolean test = true;
         for(int i = 0; (i < this.listPlayers.size()) && (test == true); ++i) {
@@ -129,6 +127,9 @@ public class GameManager {
         return test;
     }
     
+    /**
+     * Joue un tour
+     */
     public void playTurn() {
         System.out.println("GameManager : playTurn");
         
@@ -155,7 +156,9 @@ public class GameManager {
         this.initializePlayers();
     }
     
-    // Gestion passage au tour / à l'âge suivant
+    /**
+     * Gestion du passage au tour et/ou age suivant
+     */
     public void nextLap() {
         if(this.lap < 6) {
             this.lap++;
@@ -179,6 +182,9 @@ public class GameManager {
         }
     }
     
+    /**
+     * Prépare et distribue le deck du nouvel âge
+     */
     public void initAge() {
         // 1. Générer le deck correspondant à l'âge
         Deck deck = new Deck();
@@ -189,6 +195,9 @@ public class GameManager {
         this.distributeCards(deck);        
     }
     
+    /**
+     * Attribut des points de victoire à chaque joueur en fonction de la puissance militaire de ses voisins
+     */
     public void endAge() {
         // Bataille Militaire
         for(int i = 0; i < this.listPlayers.size(); ++i) {
@@ -213,6 +222,9 @@ public class GameManager {
         }
     }
     
+    /**
+     * Récupère tous les scores de chaque joueur
+     */
     public ArrayList<Score> fetchScores() {
         ArrayList<Score> scores = new ArrayList<Score>();
         this.listPlayers.forEach((player) -> {
@@ -230,13 +242,12 @@ public class GameManager {
         return scores;
     }
     
-    // Gestion de la fin de la partie
+    /**
+     * Gestion de la fin d'une partie
+     */
     public void end() {
-        //throw new java.lang.UnsupportedOperationException("Not Implemented yet.");
         System.out.println("Game Manager : end game");
-        // 1. On détermine le classement
-        // TODO
-        // 2. On indique que la partie est terminée
+        // On indique que la partie est terminée
         this.endGame = true;
     }
     

@@ -7,25 +7,19 @@ package ViewLibrary;
 
 import ControllerLibrary.GameManager;
 import EnumLibrary.PlayersAmount;
-import ModelLibrary.CardLibrary.Card;
-import ModelLibrary.PlayerLibrary.UT;
 import ModelLibrary.ScoreLibrary.Score;
-import UtilsLibrary.JSON;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.BorderFactory;
-import javax.swing.GroupLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.border.Border;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableColumn;
 
 /**
  *
@@ -75,6 +69,9 @@ public class MainFrame extends javax.swing.JFrame {
         this.displayHome();
     }
     
+    /**
+     * Affichage de l'écran principal
+     */
     public void displayHome() {
         this.homePanel = new HomePanel(this);
         this.getContentPane().add(this.homePanel);
@@ -82,6 +79,9 @@ public class MainFrame extends javax.swing.JFrame {
         this.setVisible(true);
     }
     
+    /**
+     * Affiche de l'écran de sélection du nombre de joueurs
+     */
     public void displayPlayersAmountSelection() {
         this.getContentPane().remove(this.homePanel);
         this.homePanel.removeAll();
@@ -91,15 +91,17 @@ public class MainFrame extends javax.swing.JFrame {
         this.setVisible(true);
     }
     
+    /**
+     * Affiche l'écran de jeu
+     */
     public void displayGame(PlayersAmount playersAmount) {
         // Initialisation du Game Manager
         this.gameManager = new GameManager(playersAmount);
         this.gameManager.start();  
-        
+        // Retrait du panel précédent
         this.remove(this.playersAmountSelectionPanel);
         this.playersAmountSelectionPanel.removeAll();
-        
-                
+        // Configuration du panel des joueurs
         this.playersPanel = new JPanel();
         this.playersPanel.setPreferredSize(new Dimension(1280, 6000));
         this.playersScrollPane = new JScrollPane(playersPanel);
@@ -108,24 +110,28 @@ public class MainFrame extends javax.swing.JFrame {
         // only a configuration to the jScrollPane...
         this.playersScrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
         this.playersScrollPane.getVerticalScrollBar().setUnitIncrement(30);
-        
+        // Ajout du status de la partie en haut du panel
         this.gameStatePanel = new GameStatePanel();
         this.gameStatePanel.getjLabelFormationValue().setText(this.gameManager.getAge().toString());
         this.gameStatePanel.getjLabelLapValue().setText(Integer.toString(this.gameManager.getLap()));
         playersPanel.add(this.gameStatePanel);
         
-        
+        // Ajout des panel de chaque joueur
         for(int i = 0; i < playersAmount.getValue(); ++i) {
             PlayerPanel playerPanel = new PlayerPanel(this, i);
             playerPanel.setBorder(BorderFactory.createLineBorder(Color.black));
             this.listPlayersPanel.add(playerPanel);
             playersPanel.add(playerPanel);
         }
+        // Affichage du résultat graphique à l'écran
         this.getContentPane().add(this.playersScrollPane);
         this.pack();
         this.setVisible(true);
     }
     
+    /**
+     * Mise à jour de l'ensemble des données affichés dans les panels de chaque joueur
+     */
     public void guiUpdatePlayersPanel() {
         this.gameStatePanel.getjLabelFormationValue().setText(this.gameManager.getAge().toString());
         this.gameStatePanel.getjLabelLapValue().setText(Integer.toString(this.gameManager.getLap()));
@@ -134,6 +140,9 @@ public class MainFrame extends javax.swing.JFrame {
         }
     }
     
+    /**
+     * En cas de fin de partie, quitte la partie et affiche le tableau des scores final
+     */
     public void endGame() {
         if(this.gameIsFinish == false) {
             this.gameIsFinish = true;
@@ -141,11 +150,15 @@ public class MainFrame extends javax.swing.JFrame {
         }
     }
     
+    /**
+     * Affichage du tableau des scores de fin de partie
+     */
     public void displayLeaderboard() {
+        // Retrait des panels de la partie achevée
         this.remove(this.playersScrollPane);
         this.playersPanel.removeAll();
         this.leaderboardPanel = new JPanel();
-        
+        // Prépare le tableau de scores
         String[] entetes = {"PlayerID", "Score", "Victory Points", "Military Points", "Coins", "Centrifuge", "Pump", "Proofer"};
         DefaultTableModel tableModel = new DefaultTableModel(entetes, 0);
         JTable jtable = new JTable(tableModel);
@@ -162,19 +175,25 @@ public class MainFrame extends javax.swing.JFrame {
             String[] row = { playerId, score, victoryPoints, militaryPoints, coins, centrifuge, pump, proofer };
             tableModel.addRow(row);
         }
+        // Ajoute le tableau des scores au panel
         this.leaderboardPanel.add(new JScrollPane(jtable));
         JButton showEndButton = new JButton("Continue");
+        // Lorsque l'utilisateur clique sur 'showEnd' ou 'Continuer', affiche l'écran de fin
         showEndButton.addActionListener(new ActionListener() {          
             public void actionPerformed(ActionEvent e) {
                 displayEnd();
             }
         });
+        // Affiche l'ensemble des éléments à l'écran
         this.leaderboardPanel.add(showEndButton);
         this.getContentPane().add(this.leaderboardPanel);
         this.pack();
         this.setVisible(true);
     }
     
+    /**
+     * Supprime le tableau des scores de fin de partie et affiche l'écran de fin (rejouer/quitter)
+     */
     public void displayEnd(){
         this.remove(this.leaderboardPanel);
         this.leaderboardPanel.removeAll();
@@ -184,11 +203,17 @@ public class MainFrame extends javax.swing.JFrame {
         this.setVisible(true);
     }
     
+    /**
+     * Libère l'ensemble de la mémoire des éléments graphique
+     */
     public void end(){
         this.remove(this.endPanel);
         this.dispose();
     }
     
+    /**
+     * Retourne à l'écran d'accueil afin de pouvoir rejouer
+     */
     public void playAgain() {
         this.remove(this.endPanel);
         this.displayHome();

@@ -158,7 +158,6 @@
                               <Component id="jLabelRessourcesTabName" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="134" max="-2" attributes="0"/>
                               <Component id="jLabelWealthName" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="103" groupAlignment="0" attributes="0">

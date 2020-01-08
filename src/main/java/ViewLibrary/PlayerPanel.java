@@ -7,19 +7,13 @@ package ViewLibrary;
 
 import EnumLibrary.Action;
 import EnumLibrary.Evolution;
-import EnumLibrary.Resource;
 import ModelLibrary.CardLibrary.Card;
 import ModelLibrary.PlayerLibrary.Deck;
 import ModelLibrary.PlayerLibrary.Player;
 import ModelLibrary.ScoreLibrary.RessourcePack;
-import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Rectangle;
 import java.util.EnumSet;
 import javax.swing.DefaultListModel;
-import javax.swing.Scrollable;
-import javax.swing.SwingConstants;
 
 /**
  *
@@ -666,11 +660,6 @@ public class PlayerPanel extends javax.swing.JPanel {
     
     private void jListActionValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jListActionValueChanged
         Player player = this.frame.gameManager.getPlayer(this.playerId);
-        // activer le bouton permettant de sélectionner une action
-        /*if(this.jButtonSelectAction.isEnabled() == false && !player.getIsValidate()) {
-            this.jButtonSelectAction.setEnabled(true);
-        }*/
-        
         // test si activation du bouton permettant de validation
         if(this.jButtonValidate.isEnabled() == false && !player.getIsValidate() && this.jListCards.hasFocus()) {
             this.jButtonValidate.setEnabled(true);
@@ -857,15 +846,45 @@ public class PlayerPanel extends javax.swing.JPanel {
         this.frame.endGame();
     }
     
+    /**
+     * Met à jour l'ensemble des éléments graphique du panel du joueur
+     */
     public void guiUpdate() {
         // On commence par vérifier si la partie est terminée
         if(this.frame.gameManager.getEndGame() == true) {
             this.end();
         }
-        
+        // Met à jour les ressources du joueur 
+        this.guiUpdatePlayerRessources();
+        // Met à jour l'UT (merveille) du joueur
+        this.guiUpdatePlayerUT();
+        // Initialisation des informations de la carte sélectionnée
+        this.guiResetSelectedCardInfos();
+        // Mise à jour de la liste des cartes du deck
+        this.guiUpdatePlayerHand();
+        // Mise à jour de la liste des cartes jouées
+        this.guiUpdatePlayedCards();
+        // Initialisation de la liste des cartes jouées par les autres joueurs
+        this.guiUpdateNeighboursBuyCardsLists();
+        // Initialisation de la liste des actions
+        DefaultListModel modelActions = new DefaultListModel();
+        EnumSet.allOf(Action.class).forEach(action -> modelActions.addElement(action.toString()));
+        modelActions.removeElement(Action.BUY.toString());
+        this.jListAction.setModel(modelActions);
+        // Désactivation du bouton de fin de tour
+        this.jButtonValidate.setEnabled(false);
+        // Activation des listes
+        this.jListCards.setEnabled(true);
+        this.jListAction.setEnabled(true);
+        // Affichage de l'âge 
+        this.showAge(this.frame.gameManager.getPlayer(this.playerId).getGameBoard().getEvolution());
+    }
+    
+    /**
+     * Mise à jour des ressources du joueur
+     */
+    private void guiUpdatePlayerRessources() {
         Player player = this.frame.gameManager.getPlayer(this.playerId);
-        Deck deck = player.getDeck();
-        Deck cardsPlayed = player.getCardsPlayed();
         // Mise à jour des ressources produites par les cartes du joueur depuis le début de la partie
         player.getProductedRessources().forEach((productedRessource) -> {
             switch(productedRessource.getType()) {
@@ -899,7 +918,13 @@ public class PlayerPanel extends javax.swing.JPanel {
         this.jLabelCentrifugeValue.setText(Integer.toString(player.getScore().getCentrifuge().getValue()));
         this.jLabelPumpValue.setText(Integer.toString(player.getScore().getPump().getValue()));
         this.jLabelProoferValue.setText(Integer.toString(player.getScore().getProofer().getValue()));
-        
+    }
+    
+    /**
+     * Mise à jour de l'UT (merveille) du joueur
+     */
+    private void guiUpdatePlayerUT() {
+        Player player = this.frame.gameManager.getPlayer(this.playerId);
         this.jLabelWonderEvolutionFirst.setForeground(Color.black);
         this.jLabelWonderEvolutionSecond.setForeground(Color.black);
         this.jLabelWonderEvolutionThird.setForeground(Color.black);
@@ -920,8 +945,26 @@ public class PlayerPanel extends javax.swing.JPanel {
         this.jLabelWonderEvolutionFirst.setText(this.jLabelWonderEvolutionFirst.getText() + "]");
         this.jLabelWonderEvolutionSecond.setText(this.jLabelWonderEvolutionSecond.getText() + "]");
         this.jLabelWonderEvolutionThird.setText(this.jLabelWonderEvolutionThird.getText() + "]");
+    }
+    
+    /**
+     * Mise à jour de la main du joueur
+     */
+    private void guiUpdatePlayerHand() {
+        Player player = this.frame.gameManager.getPlayer(this.playerId);
+        Deck deck = player.getDeck();
         
-        // Initialisation des informations de la carte sélectionnée
+        DefaultListModel modelCards = new DefaultListModel();
+        for(int i=0; i<deck.getListCards().size(); i++) {
+            modelCards.addElement(deck.getListCards().get(i).getName());
+        }
+        this.jListCards.setModel(modelCards);
+    }
+    
+    /**
+     * Mise à jour des informations de la carte sélectionnée
+     */
+    private void guiResetSelectedCardInfos() {
         this.jLabelNameValue.setText("/");
         this.jLabelTypeValue.setText("/");
         this.jLabelCoinsEarnedValue.setText("/");
@@ -931,20 +974,25 @@ public class PlayerPanel extends javax.swing.JPanel {
         this.jListCostValue.setModel(modelCardCost);
         DefaultListModel modelCardProductedRessources = new DefaultListModel();
         this.jListProductedRessourcesValue.setModel(modelCardProductedRessources);
-        
-        // Initialisation de la liste des cartes du deck
-        DefaultListModel modelCards = new DefaultListModel();
-        for(int i=0; i<deck.getListCards().size(); i++) {
-            modelCards.addElement(deck.getListCards().get(i).getName());
-        }
-        this.jListCards.setModel(modelCards);
-        // Initialisation de la liste des cartes jouées
+    }
+    
+    /**
+     * Mise à jour de la liste des cartes jouées
+     */
+    private void guiUpdatePlayedCards() {
+        Player player = this.frame.gameManager.getPlayer(this.playerId);
+        Deck cardsPlayed = player.getCardsPlayed();
         DefaultListModel modelCardsPlayed = new DefaultListModel();
         for(int i=0; i<cardsPlayed.getListCards().size(); i++) {
             modelCardsPlayed.addElement(cardsPlayed.getListCards().get(i).getName());
         }
         this.jListCardsPlayed.setModel(modelCardsPlayed);
-        // Initialisation de la liste des cartes jouées par les autres joueurs
+    }
+    
+    /**
+     * Mise à jour des listes d'achat des ressources des joueurs voisins
+     */
+    private void guiUpdateNeighboursBuyCardsLists() {
         int id;
         // Récupération des cartes jouées par le joueur N-1
         DefaultListModel modelCardsPlayedBuyRessourcesNeighbourBefore = new DefaultListModel();
@@ -978,21 +1026,12 @@ public class PlayerPanel extends javax.swing.JPanel {
         this.jButtonBuy.setEnabled(false);
         // Initialisation du prix d'achat
         this.jLabelCostToBuyValue.setText("/");
-        // Initialisation de la liste des actions
-        DefaultListModel modelActions = new DefaultListModel();
-        EnumSet.allOf(Action.class).forEach(action -> modelActions.addElement(action.toString()));
-        modelActions.removeElement(Action.BUY.toString());
-        this.jListAction.setModel(modelActions);
-        // Désactivation du bouton
-        this.jButtonValidate.setEnabled(false);
-        // Activation des listes
-        this.jListCards.setEnabled(true);
-        this.jListAction.setEnabled(true);
-        // Affichage de l'âge 
-        this.showAge(player.getGameBoard().getEvolution());
     }
     
-    public void showCardInfos(Card card) {
+    /**
+     * Gère l'affichage des informations de chaque carte sélectionnée
+     */
+    private void showCardInfos(Card card) {
         // Initialise le Card Infos
         this.jLabelNameValue.setText("/");
         this.jLabelTypeValue.setText("/");
@@ -1039,7 +1078,10 @@ public class PlayerPanel extends javax.swing.JPanel {
         }
     }
     
-    public void showAge(Evolution age) {
+    /**
+     * Gère la couleur des étapes de la merveille suivant son état (validée ou non)
+     */
+    private void showAge(Evolution age) {
         if(null != age) switch (age) {
             case NONE:
                 this.jLabelWonderEvolutionFirst.setForeground(Color.black);

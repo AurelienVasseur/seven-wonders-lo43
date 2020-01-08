@@ -10,7 +10,6 @@ import EnumLibrary.PlayersAmount;
 import ModelLibrary.CardLibrary.Card;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.function.Consumer;
 
 /**
  *
@@ -21,24 +20,22 @@ public class Deck {
 
     public Deck() {
         this.listCards = new ArrayList<Card>();
-        //// A SUPPRIMER - TOUT
-        /*Card card = new Card(); 
-        card.setName("Carte test");
-        this.listCards.add(card);
-        System.out.println("Ajout carte. Size : " + this.listCards.size());
-        System.out.println(card);*/
-        //// FIN SUPP
     }
 
     public Deck(ArrayList<Card> listCards) {
         this.listCards = listCards;
     }
 
-    
+    /**
+     * Mélange le deck
+     */
     public void shuffle() {
         Collections.shuffle(this.listCards);
     }
     
+    /**
+     * Filtre les cartes par formation (age)
+     */
     public Deck filterByFormation(Formation formation) {
         ArrayList<Card> filteredCards = this.getListCards();
         filteredCards.removeIf(card -> (card.getFormation().getValue() != formation.getValue()));
@@ -46,6 +43,9 @@ public class Deck {
         return new Deck(filteredCards);
     }
     
+    /**
+     * Filtre les cartes par nombre de joueurs
+     */
     public Deck filterByPlayersAmount(PlayersAmount playersAmount) {
         //ArrayList<Card> filteredCards = this.getListCards();
         ArrayList<Card> filteredCards = new ArrayList<Card>();
@@ -66,6 +66,9 @@ public class Deck {
         return new Deck (filteredCards);
     }
     
+    /**
+     * Récupère une partie du deck
+     */
     public Deck subDeck(int fromIndex, int toIndex) {
         ArrayList<Card> subList = new ArrayList<Card>(toIndex - fromIndex);
         subList.addAll(this.listCards.subList(fromIndex, toIndex));

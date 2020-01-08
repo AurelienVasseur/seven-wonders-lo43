@@ -12,7 +12,7 @@ package EnumLibrary;
 public enum CardType {
     CREDIT,
     SKILL,
-    LIBRARYCARD,
+    LIBRARY,
     LABORATORY,
     ADMINISTRATION,
     CLASSROOM,
