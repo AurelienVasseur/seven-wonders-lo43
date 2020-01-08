@@ -1,0 +1,30 @@
+[
+    {
+        "id": 0,
+        "name": "credit"
+    },
+    {
+        "id": 1,
+        "name": "skill"
+    },
+    {
+        "id": 2,
+        "name": "library_building"
+    },
+    {
+        "id": 3,
+        "name": "laboratory_building"
+    },
+    {
+        "id": 4,
+        "name": "administration_building"
+    },
+    {
+        "id": 5,
+        "name": "classroom_building"
+    },
+    {
+        "id": 6,
+        "name": "association_building"
+    }
+]

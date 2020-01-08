@@ -1,0 +1,30 @@
+[
+    {
+        "id": 0,
+        "name": "The Lion of Bartholdi"
+    },
+    {
+        "id": 1,
+        "name": "Belfort cathedral"
+    },
+    {
+        "id": 2,
+        "name": "Museum of Fine Arts"
+    },
+    {
+        "id": 3,
+        "name": "Belfort Castle"
+    },
+    {
+        "id": 4,
+        "name": "Tower 27"
+    },
+    {
+        "id": 5,
+        "name": "Belfort Citadel"
+    },
+    {
+        "id": 6,
+        "name": "Parc de la Douce"
+    }
+]

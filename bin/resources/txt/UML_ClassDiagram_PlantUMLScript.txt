@@ -1,0 +1,263 @@
+@startuml
+set namespaceSeparator ::
+
+class GameManager {
+# listPlayers : ArrayList<Player>
+# age : Formation
+# endGame : boolean
+# lap : int
+--
++ start() : void
++ playTurn() : void
++ updateLeaderboard() : ArrayList<Score>
++ end() : void
++ checkIfPlayersValidate() : boolean
++ distributeCards(Deck) : void
++ endAge() : void
++ fetchScores() : ArrayList<Score>
++ fetchShuffledUT() : ArrayList<UT>
++ initAge() : void
++ initializePlayers() : void
++ nextLap() : void
+}
+
+class Player {
+# gameBoard : UT
+# score : Score
+# deck : Deck
+# cardsPlayed : Deck
+# actionSelected : Action
+# cardSelected : Card
+# cardSelectedToBuyRessources : Card
+# idPlayerSelectedToBuyRessources : int
+# isValidate : boolean
+# productedRessources : ArrayList<RessourcePack>
+--
++ do(action : Action) : void
++ selectCard() : void
++ giveDeckTo(player : Player) : void
++ buyCard(Card) : void
++ checkRessourcesToPlayCard(Card): boolean
++ doAction() : void
++ initProductedRessources() : void
++ initialize() : void
++ tryEvolveUT() : void
+}
+
+abstract class Card {
+# id : int
+# name : String
+# type : CardType
+# cost : RessourcePack
+# formation : Formation
+# coinEarned : Point
+# listProductRessources : ArrayList<RessourcePack>
+# minimumPlayerRequiredToBePlayed : PlayersAmount
+# cardsBecomingFreeAfterPlayingThisCard : ArrayList<Card>
+# cardRequiredToBePlayedBeforeInOrderToPlayThisCardForFree : Card
+# partnership : Partnership
+--
+}
+
+class RessourcePack {
+# type : Ressource
+# value : int
+--
+}
+
+
+class Deck {
+# listCards : ArrayList<Card>
+--
++ shuffle() : void
++ addCard(Card) : void
++ filterByFormation(Formation) : Deck
++ filterByPlayersAmount(PlayersAmount) : Deck
++ removeCard(Card): void
++ subDeck(int, int) : Deck
+}
+
+
+
+class UT {
+# id : int
+# name : UTCity
+# evolution : Evolution
+# initialProductRessources : ArrayList<RessourcePack>
+# steps : ArrayList<Step>
+--
++ evolve()
+}
+
+
+class Step {
+# coinsEarned : Point
+# cost : ArrayList<RessourcePack>
+--
+}
+
+
+abstract class RessourceCard {
+--
+}
+abstract class BuildingCard {
+--
+}
+class CreditCard{
+--
+}
+class SkillCard{
+--
+}
+class LaboratoryCard {
+--
+}
+class LibraryCard {
+--
+}
+class AdministrationCard {
+--
+}
+class ClassroomCard {
+--
+}
+class AssociationCard {
+--
+}
+
+class Point {
+# type : PointType
+# value : int
+--
+}
+
+class Score {
+# totalVictorypoints : Point
+# association : Point
+# centrifuge : Point
+# coin : Point
+# finalScore : Point
+# knowledge : Point
+# proofer : Point
+# pump : Point
+--
+}
+
+enum Ressource {
++ CG
++ COIN
++ CS
++ EC
++ ENTREPRENEURSHIP
++ PROJET
++ STAGE
++ TM
+}
+
+enum Formation {
++ COMMONCORE
++ BRANCH
++ SPECIALIZATION
+}
+
+enum PlayersAmount {
++ Two
++ Three
++ Four
++ Five
++ Six
++ Seven
++ MINIMUM
++ MAXIMUM
+}
+
+enum UTCity {
++ BELFORT
++ COMPIEGNE
++ MONTBELIARD
++ SANTIAGO
++ SEVENANS
++ SHANGHAI
++ TROYES
+}
+
+enum Action {
++ BUILD
++ BUY
++ EVOLVE
++ DISCARD
+}
+
+enum CardType {
++ CREDIT
++ SKILL
++ LIBRARYCARD
++ LABORATORY
++ ADMINISTRATION
++ CLASSROOM
++ ASSOCIATION
+}
+enum Evolution {
++ NONE
++ FIRST
++ SECOND
++ THIRD
+}
+
+enum PointType {
++ ASSOCIATION
++ CENTRIFUGE
++ COIN
++ KNOWLEDGE
++ PROOFER
++ PUMP
++ VICTORY
++ VICTORYPOINT_PER_ADMINISTRATIONCARD
++ VICTORYPOINT_PER_ASSOCIATIONCARD
++ VICTORYPOINT_PER_CLASSROOMCARD
++ VICTORYPOINT_PER_CREDITCARD
++ VICTORYPOINT_PER_LABORATORYCARD
++ VICTORYPOINT_PER_LIBRARYCARD
++ VICTORYPOINT_PER_SKILLCARD
++ VICTORYPOINT_PER_UVSTEP
+}
+
+GameManager *--"2..7" Player
+Player *-- UT
+Player *-- Deck
+Deck o--"49" Card
+
+
+Card <|-- RessourceCard
+Card <|-- BuildingCard
+RessourceCard <|-- CreditCard
+RessourceCard <|-- SkillCard
+BuildingCard <|-- LibraryCard
+BuildingCard <|-- LaboratoryCard
+BuildingCard <|-- AdministrationCard
+BuildingCard <|-- AssociationCard
+BuildingCard <|-- ClassroomCard
+
+
+Player *-- Score
+
+Score o-- Point
+
+Card o-- RessourcePack
+Card o-- Point
+
+UT o-- RessourcePack
+UT o-- Step
+
+GameManager ..> Score
+
+RessourcePack *-- Ressource
+Card o-- Formation
+Card o-- PlayersAmount
+PlayersAmount <.. GameManager
+UT *-- UTCity
+Player "do"..> Action
+Card *-- CardType
+UT *-- Evolution
+Point *-- PointType
+@enduml
